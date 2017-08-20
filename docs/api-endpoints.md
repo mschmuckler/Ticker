@@ -22,7 +22,7 @@
 ### Articles
 
 - `GET /api/articles`
-  - Accepts either `user_id` or `ticker_tag` query params
+  - Accepts `ticker_tag` query param
 - `GET /api/articles/:id`
 - `POST /api/articles`
 
