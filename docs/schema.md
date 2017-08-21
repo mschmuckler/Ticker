@@ -21,6 +21,5 @@ ticker_tag | string   | not null
 ## stocks
 column name | data type | details
 ------------|-----------|-----------------------
-ticker   | string   | not null
-name     | string    | not null
-exchange | string    | not null
+ticker      | string    | not null, primary key
+name        | string    | not null
