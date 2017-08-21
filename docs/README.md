@@ -2,7 +2,8 @@
 
 Heroku link
 
-Trello link
+[Trello link][trellolink]
+[trellolink]: https://trello.com/b/qqjKyR9S/ticker
 
 ## Minimum Viable Product
 
