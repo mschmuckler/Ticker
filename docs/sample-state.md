@@ -1,6 +1,6 @@
 # Sample State
 
-{
+`{
   entities: {
     users: {
       1: {
@@ -70,4 +70,4 @@
     avatar_url: "amazon.api/f8ds9few3"
     article_ids: [4, 7, 19, 20]
   }
-}
+}`
