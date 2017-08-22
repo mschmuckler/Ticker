@@ -20,22 +20,31 @@ class Navbar extends React.Component {
   render() {
     if (this.props.currentUser.id !== undefined) {
       return (
-        <div id="navbar" >
-          <h1>Ticker logo</h1>
-          <h2>{ `Hello, ${ this.props.currentUser.username }` }</h2>
-          <button onClick={ this.handleLogout } >Logout</button>
-        </div>
+        <nav id="navbar" >
+          <img id="navbar-logo" src="http://logok.org/wp-content/uploads/2014/04/Orange-logo.png" />
+
+          <div id="navbar-auth-btns" >
+            <h2>{ `Hello, ${ this.props.currentUser.username }` }</h2>
+            <button onClick={ this.handleLogout } >Logout</button>
+          </div>
+        </nav>
       );
     } else {
       return (
-        <div id="navbar" >
-          <h1>Ticker logo</h1>
-          <Link to="/login" >Login</Link>
-          <Link to="/signup" >Signup</Link>
-        </div>
+        <nav id="navbar" >
+          <img id="navbar-logo" src="http://logok.org/wp-content/uploads/2014/04/Orange-logo.png" />
+
+          <div id="navbar-auth-btns" >
+            <Link to="/login" ><button>Login</button></Link>
+            <Link to="/signup" ><button>Signup</button></Link>
+          </div>
+        </nav>
       );
     }
   }
 }
 
 export default Navbar;
+
+
+// <img id="navbar-logo" src="http://logok.org/wp-content/uploads/2014/04/Orange-logo.png"/>

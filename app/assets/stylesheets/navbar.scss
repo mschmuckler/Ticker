@@ -1,7 +1,17 @@
 @import "base/colors.scss";
 
 #navbar {
-  height: 20%;
+  height: 100px;
+  padding: 15px;
   border-bottom: 1px solid $orange;
   background-color: $light-gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#navbar-logo {
+  height: 80px;
+  width: 80px;
+  border: 1px solid $dark-gray;
 }
