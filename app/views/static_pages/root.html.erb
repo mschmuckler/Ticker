@@ -1,16 +1,15 @@
 <script type="text/javascript">
+  window.staticImages = {
+    moneyOrangeIcon: "<%= asset_path('money-orange-icon.png') %>"
+  }
+
   <% if logged_in? %>
     window.currentUser = <%= render(
       "api/users/user.json.jbuilder",
       user: current_user
     ).html_safe %>
   <% end %>
-</script>
 
-<script>
-  window.staticImages = {
-    moneyOrangeIcon: <%= asset_path('money-orange-icon.png') %>
-  }
 </script>
 
 <div id="root"></div>
