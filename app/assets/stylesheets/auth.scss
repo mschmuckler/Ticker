@@ -6,11 +6,48 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background: linear-gradient(to right, $light-orange, white, white, white, white);
 }
 
 #auth-form {
-  height: 50%;
+  height: 40%;
   width: 50%;
-  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid $light-gray;
+
+  h2 {
+    color: $dark-gray;
+  }
+}
+
+#auth-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+
+  input[type="text"], input[type="password"] {
+    border: 1px solid $gray;
+    padding: 5px;
+    margin-left: 5px;
+  }
+
+  input[type="submit"] {
+    background: linear-gradient(to bottom, $light-orange, $orange, $orange);
+    color: white;
+    font-size: 18px;
+    height: 40px;
+    width: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input[type="submit"]:hover {
+    cursor: pointer;
+    background: linear-gradient(to bottom, $light-orange, $orange);
+  }
 }

@@ -40,7 +40,8 @@ class AuthForm extends React.Component {
           <span>{ this.props.errors.auth }</span>
           <form onSubmit={ this.handleSubmit } >
             <label>Username:
-              <input value={ this.state.username }
+              <input
+                value={ this.state.username }
                 onChange={ this.handleChange('username') }
                 type="text"
               />
