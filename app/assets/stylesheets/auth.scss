@@ -22,6 +22,10 @@
   }
 }
 
+#auth-errors {
+  color: $red-error;
+}
+
 #auth-form form {
   display: flex;
   flex-direction: column;

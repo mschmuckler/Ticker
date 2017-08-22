@@ -31,13 +31,21 @@ class AuthForm extends React.Component {
   }
 
   render() {
+    let arrayErrors = [];
+    if (this.props.errors.auth) {
+      arrayErrors = this.props.errors.auth;
+    }
+
+    const allErrors = arrayErrors.map((error, idx) => {
+      return <li key={ idx } >{ error }</li>
+    });
+
     return (
       <div id="auth-comp" >
         <AuthTickerTape />
 
         <div id="auth-form" >
           <h2>{ this.props.formType }</h2>
-          <span>{ this.props.errors.auth }</span>
           <form onSubmit={ this.handleSubmit } >
             <label>Username:
               <input
@@ -60,6 +68,8 @@ class AuthForm extends React.Component {
             <input type="submit" value="Submit" />
           </form>
         </div>
+
+        <ul id="auth-errors" >{ allErrors }</ul>
       </div>
     );
   }
