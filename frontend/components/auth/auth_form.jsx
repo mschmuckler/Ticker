@@ -33,7 +33,7 @@ class AuthForm extends React.Component {
     return (
       <div>
         <h2>{ this.props.formType }</h2>
-        <p>{ this.props.errors }</p>
+        <span>{ this.props.errors.auth }</span>
         <form onSubmit={ this.handleSubmit } >
           <label>Username:
             <input value={ this.state.username }
