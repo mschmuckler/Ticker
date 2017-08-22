@@ -1,4 +1,5 @@
 import * as APIUtil from '../util/session_api_util';
+import { receieveErrors } from './error_actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
@@ -28,14 +29,5 @@ export const receieveCurrentUser = (currentUser) => {
   return {
     type: RECEIVE_CURRENT_USER,
     currentUser: currentUser,
-    errors: {},
-  };
-};
-
-export const receieveErrors = (errors, errorType) => {
-  return {
-    type: RECEIVE_ERRORS,
-    currentUser: null,
-    errors: { errorType: errors }
   };
 };
