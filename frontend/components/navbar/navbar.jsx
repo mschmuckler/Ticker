@@ -21,7 +21,7 @@ class Navbar extends React.Component {
     if (this.props.currentUser.id !== undefined) {
       return (
         <nav id="navbar" >
-          <img id="navbar-logo" src="http://www.lcdbuyer.com/images/money-icon.png" />
+          <img id="navbar-logo" src={ window.staticImages.moneyOrangeIcon } />
 
           <div id="navbar-auth-btns" >
             <p id="navbar-user-avatar" >{ `Hello, ${ this.props.currentUser.username }` }</p>
@@ -32,7 +32,7 @@ class Navbar extends React.Component {
     } else {
       return (
         <nav id="navbar" >
-          <img id="navbar-logo" src="http://www.lcdbuyer.com/images/money-icon.png" />
+          <img id="navbar-logo" src={ window.staticImages.moneyOrangeIcon } />
 
           <div id="navbar-auth-btns" >
             <Link to="/login" ><button className="navbar-tab" >Login</button></Link>
