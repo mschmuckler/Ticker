@@ -26,7 +26,14 @@
 - `GET /api/articles/:id`
 - `POST /api/articles`
 
-### Stocks
+### Companies
 
-- `GET /api/stocks`
-- `GET /api/stocks/:ticker`
+- `GET /api/companies`
+- `GET /api/companies/:ticker`
+
+### Holdings
+
+- `GET /api/holdings`
+  - Accepts `user_id` query param
+- `POST /api/holdings`
+- `DELETE /api/holdings/:id`

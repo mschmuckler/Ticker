@@ -5,7 +5,6 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 username        | string    | not null, indexed, unique
-tickers        | array    |
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 
@@ -18,8 +17,15 @@ body        | text      | not null
 user_id   | integer   | not null, foreign key (references users), indexed
 ticker_tag | string   | not null
 
-## stocks
+## companies
 column name | data type | details
 ------------|-----------|-----------------------
 ticker      | string    | not null, primary key
 name        | string    | not null
+
+## holdings
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+ticker      | string    | not null, foreign key (references companies)
+user_id     | integer    | not null, foreign key (references users), indexed
