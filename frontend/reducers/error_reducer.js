@@ -7,7 +7,7 @@ export default (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return merge({}, state, { login: null }, { signup: null }, { logout: null });
+      return merge({}, state, { auth: null });
     case RECEIVE_ERRORS:
       return merge({}, state, { [action.errorType]: action.errors.responseJSON });
     default:

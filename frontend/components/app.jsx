@@ -6,7 +6,7 @@ import NavbarContainer from './navbar/navbar_container';
 
 const App = (props) => {
   return (
-    <div>
+    <div id="app" >
       <NavbarContainer />
 
       <Route exact path="/" />

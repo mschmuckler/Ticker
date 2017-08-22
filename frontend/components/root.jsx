@@ -5,11 +5,13 @@ import App from './app';
 
 const Root = (props) => {
   return (
-    <Provider store={ props.store } >
-      <HashRouter>
-        <App />
-      </HashRouter>
-    </Provider>
+    <div id="comp-root" >      
+      <Provider store={ props.store } >
+        <HashRouter>
+          <App />
+        </HashRouter>
+      </Provider>
+    </div>
   );
 };
 

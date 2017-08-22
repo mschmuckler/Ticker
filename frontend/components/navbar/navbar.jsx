@@ -20,7 +20,7 @@ class Navbar extends React.Component {
   render() {
     if (this.props.currentUser.id !== undefined) {
       return (
-        <div>
+        <div id="navbar" >
           <h1>Ticker logo</h1>
           <h2>{ `Hello, ${ this.props.currentUser.username }` }</h2>
           <button onClick={ this.handleLogout } >Logout</button>
@@ -28,7 +28,7 @@ class Navbar extends React.Component {
       );
     } else {
       return (
-        <div>
+        <div id="navbar" >
           <h1>Ticker logo</h1>
           <Link to="/login" >Login</Link>
           <Link to="/signup" >Signup</Link>
