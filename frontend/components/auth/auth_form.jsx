@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -34,7 +33,6 @@ class AuthForm extends React.Component {
     return (
       <div>
         <h2>{ this.props.formType }</h2>
-        <Link to={ this.props.linkType } >{ this.props.linkType }</Link>
         <p>{ this.props.errors }</p>
         <form onSubmit={ this.handleSubmit } >
           <label>Username:

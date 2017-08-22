@@ -1,14 +1,17 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import { AuthRoute } from '../util/route_util';
 import AuthFormContainer from './auth/auth_form_container';
+import NavbarContainer from './navbar/navbar_container';
 
 const App = (props) => {
   return (
     <div>
-      <h1>still working</h1>
+      <NavbarContainer />
 
-      <Route exact path="/signup" component={ AuthFormContainer } />
-      <Route exact path="/login" component={ AuthFormContainer } />
+      <Route exact path="/" />
+      <AuthRoute exact path="/signup" component={ AuthFormContainer } />
+      <AuthRoute exact path="/login" component={ AuthFormContainer } />
     </div>
   );
 };

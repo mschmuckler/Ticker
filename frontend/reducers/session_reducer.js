@@ -1,11 +1,7 @@
 import { merge } from 'lodash';
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 
-const initialState = {
-  currentUser: null,
-};
-
-export default (state = initialState, action) => {
+export default (state = {}, action) => {
   Object.freeze(state);
 
   let currentUser;
