@@ -1,0 +1,59 @@
+#ticker-tape {
+  width: 100%;
+  height: 150px;
+  background-color: black;
+  background: linear-gradient(to bottom right, white, black, black, black, black);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#inner-tape {
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 55px;
+}
+
+.tape-element {
+  font-size: 90px;
+  font-weight: bolder;
+  margin-left: 75px;
+  padding-left: 75px;
+  border-left: 1px solid gray;
+  display: flex;
+  align-items: center;
+}
+
+.tape-top {
+  background: linear-gradient(to bottom, lightgray, gray);
+  height: 10px;
+}
+
+.tape-bottom {
+  background: linear-gradient(to bottom, lightgray, gray);
+  height: 10px;
+}
+
+.green {
+  background: -webkit-linear-gradient(#eee, #01CA1B, #01CA1B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.red {
+  background: -webkit-linear-gradient(#eee, red, red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.orange {
+  background: -webkit-linear-gradient(#eee, #E38417, #E38417);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pointer {
+  font-size: 80px;
+}

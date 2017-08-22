@@ -1,4 +1,5 @@
 import React from 'react';
+import AuthTickerTape from './auth_ticker_tape';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -32,28 +33,32 @@ class AuthForm extends React.Component {
   render() {
     return (
       <div>
-        <h2>{ this.props.formType }</h2>
-        <span>{ this.props.errors.auth }</span>
-        <form onSubmit={ this.handleSubmit } >
-          <label>Username:
-            <input value={ this.state.username }
-              onChange={ this.handleChange('username') }
-              type="text"
-            />
-          </label>
-          <br />
+        <AuthTickerTape />
 
-          <label>Password:
-            <input
-              value={ this.state.password }
-              onChange={ this.handleChange('password') }
-              type="password"
-            />
-          </label>
-          <br />
+        <div>
+          <h2>{ this.props.formType }</h2>
+          <span>{ this.props.errors.auth }</span>
+          <form onSubmit={ this.handleSubmit } >
+            <label>Username:
+              <input value={ this.state.username }
+                onChange={ this.handleChange('username') }
+                type="text"
+              />
+            </label>
+            <br />
 
-          <input type="submit" value="Submit" />
-        </form>
+            <label>Password:
+              <input
+                value={ this.state.password }
+                onChange={ this.handleChange('password') }
+                type="password"
+              />
+            </label>
+            <br />
+
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
       </div>
     );
   }

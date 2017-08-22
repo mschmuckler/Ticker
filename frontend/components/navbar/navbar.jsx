@@ -21,22 +21,22 @@ class Navbar extends React.Component {
     if (this.props.currentUser.id !== undefined) {
       return (
         <nav id="navbar" >
-          <img id="navbar-logo" src="http://logok.org/wp-content/uploads/2014/04/Orange-logo.png" />
+          <img id="navbar-logo" src="http://www.lcdbuyer.com/images/money-icon.png" />
 
           <div id="navbar-auth-btns" >
             <h2>{ `Hello, ${ this.props.currentUser.username }` }</h2>
-            <button onClick={ this.handleLogout } >Logout</button>
+            <button onClick={ this.handleLogout } class="navbar-tab" >Logout</button>
           </div>
         </nav>
       );
     } else {
       return (
         <nav id="navbar" >
-          <img id="navbar-logo" src="http://logok.org/wp-content/uploads/2014/04/Orange-logo.png" />
+          <img id="navbar-logo" src="http://www.lcdbuyer.com/images/money-icon.png" />
 
           <div id="navbar-auth-btns" >
-            <Link to="/login" ><button>Login</button></Link>
-            <Link to="/signup" ><button>Signup</button></Link>
+            <Link to="/login" ><button className="navbar-tab" >Login</button></Link>
+            <Link to="/signup" ><button className="navbar-tab" >Signup</button></Link>
           </div>
         </nav>
       );

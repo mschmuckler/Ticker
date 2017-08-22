@@ -1,17 +1,31 @@
 @import "base/colors.scss";
 
 #navbar {
-  height: 100px;
-  padding: 15px;
+  height: 70px;
+  padding: 10px;
   border-bottom: 1px solid $orange;
   background-color: $light-gray;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 }
 
 #navbar-logo {
-  height: 80px;
-  width: 80px;
+  height: 70px;
+  width: 70px;
   border: 1px solid $dark-gray;
+  border-radius: 15px;
+  align-self: center;
+
+  background: linear-gradient(to bottom, $lightest-gray, $light-gray);
+}
+
+.navbar-tab {
+  margin-left: 40px;
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+.navbar-tab:hover {
+  color: $dark-orange;
 }
