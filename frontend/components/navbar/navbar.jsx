@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavbarIndices from './navbar_indices';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -23,6 +24,11 @@ class Navbar extends React.Component {
         <nav id="navbar" >
           <img id="navbar-logo" src={ window.staticImages.moneyOrangeIcon } />
 
+          <NavbarIndices
+            fetchIntraday={ this.props.fetchIntraday }
+            stocks={ this.props.stocks }
+          />
+
           <div id="navbar-auth-btns" >
             <p id="navbar-user-avatar" >{ `Hello, ${ this.props.currentUser.username }` }</p>
             <button onClick={ this.handleLogout } className="navbar-tab" >Logout</button>
@@ -33,6 +39,11 @@ class Navbar extends React.Component {
       return (
         <nav id="navbar" >
           <img id="navbar-logo" src={ window.staticImages.moneyOrangeIcon } />
+
+            <NavbarIndices
+              fetchIntraday={ this.props.fetchIntraday }
+              stocks={ this.props.stocks }
+            />
 
           <div id="navbar-auth-btns" >
             <Link to="/login" ><button className="navbar-tab" >Login</button></Link>

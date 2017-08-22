@@ -16,3 +16,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={ store } />, root);
 });
+
+// Object.values(resp["Time Series (1min)"])
