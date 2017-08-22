@@ -24,8 +24,8 @@ class Navbar extends React.Component {
           <img id="navbar-logo" src="http://www.lcdbuyer.com/images/money-icon.png" />
 
           <div id="navbar-auth-btns" >
-            <h2>{ `Hello, ${ this.props.currentUser.username }` }</h2>
-            <button onClick={ this.handleLogout } class="navbar-tab" >Logout</button>
+            <p id="navbar-user-avatar" >{ `Hello, ${ this.props.currentUser.username }` }</p>
+            <button onClick={ this.handleLogout } className="navbar-tab" >Logout</button>
           </div>
         </nav>
       );

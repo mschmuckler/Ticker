@@ -4,7 +4,7 @@ const AuthTickerTape = (props) => {
   return (
     <div id="ticker-tape">
         <div className="tape-top"></div>
-        <marquee behavior="scroll" direction="right" scrollamount="15">
+        <marquee behavior="scroll" direction="right" scrollamount="15">          
           <div id="inner-tape">
             <p className="tape-element red">GILD 72.60
               <a className="pointer" >▼</a></p>

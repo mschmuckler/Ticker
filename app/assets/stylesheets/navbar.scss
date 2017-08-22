@@ -20,6 +20,11 @@
   background: linear-gradient(to bottom, $lightest-gray, $light-gray);
 }
 
+#navbar-user-avatar {
+  margin-bottom: 20px;
+  color: $dark-gray;
+}
+
 .navbar-tab {
   margin-left: 40px;
   margin-right: 20px;

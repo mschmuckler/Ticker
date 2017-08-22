@@ -32,10 +32,10 @@ class AuthForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="auth-comp" >
         <AuthTickerTape />
 
-        <div>
+        <div id="auth-form" >
           <h2>{ this.props.formType }</h2>
           <span>{ this.props.errors.auth }</span>
           <form onSubmit={ this.handleSubmit } >
