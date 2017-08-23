@@ -9,7 +9,7 @@ const App = (props) => {
     <div id="app" >
       <NavbarContainer />
 
-      <Route exact path="/" />
+      <Route exact path="/portfolio" />
       <AuthRoute exact path="/signup" component={ AuthFormContainer } />
       <AuthRoute exact path="/login" component={ AuthFormContainer } />
     </div>

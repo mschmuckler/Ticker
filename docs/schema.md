@@ -20,8 +20,12 @@ ticker_tag | string   | not null
 ## companies
 column name | data type | details
 ------------|-----------|-----------------------
-ticker      | string    | not null, primary key
+id          | integer    | not null, primary key
+ticker      | string    | not null
 name        | string    | not null
+exchange    | string    |
+industry    | string    |
+sector      | string    |
 
 ## holdings
 column name | data type | details

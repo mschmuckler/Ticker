@@ -25,7 +25,7 @@ class AuthForm extends React.Component {
     this.props.processForm(user)
       .then(
         () => {
-          this.props.history.push('/');
+          this.props.history.push('/portfolio');
         }
       );
   }
