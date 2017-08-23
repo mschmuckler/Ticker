@@ -28,7 +28,7 @@ class Portfolio extends React.Component {
 
       if (this.props.stocks[tempHolding.ticker] === undefined) {
         return;
-      } else {        
+      } else {
         return <PortfolioItem
           key={ tempHolding.id }
           stock={ this.props.stocks[tempHolding.ticker] }
