@@ -1,13 +1,18 @@
 @import "base/colors.scss";
 
+#nav-and-tape {
+  display: flex;
+  flex-direction: column;
+}
+
 #navbar {
   height: 70px;
   padding: 10px;
-  border-bottom: 1px solid $orange;
   background-color: $light-gray;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  border-bottom: 4px solid $orange;
 }
 
 #navbar-logo {
@@ -26,11 +31,20 @@
 }
 
 #navbar-indices {
-  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
   padding: 10px;
 
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $dark-gray;
+  }
+
   span {
-    padding-left: 20px;
+    padding: 0 20px 0 20px;
   }
 }
 

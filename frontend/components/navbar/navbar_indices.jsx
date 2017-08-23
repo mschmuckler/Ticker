@@ -53,9 +53,18 @@ class NavbarIndices extends React.Component {
 
     return (
       <div id="navbar-indices" >
-        <span id="sparkline-amzn" ></span>
-        <span id="sparkline-msft" ></span>
-        <span id="sparkline-aapl" ></span>
+        <div>
+          <span>AMZN</span>
+          <span id="sparkline-amzn" ></span>
+        </div>
+        <div>
+          <span>MSFT</span>
+          <span id="sparkline-msft" ></span>
+        </div>
+        <div>
+          <span>AAPL</span>
+          <span id="sparkline-aapl" ></span>
+        </div>
       </div>
     );
   }

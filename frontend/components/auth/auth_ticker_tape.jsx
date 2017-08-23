@@ -3,8 +3,7 @@ import React from 'react';
 const AuthTickerTape = (props) => {
   return (
     <div id="ticker-tape">
-        <div className="tape-top"></div>
-        <marquee behavior="scroll" direction="right" scrollamount="15">          
+        <marquee behavior="scroll" direction="right" scrollamount="5">
           <div id="inner-tape">
             <p className="tape-element red">GILD 72.60
               <a className="pointer" >▼</a></p>
@@ -32,7 +31,6 @@ const AuthTickerTape = (props) => {
               <a className="pointer" >▲</a></p>
           </div>
         </marquee>
-        <div className="tape-bottom"></div>
       </div>
   );
 };

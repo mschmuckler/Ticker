@@ -42,7 +42,6 @@ class AuthForm extends React.Component {
 
     return (
       <div id="auth-comp" >
-        <AuthTickerTape />
 
         <div id="auth-form" >
           <h2>{ this.props.formType }</h2>

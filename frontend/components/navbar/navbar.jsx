@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NavbarIndices from './navbar_indices';
+import AuthTickerTape from '../auth/auth_ticker_tape';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -21,35 +22,41 @@ class Navbar extends React.Component {
   render() {
     if (this.props.currentUser.id !== undefined) {
       return (
-        <nav id="navbar" >
-          <img id="navbar-logo" src={ window.staticImages.moneyOrangeIcon } />
-
-          <NavbarIndices
-            fetchIntraday={ this.props.fetchIntraday }
-            stocks={ this.props.stocks }
-          />
-
-          <div id="navbar-auth-btns" >
-            <p id="navbar-user-avatar" >{ `Hello, ${ this.props.currentUser.username }` }</p>
-            <button onClick={ this.handleLogout } className="navbar-tab" >Logout</button>
-          </div>
-        </nav>
-      );
-    } else {
-      return (
-        <nav id="navbar" >
-          <img id="navbar-logo" src={ window.staticImages.moneyOrangeIcon } />
+        <div id="nav-and-tape" >
+          <nav id="navbar" >
+            <img id="navbar-logo" src={ window.staticImages.moneyOrangeIcon } />
 
             <NavbarIndices
               fetchIntraday={ this.props.fetchIntraday }
               stocks={ this.props.stocks }
             />
 
-          <div id="navbar-auth-btns" >
-            <Link to="/login" ><button className="navbar-tab" >Login</button></Link>
-            <Link to="/signup" ><button className="navbar-tab" >Signup</button></Link>
-          </div>
-        </nav>
+            <div id="navbar-auth-btns" >
+              <p id="navbar-user-avatar" >{ `Hello, ${ this.props.currentUser.username }` }</p>
+              <button onClick={ this.handleLogout } className="navbar-tab" >Logout</button>
+            </div>
+          </nav>
+          <AuthTickerTape />
+        </div>
+      );
+    } else {
+      return (
+        <div id="nav-and-tape" >
+          <nav id="navbar" >
+            <img id="navbar-logo" src={ window.staticImages.moneyOrangeIcon } />
+
+              <NavbarIndices
+                fetchIntraday={ this.props.fetchIntraday }
+                stocks={ this.props.stocks }
+              />
+
+            <div id="navbar-auth-btns" >
+              <Link to="/login" ><button className="navbar-tab" >Login</button></Link>
+              <Link to="/signup" ><button className="navbar-tab" >Signup</button></Link>
+            </div>
+          </nav>
+          <AuthTickerTape />
+        </div>
       );
     }
   }
