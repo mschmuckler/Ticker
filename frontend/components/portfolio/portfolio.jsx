@@ -5,10 +5,10 @@ class Portfolio extends React.Component {
   constructor(props) {
     super(props);
 
-    this.fetchPortfolioStocks = this.fetchPortfolioStocks.bind(this);
+    this.fetchPortfolioQuotes = this.fetchPortfolioQuotes.bind(this);
   }
 
-  fetchPortfolioStocks() {
+  fetchPortfolioQuotes() {
     let tempHolding;
     this.props.holdings.forEach(holding => {
       tempHolding = Object.values(holding)[0];
@@ -17,12 +17,23 @@ class Portfolio extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchPortfolioStocks();
+    this.fetchPortfolioQuotes();
   }
 
   render() {
-    const temp = Object.values(this.props.stocks).map(stock => {
-      return <PortfolioItem key={ stock.ticker } stock={ stock } />;
+    let tempHolding;
+
+    const portfolioStocks = this.props.holdings.map(holding => {
+      tempHolding = Object.values(holding)[0];
+
+      if (this.props.stocks[tempHolding.ticker] === undefined) {
+        return;
+      } else {        
+        return <PortfolioItem
+          key={ tempHolding.id }
+          stock={ this.props.stocks[tempHolding.ticker] }
+        />
+      }
     });
 
     return (
@@ -42,7 +53,7 @@ class Portfolio extends React.Component {
             </tr>
           </thead>
           <tbody>
-            { temp }
+            { portfolioStocks }
           </tbody>
         </table>
       </main>
