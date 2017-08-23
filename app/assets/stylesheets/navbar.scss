@@ -33,7 +33,6 @@
 #navbar-indices {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
 
   div {
     display: flex;
@@ -46,6 +45,14 @@
   span {
     padding: 0 20px 0 20px;
   }
+}
+
+.navbar-spark {
+  border-left: 1px solid $gray;
+}
+
+.navbar-spark:last-child {
+  border-right: 1px solid $gray;
 }
 
 .navbar-tab {

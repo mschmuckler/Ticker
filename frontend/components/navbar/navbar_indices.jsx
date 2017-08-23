@@ -8,44 +8,46 @@ class NavbarIndices extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchIntraday('AMZN');
-    this.props.fetchIntraday('MSFT');
-    this.props.fetchIntraday('AAPL');
-  }
-
-  componentDidUpdate() {
-    this.renderSparklines();
+    this.props.fetchIntraday('NDAQ')
+      .then(() => this.renderSparklines())
+    this.props.fetchIntraday('DOW')
+      .then(() => this.renderSparklines())
+    this.props.fetchIntraday('SPY')
+      .then(() => this.renderSparklines())
   }
 
   renderSparklines() {
-    $(`#sparkline-amzn`).sparkline(this.props.stocks["AMZN"].intraday, {
-      width: 80,
+    $(`#sparkline-amzn`).sparkline(this.props.stocks["NDAQ"].intraday, {
+      width: 130,
+      height: 40,
       spotColor: '',
       minSpotColor: '',
       maxSpotColor: '',
       lineColor: `green`,
       fillColor: `lightgreen`,
-      tooltipChartTitle: 'AMZN',
+      tooltipChartTitle: 'NDAQ',
     });
 
-    $(`#sparkline-msft`).sparkline(this.props.stocks["MSFT"].intraday, {
-      width: 80,
+    $(`#sparkline-msft`).sparkline(this.props.stocks["DOW"].intraday, {
+      width: 130,
+      height: 40,
       spotColor: '',
       minSpotColor: '',
       maxSpotColor: '',
       lineColor: `green`,
       fillColor: `lightgreen`,
-      tooltipChartTitle: 'MSFT',
+      tooltipChartTitle: 'DOW',
     });
 
-    $(`#sparkline-aapl`).sparkline(this.props.stocks["AAPL"].intraday, {
-      width: 80,
+    $(`#sparkline-aapl`).sparkline(this.props.stocks["SPY"].intraday, {
+      width: 130,
+      height: 40,
       spotColor: '',
       minSpotColor: '',
       maxSpotColor: '',
       lineColor: `green`,
       fillColor: `lightgreen`,
-      tooltipChartTitle: 'AAPL',
+      tooltipChartTitle: 'SPY',
     });
   }
 
@@ -53,16 +55,16 @@ class NavbarIndices extends React.Component {
 
     return (
       <div id="navbar-indices" >
-        <div>
-          <span>AMZN</span>
+        <div className="navbar-spark" >
+          <span>NDAQ</span>
           <span id="sparkline-amzn" ></span>
         </div>
-        <div>
-          <span>MSFT</span>
+        <div className="navbar-spark" >
+          <span>DOW</span>
           <span id="sparkline-msft" ></span>
         </div>
-        <div>
-          <span>AAPL</span>
+        <div className="navbar-spark" >
+          <span>SPY</span>
           <span id="sparkline-aapl" ></span>
         </div>
       </div>
