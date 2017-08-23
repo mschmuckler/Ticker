@@ -25,11 +25,11 @@ export const logout = () => dispatch => {
   );
 };
 
-export const fetchHoldings = (userId) => dispatch => {
-  return APIUtil.requestHoldings(userId).then(
-    (holdings) => dispatch(receiveHoldings(holdings)),
-  );
-};
+// export const fetchHoldings = (userId) => dispatch => {
+//   return APIUtil.requestHoldings(userId).then(
+//     (holdings) => dispatch(receiveHoldings(holdings)),
+//   );
+// };
 
 export const receieveCurrentUser = (currentUser) => {
   return {
@@ -37,9 +37,10 @@ export const receieveCurrentUser = (currentUser) => {
     currentUser: currentUser,
   };
 };
-export const receiveHoldings = (holdings) => {
-  return {
-    type: RECEIVE_HOLDINGS,
-    holdings: holdings,
-  };
-};
+
+// export const receiveHoldings = (holdings) => {
+//   return {
+//     type: RECEIVE_HOLDINGS,
+//     holdings: holdings,
+//   };
+// };

@@ -28,8 +28,9 @@ export const receiveIntraday = (stock) => {
     type: RECEIVE_INTRADAY,
     stock: { [ticker]:
       {
-        intraday: intraday,
-        open: open,
+        ticker,
+        intraday,
+        open,
       },
     },
   };
@@ -54,6 +55,7 @@ export const receiveQuote = (stock) => {
     stock: { [ticker]:
       {
         name,
+        ticker,
         price,
         change,
         changeInPercent,

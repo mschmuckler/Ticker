@@ -1,25 +1,50 @@
 import React from 'react';
+import PortfolioItem from './portfolio_item';
 
 class Portfolio extends React.Component {
   constructor(props) {
     super(props);
+
+    this.fetchPortfolioStocks = this.fetchPortfolioStocks.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.props.fetchHoldings(this.props.userId);
-  // }
+  fetchPortfolioStocks() {
+    let tempHolding;
+    this.props.holdings.forEach(holding => {
+      tempHolding = Object.values(holding)[0];
+      this.props.fetchQuote(tempHolding.ticker);
+    });
+  }
+
+  componentDidMount() {
+    this.fetchPortfolioStocks();
+  }
 
   render() {
-    let tempHolding;
-    const portfolioStocks = this.props.holdings.map(holding => {
-      tempHolding = Object.values(holding)[0]
-      return <li key={ tempHolding.id } >{ tempHolding.ticker }</li>
+    const temp = Object.values(this.props.stocks).map(stock => {
+      return <PortfolioItem key={ stock.ticker } stock={ stock } />;
     });
 
     return (
       <main>
         <h1>Portfolio</h1>
-        <ul>{ portfolioStocks }</ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Ticker</th>
+              <th>Name</th>
+              <th>Last Price</th>
+              <th>Change</th>
+              <th>ChangeInPercent</th>
+              <th>Volume</th>
+              <th>Prev Close</th>
+              <th>Open</th>
+            </tr>
+          </thead>
+          <tbody>
+            { temp }
+          </tbody>
+        </table>
       </main>
     );
   }
