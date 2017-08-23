@@ -27,3 +27,6 @@ export const receieveIntraday = (stock) => {
     },
   };
 };
+
+// receiveQuote
+// ${resp.query.results.quote.LastTradePriceOnly}
