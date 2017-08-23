@@ -31,6 +31,8 @@ class Portfolio extends React.Component {
       } else {
         return <PortfolioItem
           key={ tempHolding.id }
+          holdingId={ tempHolding.id }
+          deleteHolding={ this.props.deleteHolding }
           stock={ this.props.stocks[tempHolding.ticker] }
         />
       }

@@ -11,3 +11,10 @@ export const requestIntraday = (symbol) => {
     url: `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=1min&apikey=VEMFO9H0C5TAT3V3`
   });
 };
+
+export const requestDeleteHolding = (holdingId) => {
+  return $.ajax({
+    method: "DELETE",
+    url: `/api/holdings/${holdingId}`
+  });
+};

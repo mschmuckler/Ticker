@@ -2,6 +2,7 @@ import * as APIUtil from '../util/stock_api_util';
 
 export const RECEIVE_INTRADAY = 'RECEIVE_INTRADAY';
 export const RECEIVE_QUOTE = 'RECEIVE_QUOTE';
+export const DELETE_HOLDING = 'DELETE_HOLDING';
 
 export const fetchIntraday = (symbol) => dispatch => {
   return APIUtil.requestIntraday(symbol).then(
@@ -13,6 +14,19 @@ export const fetchQuote = (symbol) => dispatch => {
   return APIUtil.requestQuote(symbol).then(
     (stockData) => dispatch(receiveQuote(stockData))
   );
+};
+
+export const deleteHolding = (holdingId) => dispatch => {
+  return APIUtil.requestDeleteHolding(holdingId).then(
+    (blankHolding) => dispatch(receiveHoldingDeletion(blankHolding))
+  );
+};
+
+export const receiveHoldingDeletion = (blankHolding) => {
+  return {
+    type: DELETE_HOLDING,
+    blankHolding,
+  };
 };
 
 export const receiveIntraday = (stock) => {

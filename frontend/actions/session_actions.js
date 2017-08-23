@@ -25,22 +25,9 @@ export const logout = () => dispatch => {
   );
 };
 
-// export const fetchHoldings = (userId) => dispatch => {
-//   return APIUtil.requestHoldings(userId).then(
-//     (holdings) => dispatch(receiveHoldings(holdings)),
-//   );
-// };
-
 export const receieveCurrentUser = (currentUser) => {
   return {
     type: RECEIVE_CURRENT_USER,
     currentUser: currentUser,
   };
 };
-
-// export const receiveHoldings = (holdings) => {
-//   return {
-//     type: RECEIVE_HOLDINGS,
-//     holdings: holdings,
-//   };
-// };
