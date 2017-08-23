@@ -1,6 +1,6 @@
 # Ticker
 
-Heroku link
+Heroku link: http://ticker-site.herokuapp.com/#/
 
 Trello link: https://trello.com/b/qqjKyR9S/ticker
 

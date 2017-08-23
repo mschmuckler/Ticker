@@ -35,11 +35,13 @@
   justify-content: space-between;
 
   div {
+    height: 60px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     color: $dark-gray;
+    font-size: 10px;
   }
 
   span {
