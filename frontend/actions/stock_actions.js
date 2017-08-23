@@ -22,10 +22,10 @@ export const deleteHolding = (holdingId) => dispatch => {
   );
 };
 
-export const receiveHoldingDeletion = (blankHolding) => {
+export const receiveHoldingDeletion = (holdingId) => {
   return {
     type: DELETE_HOLDING,
-    blankHolding,
+    holdingId,
   };
 };
 

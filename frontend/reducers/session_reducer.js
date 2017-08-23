@@ -10,7 +10,8 @@ export default (state = {}, action) => {
     case RECEIVE_CURRENT_USER:
       return action.currentUser;
     case DELETE_HOLDING:
-      return merge({}, state)
+      delete newState.holdings[action.holdingId];
+      return newState;
     default:
       return state;
   }
