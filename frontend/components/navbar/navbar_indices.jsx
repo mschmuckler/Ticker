@@ -4,29 +4,58 @@ class NavbarIndices extends React.Component {
   constructor(props) {
     super(props);
 
-    this.renderSparkline = this.renderSparkline.bind(this);
+    this.renderSparklines = this.renderSparklines.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchIntraday('AMZN');
+    this.props.fetchIntraday('MSFT');
+    this.props.fetchIntraday('AAPL');
   }
 
-  renderSparkline() {
-    $(`#sparkline-amzn`).sparkline([1,4,7,3,8,9,4,2,5], {
+  componentDidUpdate() {
+    this.renderSparklines();
+  }
+
+  renderSparklines() {
+    $(`#sparkline-amzn`).sparkline(this.props.stocks["AMZN"].intraday, {
+      width: 80,
       spotColor: '',
       minSpotColor: '',
       maxSpotColor: '',
       lineColor: `green`,
       fillColor: `lightgreen`,
+      tooltipChartTitle: 'AMZN',
+    });
+
+    $(`#sparkline-msft`).sparkline(this.props.stocks["MSFT"].intraday, {
+      width: 80,
+      spotColor: '',
+      minSpotColor: '',
+      maxSpotColor: '',
+      lineColor: `green`,
+      fillColor: `lightgreen`,
+      tooltipChartTitle: 'MSFT',
+    });
+
+    $(`#sparkline-aapl`).sparkline(this.props.stocks["AAPL"].intraday, {
+      width: 80,
+      spotColor: '',
+      minSpotColor: '',
+      maxSpotColor: '',
+      lineColor: `green`,
+      fillColor: `lightgreen`,
+      tooltipChartTitle: 'AAPL',
     });
   }
 
   render() {
-    this.renderSparkline();
 
     return (
       <div id="navbar-indices" >
         <span id="sparkline-amzn" ></span>
+        <span id="sparkline-msft" ></span>
+        <span id="sparkline-aapl" ></span>
       </div>
     );
   }

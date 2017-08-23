@@ -25,9 +25,14 @@
   color: $dark-gray;
 }
 
-// #navbar-indices {
-//   border: 1px solid black;
-// }
+#navbar-indices {
+  border: 1px solid black;
+  padding: 10px;
+
+  span {
+    padding-left: 20px;
+  }
+}
 
 .navbar-tab {
   margin-left: 40px;
