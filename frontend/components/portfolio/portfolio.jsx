@@ -9,10 +9,8 @@ class Portfolio extends React.Component {
   }
 
   fetchPortfolioQuotes() {
-    let tempHolding;
-    this.props.holdings.forEach(holding => {
-      tempHolding = Object.values(holding)[0];
-      this.props.fetchQuote(tempHolding.ticker);
+    Object.values(this.props.holdings).forEach(holding => {
+      this.props.fetchQuote(holding.ticker);
     });
   }
 
@@ -21,19 +19,15 @@ class Portfolio extends React.Component {
   }
 
   render() {
-    let tempHolding;
-
-    const portfolioStocks = this.props.holdings.map(holding => {
-      tempHolding = Object.values(holding)[0];
-
-      if (this.props.stocks[tempHolding.ticker] === undefined) {
+    const portfolioStocks = Object.values(this.props.holdings).map(holding => {
+      if (this.props.stocks[holding.ticker] === undefined) {
         return;
       } else {
         return <PortfolioItem
-          key={ tempHolding.id }
-          holdingId={ tempHolding.id }
+          key={ holding.id }
+          holdingId={ holding.id }
           deleteHolding={ this.props.deleteHolding }
-          stock={ this.props.stocks[tempHolding.ticker] }
+          stock={ this.props.stocks[holding.ticker] }
         />
       }
     });
