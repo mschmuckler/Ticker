@@ -18,7 +18,7 @@ class NavbarIndices extends React.Component {
 
   renderSparklines() {
     $(`#sparkline-amzn`).sparkline(this.props.stocks["NDAQ"].intraday, {
-      width: 70,
+      width: 130,
       height: 25,
       spotColor: '',
       minSpotColor: '',
@@ -29,7 +29,7 @@ class NavbarIndices extends React.Component {
     });
 
     $(`#sparkline-msft`).sparkline(this.props.stocks["DOW"].intraday, {
-      width: 70,
+      width: 130,
       height: 25,
       spotColor: '',
       minSpotColor: '',
@@ -40,7 +40,7 @@ class NavbarIndices extends React.Component {
     });
 
     $(`#sparkline-aapl`).sparkline(this.props.stocks["SPY"].intraday, {
-      width: 70,
+      width: 130,
       height: 25,
       spotColor: '',
       minSpotColor: '',

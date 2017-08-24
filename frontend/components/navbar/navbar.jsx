@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NavbarIndices from './navbar_indices';
+import NavbarSearch from './navbar_search';
 import NavbarTickerTape from './navbar_ticker_tape';
 
 class Navbar extends React.Component {
@@ -24,21 +25,23 @@ class Navbar extends React.Component {
       return (
         <div id="nav-and-tape" >
           <nav id="navbar" >
-            <h1>ticker▲</h1>
+            <section id="logo-and-indices">
+              <h1>ticker▲</h1>
 
-            <NavbarIndices
-              fetchIntraday={ this.props.fetchIntraday }
-              stocks={ this.props.stocks }
-            />
-
-            <section id="navbar-search" >
-              <span id="search" ></span>
+              <NavbarIndices
+                fetchIntraday={ this.props.fetchIntraday }
+                stocks={ this.props.stocks }
+              />
             </section>
 
-            <div id="navbar-auth-btns" >
-              <p id="navbar-user-avatar" >{ `Hello, ${ this.props.currentUser.username }` }</p>
-              <button onClick={ this.handleLogout } className="navbar-tab" >Logout</button>
-            </div>
+            <section id="search-and-btns" >
+              <NavbarSearch />
+
+              <div id="navbar-auth-btns" >
+                <p id="navbar-user-avatar" >{ `Hello, ${ this.props.currentUser.username }` }</p>
+                <button onClick={ this.handleLogout } className="navbar-tab" >Logout</button>
+              </div>
+            </section>
           </nav>
           <NavbarTickerTape />
         </div>
@@ -47,21 +50,23 @@ class Navbar extends React.Component {
       return (
         <div id="nav-and-tape" >
           <nav id="navbar" >
-            <h1>ticker▲</h1>
+            <section id="logo-and-indices">
+              <h1>ticker▲</h1>
 
-            <NavbarIndices
-              fetchIntraday={ this.props.fetchIntraday }
-              stocks={ this.props.stocks }
-            />
+              <NavbarIndices
+                fetchIntraday={ this.props.fetchIntraday }
+                stocks={ this.props.stocks }
+              />
+          </section>
 
-            <section id="navbar-search" >
-              <span id="search" ></span>
+            <section id="search-and-btns" >
+              <NavbarSearch />
+
+              <div id="navbar-auth-btns" >
+                <Link to="/login" ><button className="navbar-tab" >Login</button></Link>
+                <Link to="/signup" ><button className="navbar-tab" >Signup</button></Link>
+              </div>
             </section>
-
-            <div id="navbar-auth-btns" >
-              <Link to="/login" ><button className="navbar-tab" >Login</button></Link>
-              <Link to="/signup" ><button className="navbar-tab" >Signup</button></Link>
-            </div>
           </nav>
           <NavbarTickerTape />
         </div>
