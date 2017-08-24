@@ -11,6 +11,7 @@ class AuthForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
   }
 
   handleChange(type) {
@@ -23,6 +24,16 @@ class AuthForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user)
+      .then(
+        () => {
+          this.props.history.push('/portfolio');
+        }
+      );
+  }
+
+  guestLogin(e) {
+    e.preventDefault();
+    this.props.login({ username: "GordonGekko", password: "greedisgood" })
       .then(
         () => {
           this.props.history.push('/portfolio');
@@ -44,7 +55,7 @@ class AuthForm extends React.Component {
       <div id="auth-comp" >
 
         <div id="auth-form" >
-          <form onSubmit={ this.handleSubmit } >
+          <form>
             <label>
               <span className="auth-icon-box" >
                 <img src={ window.staticImages.authUserIcon } className="auth-icon" />
@@ -71,7 +82,16 @@ class AuthForm extends React.Component {
             </label>
             <br />
 
-            <input type="submit" value={ this.props.formType } />
+            <input onClick={ this.handleSubmit }
+              type="submit"
+              value={ this.props.formType }
+            />
+            <input
+              onClick={ this.guestLogin }
+              type="submit"
+              value="Guest"
+              id="auth-guest-btn"
+            />
           </form>
         </div>
 

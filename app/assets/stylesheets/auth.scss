@@ -54,18 +54,21 @@
   }
 
   input[type="submit"] {
-    background-color: $gray;
+    background: linear-gradient(to bottom right, #B9B9B9, $gray, $gray, $gray);
     color: white;
     font-size: 20px;
-    font-weight: bolder;
+    font-weight: 900;
     height: 50px;
-    width: 300px;
+    width: 365px;
     display: flex;
     justify-content: center;
     text-shadow: 0 2px 2px rgba(black, .2);
     align-items: center;
     transition: transform .15s ease;
 
+    &:last-child {
+      background: linear-gradient(to bottom right, #B9B9B9, $gray, $gray, $gray);
+    }
   }
 
   input[type="submit"]:hover {
@@ -73,6 +76,7 @@
     transform: scale(1.1);
   }
 }
+
 
 .auth-icon-box {
   width: 50px;
