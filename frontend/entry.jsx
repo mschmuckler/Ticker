@@ -9,10 +9,14 @@ document.addEventListener("DOMContentLoaded", () => {
   let store;
   if (window.currentUser) {
     const preloadedState = { session: window.currentUser };
+    if (preloadedState.session.holdings === undefined) {
+      preloadedState.session.holdings = {};
+    }
     store = configureStore(preloadedState);
     delete window.currentUser;
   } else {
-    store = configureStore();
+    const preloadedState = { session: { holdings: {} } };
+    store = configureStore(preloadedState);
   }
 
   window.fetchCompanies = fetchCompanies;

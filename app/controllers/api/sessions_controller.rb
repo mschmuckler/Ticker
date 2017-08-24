@@ -14,7 +14,9 @@ class Api::SessionsController < ApplicationController
     if logged_in?
       logout
       render json: {
-        holdings: [],
+        id: nil,
+        username: nil,
+        holdings: {},
       }
     else
       @errors = ["You are not logged in"]
