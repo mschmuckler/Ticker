@@ -2,7 +2,7 @@ import { merge } from 'lodash';
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import { DELETE_HOLDING } from '../actions/stock_actions';
 
-export default (state = {}, action) => {
+export default (state = { holdings: {} }, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AuthTickerTape = (props) => {
+const NavbarTickerTape = (props) => {
   return (
     <div id="ticker-tape">
         <marquee behavior="scroll" direction="right" scrollamount="5">
@@ -35,4 +35,4 @@ const AuthTickerTape = (props) => {
   );
 };
 
-export default AuthTickerTape;
+export default NavbarTickerTape;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NavbarIndices from './navbar_indices';
-import AuthTickerTape from '../auth/auth_ticker_tape';
+import NavbarTickerTape from './navbar_ticker_tape';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -36,7 +36,7 @@ class Navbar extends React.Component {
               <button onClick={ this.handleLogout } className="navbar-tab" >Logout</button>
             </div>
           </nav>
-          <AuthTickerTape />
+          <NavbarTickerTape />
         </div>
       );
     } else {
@@ -55,7 +55,7 @@ class Navbar extends React.Component {
               <Link to="/signup" ><button className="navbar-tab" >Signup</button></Link>
             </div>
           </nav>
-          <AuthTickerTape />
+          <NavbarTickerTape />
         </div>
       );
     }

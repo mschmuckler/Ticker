@@ -2,24 +2,20 @@
 
 #auth-comp {
   height: 80%;
+  background: linear-gradient(to bottom right, $dark-orange, $orange, $light-orange);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 #auth-form {
-  height: 40%;
-  width: 50%;
+  height: 300px;
+  width: 450px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  border: 1px solid $light-gray;
-
-  h2 {
-    color: $dark-gray;
-  }
 }
 
 #auth-errors {
@@ -27,31 +23,67 @@
 }
 
 #auth-form form {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
 
+  label {
+    display: flex;
+  }
+
 
   input[type="text"], input[type="password"] {
-    border: 1px solid $gray;
-    padding: 5px;
-    margin-left: 5px;
+    width: 300px;
+    height: 50px;
+    background-color: white;
+    padding-left: 15px;
+    font-size: 18px;
+    &:focus {
+      outline: none;
+      transition: transform .15s ease;
+      transform: scale(1.05);
+    }
+  }
+
+  input::placeholder {
+    color: $gray;
   }
 
   input[type="submit"] {
-    background: linear-gradient(to bottom, $light-orange, $orange, $orange);
+    background-color: $gray;
     color: white;
-    font-size: 18px;
-    height: 40px;
-    width: 85px;
+    font-size: 20px;
+    font-weight: bolder;
+    height: 50px;
+    width: 300px;
     display: flex;
     justify-content: center;
+    text-shadow: 0 2px 2px rgba(black, .2);
     align-items: center;
+    transition: transform .15s ease;
+
   }
 
   input[type="submit"]:hover {
     cursor: pointer;
-    background: linear-gradient(to bottom, $light-orange, $orange);
+    transform: scale(1.1);
   }
+}
+
+.auth-icon-box {
+  width: 50px;
+  height: 50px;
+  background-color: $lightest-gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-icon {
+  width: 50%;
+  height: 50%;
 }

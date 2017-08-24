@@ -1,5 +1,5 @@
 import React from 'react';
-import AuthTickerTape from './auth_ticker_tape';
+import FontAwesome from 'react-fontawesome';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -44,10 +44,13 @@ class AuthForm extends React.Component {
       <div id="auth-comp" >
 
         <div id="auth-form" >
-          <h2>{ this.props.formType }</h2>
           <form onSubmit={ this.handleSubmit } >
-            <label>Username:
+            <label>
+              <span className="auth-icon-box" >
+                <img src={ window.staticImages.authUserIcon } className="auth-icon" />
+              </span>
               <input
+                placeholder="Username"
                 value={ this.state.username }
                 onChange={ this.handleChange('username') }
                 type="text"
@@ -55,8 +58,12 @@ class AuthForm extends React.Component {
             </label>
             <br />
 
-            <label>Password:
+            <label>
+              <span className="auth-icon-box" >
+                <img src={ window.staticImages.authKeyIcon } className="auth-icon" />
+              </span>
               <input
+                placeholder="Password"
                 value={ this.state.password }
                 onChange={ this.handleChange('password') }
                 type="password"
@@ -64,7 +71,7 @@ class AuthForm extends React.Component {
             </label>
             <br />
 
-            <input type="submit" value="Submit" />
+            <input type="submit" value={ this.props.formType } />
           </form>
         </div>
 

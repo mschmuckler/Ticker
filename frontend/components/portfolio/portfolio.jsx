@@ -1,4 +1,5 @@
 import React from 'react';
+import { isEmpty } from 'lodash';
 import PortfolioItem from './portfolio_item';
 
 class Portfolio extends React.Component {
@@ -14,12 +15,8 @@ class Portfolio extends React.Component {
     });
   }
 
-  componentDidMount() {
-    this.fetchPortfolioQuotes();
-  }
-
-  render() {
-    const portfolioStocks = Object.values(this.props.holdings).map(holding => {
+  createPortfolioRows() {
+    return Object.values(this.props.holdings).map(holding => {
       if (this.props.stocks[holding.ticker] === undefined) {
         return;
       } else {
@@ -31,29 +28,40 @@ class Portfolio extends React.Component {
         />
       }
     });
+  }
 
-    return (
-      <main>
-        <h1>Portfolio</h1>
-        <table>
-          <thead>
-            <tr>
-              <th>Ticker</th>
-              <th>Name</th>
-              <th>Last Price</th>
-              <th>Change</th>
-              <th>ChangeInPercent</th>
-              <th>Volume</th>
-              <th>Prev Close</th>
-              <th>Open</th>
-            </tr>
-          </thead>
-          <tbody>
-            { portfolioStocks }
-          </tbody>
-        </table>
-      </main>
-    );
+  componentDidMount() {
+    this.fetchPortfolioQuotes();
+  }
+
+  render() {
+    if (isEmpty(this.props.holdings)) {
+      return <h1>Let's add some stocks</h1>
+    } else {
+      const portfolioStocks = this.createPortfolioRows();
+      return (
+        <main>
+          <h1>Portfolio</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>Ticker</th>
+                <th>Name</th>
+                <th>Last Price</th>
+                <th>Change</th>
+                <th>ChangeInPercent</th>
+                <th>Volume</th>
+                <th>Prev Close</th>
+                <th>Open</th>
+              </tr>
+            </thead>
+            <tbody>
+              { portfolioStocks }
+            </tbody>
+          </table>
+        </main>
+      );
+    }
   }
 }
 
