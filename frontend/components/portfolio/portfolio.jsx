@@ -37,21 +37,32 @@ class Portfolio extends React.Component {
 
   render() {
     if (isEmpty(this.props.holdings)) {
-      return <h1>Let's add some stocks</h1>
+      return (
+        <main>
+          <h1>Let's add some stocks</h1>
+          <PortfolioForm
+            companies={ this.props.companies }
+            addHolding={ this.props.addHolding }
+            fetchQuote={ this.props.fetchQuote }
+            fetchCompanies={ this.props.fetchCompanies }
+            errors={ this.props.errors }
+          />
+        </main>
+      );
     } else {
       const portfolioStocks = this.createPortfolioRows();
       return (
-        <main>
-          <h1>Portfolio</h1>
-          <table>
+        <main id="portfolio" >
+          <table id="portfolio-table" >
             <thead>
               <tr>
-                <th>Ticker</th>
-                <th>Last Price</th>
-                <th>Change</th>
-                <th>Volume</th>
-                <th>Prev Close</th>
-                <th>Open</th>
+                <th className="symbol-header" >SYMBOL</th>
+                <th className="price-header" >LAST PRICE</th>
+                <th className="change-header" >CHANGE</th>
+                <th className="changepercent-header" >% CHANGE</th>
+                <th className="open-header" >OPEN</th>
+                <th className="volume-header" >VOLUME</th>
+                <th className="prevclose-header" >PREV CLOSE</th>
               </tr>
             </thead>
             <tbody>

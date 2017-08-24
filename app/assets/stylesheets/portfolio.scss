@@ -1,5 +1,11 @@
 @import "base/colors.scss";
 
+#portfolio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #portfolio-form {
   input {
     border: 1px solid $gray;
@@ -7,6 +13,23 @@
 
   button {
     border: 1px solid $gray;
+  }
+}
+
+#portfolio-table {
+  border-spacing: 15px;
+
+  td, th {
+    border: 1px solid $light-gray;
+    margin: auto;
+  }
+
+  .symbol-cell, .symbol-header {
+    padding-right: 150px;
+  }
+
+  .change-cell, .change-header {
+    padding-right: 100px;
   }
 }
 

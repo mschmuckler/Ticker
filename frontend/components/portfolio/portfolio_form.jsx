@@ -45,12 +45,12 @@ class PortfolioForm extends React.Component {
           <input
             onChange={ this.handleChange }
             type="text"
-            placeholder="Find stock"
+            placeholder="example: AAPL, JNJ"
             value={ this.state.searchInput }
           />
 
           <button onClick={ this.handleSubmit } type="submit" >
-            Add Stock
+            Add to Portfolio
           </button>
           <ul>{ allCompanies }</ul>
         </form>

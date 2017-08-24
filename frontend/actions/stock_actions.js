@@ -80,6 +80,7 @@ export const receiveQuote = (stock) => {
   const name = stock.query.results.quote.Name;
   const price = stock.query.results.quote.LastTradePriceOnly;
   let change = stock.query.results.quote.Change;
+  let changeInPercent = stock.query.results.quote.PercentChange;
   const high = stock.query.results.quote.DaysHigh;
   const prevClose = stock.query.results.quote.PreviousClose;
   const low = stock.query.results.quote.DaysLow;
@@ -90,6 +91,7 @@ export const receiveQuote = (stock) => {
 
   if (change[0] === '+') {
     change = change.slice(1);
+    changeInPercent = changeInPercent.slice(1);
   }
 
   return {
@@ -100,6 +102,7 @@ export const receiveQuote = (stock) => {
         ticker,
         price,
         change,
+        changeInPercent,
         high,
         prevClose,
         low,
@@ -119,6 +122,7 @@ export const receiveFakeQuote = (symbol) => {
   const low = (price - (Math.random() * 10));
   const open = (price + (Math.round(Math.random()) * 2 - 1) * (Math.random() * 10));
   const change = (open - price);
+  const changeInPercent = (change / open);
   const mktCap = (Math.random() * 1000000);
   const pe = (Math.random() * 10);
   const volume = (Math.random() * 100000);
@@ -127,7 +131,8 @@ export const receiveFakeQuote = (symbol) => {
     [symbol]: {
       ticker: symbol,
       price: price.toFixed(2),
-      change: change.toFixed(2),
+      change: change.toFixed(3),
+      changeInPercent: changeInPercent.toFixed(3) + '%',
       high: high.toFixed(2),
       prevClose: prevClose.toFixed(2),
       low: low.toFixed(2),
