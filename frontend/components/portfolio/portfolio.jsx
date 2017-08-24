@@ -46,10 +46,8 @@ class Portfolio extends React.Component {
             <thead>
               <tr>
                 <th>Ticker</th>
-                <th>Name</th>
                 <th>Last Price</th>
                 <th>Change</th>
-                <th>ChangeInPercent</th>
                 <th>Volume</th>
                 <th>Prev Close</th>
                 <th>Open</th>

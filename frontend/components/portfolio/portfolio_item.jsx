@@ -13,7 +13,7 @@ class PortfolioItem extends React.Component {
 
   render() {
     let changeColor = 'red-text';
-    if (this.props.stock.change[0] === '+') {
+    if (this.props.stock.change > 0) {
       changeColor = 'green-text';
     }
 
@@ -21,10 +21,8 @@ class PortfolioItem extends React.Component {
 
       <tr>
         <td>{ this.props.stock.ticker }</td>
-        <td>{ this.props.stock.name }</td>
         <td>{ this.props.stock.price }</td>
         <td className={ changeColor } >{ this.props.stock.change }</td>
-        <td className={ changeColor } >{ this.props.stock.changeInPercent }</td>
         <td>{ this.props.stock.volume }</td>
         <td>{ this.props.stock.prevClose }</td>
         <td>{ this.props.stock.open }</td>
