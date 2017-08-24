@@ -59,7 +59,10 @@ class Portfolio extends React.Component {
             </tbody>
           </table>
 
-          <PortfolioForm addHolding={ this.props.addHolding } />
+          <PortfolioForm
+            addHolding={ this.props.addHolding }
+            fetchQuote={ this.props.fetchQuote }
+          />
         </main>
       );
     }

@@ -19,7 +19,7 @@ class PortfolioForm extends React.Component {
       holding: {
         ticker: this.state.stockInput ,
       },
-    });
+    }).then(() => this.props.fetchQuote(this.state.stockInput))
   }
 
   render() {
