@@ -154,3 +154,10 @@ export const receiveCompanies = (companies) => {
     companies,
   }
 }
+
+export const clearCompanies = () => {
+  return {
+    type: RECEIVE_COMPANIES,
+    companies: [],
+  }
+}

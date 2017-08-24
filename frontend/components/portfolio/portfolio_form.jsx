@@ -25,7 +25,8 @@ class PortfolioForm extends React.Component {
   }
 
   handleAutoComplete(e) {
-    this.setState({ searchInput: e.currentTarget.title })
+    this.setState({ searchInput: e.currentTarget.title });
+    this.props.clearCompanies();
   }
 
   render() {

@@ -4,6 +4,7 @@ import {
   deleteHolding,
   addHolding,
   fetchCompanies,
+  clearCompanies,
 } from '../../actions/stock_actions';
 import Portfolio from './portfolio';
 
@@ -22,6 +23,7 @@ const mapDispatchToProps = (dispatch) => {
     deleteHolding: (holdingId) => dispatch(deleteHolding(holdingId)),
     addHolding: (holding) => dispatch(addHolding(holding)),
     fetchCompanies: (searchInput) => dispatch(fetchCompanies(searchInput)),
+    clearCompanies: () => dispatch(clearCompanies()),
   };
 };
 
