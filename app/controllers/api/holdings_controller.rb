@@ -6,7 +6,7 @@ class Api::HoldingsController < ApplicationController
       render :show
     else
       @errors = @holding.errors.full_messages
-      render json: @errors
+      render json: @errors, status: 422
     end
   end
 

@@ -23,6 +23,13 @@ export const requestAddHolding = (holdingData) => {
 export const requestDeleteHolding = (holdingId) => {
   return $.ajax({
     method: "DELETE",
-    url: `/api/holdings/${holdingId}`
+    url: `/api/holdings/${holdingId}`,
+  });
+};
+
+export const requestCompanies = (searchInput) => {
+  return $.ajax({
+    method: "GET",
+    url: `/api/companies`,
   });
 };

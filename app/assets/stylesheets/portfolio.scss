@@ -1,5 +1,15 @@
 @import "base/colors.scss";
 
+#portfolio-form {
+  input {
+    border: 1px solid $gray;
+  }
+
+  button {
+    border: 1px solid $gray;
+  }
+}
+
 .green-text {
   color: $green-change;
 }

@@ -5,6 +5,7 @@ export const RECEIVE_QUOTE = 'RECEIVE_QUOTE';
 export const RECEIVE_FAKE_QUOTE = 'RECEIVE_FAKE_QUOTE';
 export const DELETE_HOLDING = 'DELETE_HOLDING';
 export const ADD_HOLDING = 'ADD_HOLDING';
+export const RECEIVE_COMPANIES = 'RECEIVE_COMPANIES';
 
 export const fetchIntraday = (symbol) => dispatch => {
   return APIUtil.requestIntraday(symbol).then(
@@ -28,6 +29,12 @@ export const addHolding = (holding) => dispatch => {
 export const deleteHolding = (holdingId) => dispatch => {
   return APIUtil.requestDeleteHolding(holdingId).then(
     (blankHolding) => dispatch(receiveHoldingDeletion(blankHolding))
+  );
+};
+
+export const fetchCompanies = (searchInput) => dispatch => {
+  return APIUtil.requestCompanies(searchInput).then(
+    (companies) => dispatch(receiveCompanies(companies))
   );
 };
 
@@ -132,4 +139,11 @@ export const receiveFakeQuote = (symbol) => {
     type: RECEIVE_FAKE_QUOTE,
     stock: fakeData,
   };
+}
+
+export const receiveCompanies = (companies) => {
+  return {
+    type: RECEIVE_COMPANIES,
+    companies,
+  }
 }

@@ -10,7 +10,7 @@ class PortfolioForm extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({ stockInput: e.target.value });
+    this.setState({ stockInput: e.target.value.toUpperCase() });
   }
 
   handleSubmit(e) {
@@ -19,7 +19,8 @@ class PortfolioForm extends React.Component {
       holding: {
         ticker: this.state.stockInput ,
       },
-    }).then(() => this.props.fetchQuote(this.state.stockInput))
+    }).then(() => this.props.fetchQuote(this.state.stockInput));
+    this.setState({ searchInput: "" });
   }
 
   render() {
