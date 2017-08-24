@@ -25,7 +25,7 @@ class PortfolioForm extends React.Component {
   }
 
   handleAutoComplete(e) {
-    this.setState({ searchInput: e.target.title })
+    this.setState({ searchInput: e.currentTarget.title })
   }
 
   render() {
@@ -34,26 +34,29 @@ class PortfolioForm extends React.Component {
         key={ idx }
         title={ company.ticker }
         onClick={ this.handleAutoComplete } >
-        { company.name }
+        <div className="auto-list-ticker" >{ company.ticker }</div>
+        <div className="auto-list-name" >{ company.name }</div>
       </li>
     });
 
     return (
       <div id="portfolio-form" >
-        <p>{ this.props.errors }</p>
         <form>
-          <input
-            onChange={ this.handleChange }
-            type="text"
-            placeholder="example: AAPL, JNJ"
-            value={ this.state.searchInput }
-          />
+          <div id="input-and-autocomplete" >
+            <input
+              onChange={ this.handleChange }
+              type="text"
+              placeholder="example: AAPL, JNJ"
+              value={ this.state.searchInput }
+            />
+            <ul id="autocomplete-list" >{ allCompanies }</ul>
+          </div>
 
           <button onClick={ this.handleSubmit } type="submit" >
             Add to Portfolio
           </button>
-          <ul>{ allCompanies }</ul>
         </form>
+        <p>{ this.props.errors }</p>
       </div>
     );
   }

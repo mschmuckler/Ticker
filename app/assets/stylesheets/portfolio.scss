@@ -4,19 +4,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-#portfolio-form {
-  input {
-    border: 1px solid $gray;
-  }
-
-  button {
-    border: 1px solid $gray;
-  }
+  width: 70%;
+  margin: auto;
 }
 
 #portfolio-table {
+  width: 100%;
   border-spacing: 0;
 
   tr {

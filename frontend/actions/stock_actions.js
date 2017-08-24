@@ -120,7 +120,7 @@ export const receiveFakeQuote = (symbol) => {
   const high = (price + (Math.random() * 10));
   const prevClose = (price + (Math.random() * 10));
   const low = (price - (Math.random() * 10));
-  const open = (price + (Math.round(Math.random()) * 2 - 1) * (Math.random() * 10));
+  const open = (price + (Math.round(Math.random()) * 2 - 1) * (Math.random() * 1000));
   const change = (open - price);
   const changeInPercent = (change / open);
   const mktCap = (Math.random() * 1000000);

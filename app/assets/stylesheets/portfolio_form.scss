@@ -1,0 +1,56 @@
+@import "base/colors.scss";
+
+#portfolio-form {
+  padding: 0 20px 20px 0;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+
+  form {
+    display: flex;
+  }
+}
+
+#portfolio-form input {
+  position: relative;
+  box-sizing: border-box;
+  width: 250px;
+  height: 40px;
+  border: 1px solid $gray;
+  margin-right: 10px;
+  padding-left: 10px;
+  font-size: 15px;
+}
+
+#portfolio-form button {
+  width: 125px;
+  height: 40px;
+  padding: 0 8px 0 8px;
+  background-color: $orange;
+  font-size: 15px;
+  color: white;
+  text-align: center;
+}
+
+#autocomplete-list {
+  width: 250px;
+  background-color: $light-gray;
+  font-size: 13px;
+  box-sizing: border-box;
+  position: relative;
+
+  li {
+    padding: 10px;
+    border: 1px solid $gray;
+
+    .auto-list-ticker {
+      font-weight: bolder;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: #BBFEC2;
+    }
+  }
+}
