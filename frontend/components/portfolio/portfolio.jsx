@@ -1,6 +1,7 @@
 import React from 'react';
 import { isEmpty } from 'lodash';
 import PortfolioItem from './portfolio_item';
+import PortfolioForm from './portfolio_form';
 
 class Portfolio extends React.Component {
   constructor(props) {
@@ -57,6 +58,8 @@ class Portfolio extends React.Component {
               { portfolioStocks }
             </tbody>
           </table>
+
+          <PortfolioForm addHolding={ this.props.addHolding } />
         </main>
       );
     }

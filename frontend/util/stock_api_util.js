@@ -12,6 +12,14 @@ export const requestIntraday = (symbol) => {
   });
 };
 
+export const requestAddHolding = (holdingData) => {
+  return $.ajax({
+    method: "POST",
+    url: `/api/holdings`,
+    data: holdingData,
+  });
+};
+
 export const requestDeleteHolding = (holdingId) => {
   return $.ajax({
     method: "DELETE",

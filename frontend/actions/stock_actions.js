@@ -4,6 +4,7 @@ export const RECEIVE_INTRADAY = 'RECEIVE_INTRADAY';
 export const RECEIVE_QUOTE = 'RECEIVE_QUOTE';
 export const RECEIVE_FAKE_QUOTE = 'RECEIVE_FAKE_QUOTE';
 export const DELETE_HOLDING = 'DELETE_HOLDING';
+export const ADD_HOLDING = 'ADD_HOLDING';
 
 export const fetchIntraday = (symbol) => dispatch => {
   return APIUtil.requestIntraday(symbol).then(
@@ -18,6 +19,12 @@ export const fetchQuote = (symbol) => dispatch => {
   );
 };
 
+export const addHolding = (holding) => dispatch => {
+  return APIUtil.requestAddHolding(holding).then(
+    (holding) => dispatch(receiveHoldingAddition(holding))
+  );
+};
+
 export const deleteHolding = (holdingId) => dispatch => {
   return APIUtil.requestDeleteHolding(holdingId).then(
     (blankHolding) => dispatch(receiveHoldingDeletion(blankHolding))
@@ -28,6 +35,13 @@ export const receiveHoldingDeletion = (holdingId) => {
   return {
     type: DELETE_HOLDING,
     holdingId,
+  };
+};
+
+export const receiveHoldingAddition = (holding) => {
+  return {
+    type: ADD_HOLDING,
+    holding,
   };
 };
 
