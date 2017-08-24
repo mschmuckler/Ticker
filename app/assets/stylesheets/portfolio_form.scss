@@ -54,3 +54,11 @@
     }
   }
 }
+
+#portfolio-form-errors {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  color: $red-error;
+}

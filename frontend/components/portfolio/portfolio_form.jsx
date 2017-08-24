@@ -57,7 +57,9 @@ class PortfolioForm extends React.Component {
             Add to Portfolio
           </button>
         </form>
-        <p>{ this.props.errors }</p>
+        <div id="portfolio-form-errors" >
+          { this.props.errors }
+        </div>
       </div>
     );
   }
