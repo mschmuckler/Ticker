@@ -1,4 +1,5 @@
 import * as APIUtil from '../util/stock_api_util';
+import { receiveErrors } from './error_actions';
 
 export const RECEIVE_INTRADAY = 'RECEIVE_INTRADAY';
 export const RECEIVE_QUOTE = 'RECEIVE_QUOTE';
@@ -22,7 +23,8 @@ export const fetchQuote = (symbol) => dispatch => {
 
 export const addHolding = (holding) => dispatch => {
   return APIUtil.requestAddHolding(holding).then(
-    (holding) => dispatch(receiveHoldingAddition(holding))
+    (holding) => dispatch(receiveHoldingAddition(holding)),
+    (errors) => dispatch(receiveErrors(errors, "addStock"))
   );
 };
 

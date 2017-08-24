@@ -64,6 +64,7 @@ class Portfolio extends React.Component {
             addHolding={ this.props.addHolding }
             fetchQuote={ this.props.fetchQuote }
             fetchCompanies={ this.props.fetchCompanies }
+            errors={ this.props.errors }
           />
         </main>
       );

@@ -12,6 +12,7 @@ const mapStateToProps = (state) => {
     holdings: state.session.holdings,
     stocks: state.entities.stocks,
     companies: state.entities.companies,
+    errors: state.errors.addStock,
   };
 };
 

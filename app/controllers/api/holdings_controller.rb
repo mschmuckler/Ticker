@@ -2,11 +2,17 @@ class Api::HoldingsController < ApplicationController
   def create
     @holding = Holding.new(holding_params)
     @holding.user_id = current_user.id
-    if @holding.save
-      render :show
+    @ticker_exists = Company.find_by(ticker: @holding.ticker)
+
+    if @ticker_exists
+      if @holding.save
+        render :show
+      else
+        @errors = @holding.errors.full_messages
+        render json: ["Company is already in your portfolio"], status: 400
+      end
     else
-      @errors = @holding.errors.full_messages
-      render json: @errors, status: 422
+      render json: ["No such company exists"], status: 404
     end
   end
 
