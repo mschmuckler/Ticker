@@ -7,10 +7,12 @@ class PortfolioForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleAutoComplete = this.handleAutoComplete.bind(this);
   }
 
   handleChange(e) {
     this.setState({ searchInput: e.target.value.toUpperCase() });
+    this.props.fetchCompanies(this.state.searchInput);
   }
 
   handleSubmit(e) {
@@ -22,7 +24,20 @@ class PortfolioForm extends React.Component {
     }).then(() => this.props.fetchQuote(this.state.searchInput));
   }
 
+  handleAutoComplete(e) {
+    this.setState({ searchInput: e.target.title })
+  }
+
   render() {
+    const allCompanies = this.props.companies.map((company, idx) => {
+      return <li
+        key={ idx }
+        title={ company.ticker }
+        onClick={ this.handleAutoComplete } >
+        { company.name }
+      </li>
+    });
+
     return (
       <div id="portfolio-form" >
         <p>{ this.props.errors }</p>
@@ -37,6 +52,7 @@ class PortfolioForm extends React.Component {
           <button onClick={ this.handleSubmit } type="submit" >
             Add Stock
           </button>
+          <ul>{ allCompanies }</ul>
         </form>
       </div>
     );
