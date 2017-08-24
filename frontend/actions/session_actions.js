@@ -26,6 +26,10 @@ export const logout = () => dispatch => {
 };
 
 export const receiveCurrentUser = (currentUser) => {
+  if (currentUser.holdings === undefined) {
+    currentUser.holdings = {};
+  }
+
   return {
     type: RECEIVE_CURRENT_USER,
     currentUser: currentUser,

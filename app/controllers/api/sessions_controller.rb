@@ -14,8 +14,6 @@ class Api::SessionsController < ApplicationController
     if logged_in?
       logout
       render json: {
-        id: nil,
-        username: nil,
         holdings: {},
       }
     else
