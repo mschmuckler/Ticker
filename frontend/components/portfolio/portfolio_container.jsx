@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchQuote: (symbol) => dispatch(fetchQuote(symbol)),
     deleteHolding: (holdingId) => dispatch(deleteHolding(holdingId)),
     addHolding: (holding) => dispatch(addHolding(holding)),
-    fetchCompanies: (companies) => dispatch(fetchCompanies(companies)),
+    fetchCompanies: (searchInput) => dispatch(fetchCompanies(searchInput)),
   };
 };
 

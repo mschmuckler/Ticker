@@ -31,5 +31,6 @@ export const requestCompanies = (searchInput) => {
   return $.ajax({
     method: "GET",
     url: `/api/companies`,
+    data: { searchInput },
   });
 };

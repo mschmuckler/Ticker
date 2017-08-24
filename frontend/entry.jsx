@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store';
 import Root from './components/root';
 
-import { fetchQuote } from './actions/stock_actions';
+import { fetchCompanies } from './actions/stock_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
 
-  window.fetchQuote = fetchQuote;
+  window.fetchCompanies = fetchCompanies;
   window.dispatch = store.dispatch
 
   const root = document.getElementById("root");
