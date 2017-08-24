@@ -7,12 +7,18 @@
 
 #navbar {
   height: 70px;
-  padding: 10px;
+  padding: 10px 10px 0 10px;
   background-color: $light-gray;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   border-bottom: 4px solid $orange;
+
+  h1 {
+    background: -webkit-linear-gradient(#eee, #E38417, #E38417);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 #navbar-logo {
@@ -49,12 +55,17 @@
   }
 }
 
-.navbar-spark {
-  border-left: 1px solid $gray;
+#search {
+
 }
 
-.navbar-spark:last-child {
-  border-right: 1px solid $gray;
+.navbar-spark {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 70px;
+  margin-left: 25px;
 }
 
 .navbar-tab {

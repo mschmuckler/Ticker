@@ -9,7 +9,7 @@ export default (state = {}, action) => {
     case RECEIVE_CURRENT_USER:
       return merge({}, state, { auth: null });
     case RECEIVE_ERRORS:
-      return merge({}, state, { [action.errorType]: action.errors.responseJSON });
+      return { [action.errorType]: action.errors.responseJSON };
     default:
       return state;
   }

@@ -24,12 +24,16 @@ class Navbar extends React.Component {
       return (
         <div id="nav-and-tape" >
           <nav id="navbar" >
-            <img id="navbar-logo" src={ window.staticImages.moneyOrangeIcon } />
+            <h1>ticker▲</h1>
 
             <NavbarIndices
               fetchIntraday={ this.props.fetchIntraday }
               stocks={ this.props.stocks }
             />
+
+            <section id="navbar-search" >
+              <span id="search" ></span>
+            </section>
 
             <div id="navbar-auth-btns" >
               <p id="navbar-user-avatar" >{ `Hello, ${ this.props.currentUser.username }` }</p>
@@ -43,12 +47,16 @@ class Navbar extends React.Component {
       return (
         <div id="nav-and-tape" >
           <nav id="navbar" >
-            <img id="navbar-logo" src={ window.staticImages.moneyOrangeIcon } />
+            <h1>ticker▲</h1>
 
-              <NavbarIndices
-                fetchIntraday={ this.props.fetchIntraday }
-                stocks={ this.props.stocks }
-              />
+            <NavbarIndices
+              fetchIntraday={ this.props.fetchIntraday }
+              stocks={ this.props.stocks }
+            />
+
+            <section id="navbar-search" >
+              <span id="search" ></span>
+            </section>
 
             <div id="navbar-auth-btns" >
               <Link to="/login" ><button className="navbar-tab" >Login</button></Link>
