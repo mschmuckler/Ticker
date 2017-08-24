@@ -17,21 +17,52 @@
 }
 
 #portfolio-table {
-  border-spacing: 15px;
+  border-spacing: 0;
+
+  tr {
+    border-bottom: 1px solid $gray;
+
+    &:hover {
+      background-color: $lightest-gray;
+    }
+  }
 
   td, th {
-    border: 1px solid $light-gray;
-    margin: auto;
+    border-bottom: 1px solid $light-gray;
+    text-align: center;
+  }
+
+  th {
+    border-bottom: 2px solid $light-gray;
+    color: $gray;
+  }
+
+  .cell {
+    padding: 15px
   }
 
   .symbol-cell, .symbol-header {
-    padding-right: 150px;
+    padding-right: 100px;
+    font-weight: bolder;
   }
 
-  .change-cell, .change-header {
+  .changepercent-cell, .changepercent-header {
     padding-right: 100px;
   }
 }
+
+.delete-icon {
+  width: 10px;
+  height: 10px;
+}
+
+.delete-cell {
+  &:hover {
+    cursor: pointer;
+    background: linear-gradient(to bottom right, $lightest-gray, $lightest-gray, #FEBDBD)
+  }
+}
+
 
 .green-text {
   color: $green-change;

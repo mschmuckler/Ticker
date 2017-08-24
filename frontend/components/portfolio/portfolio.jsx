@@ -56,13 +56,14 @@ class Portfolio extends React.Component {
           <table id="portfolio-table" >
             <thead>
               <tr>
-                <th className="symbol-header" >SYMBOL</th>
-                <th className="price-header" >LAST PRICE</th>
-                <th className="change-header" >CHANGE</th>
-                <th className="changepercent-header" >% CHANGE</th>
-                <th className="open-header" >OPEN</th>
-                <th className="volume-header" >VOLUME</th>
-                <th className="prevclose-header" >PREV CLOSE</th>
+                <th className="symbol-header cell" >SYMBOL</th>
+                <th className="price-header cell" >LAST PRICE</th>
+                <th className="change-header cell" >CHANGE</th>
+                <th className="changepercent-header cell" >% CHANGE</th>
+                <th className="open-header cell" >OPEN</th>
+                <th className="volume-header cell" >VOLUME</th>
+                <th className="prevclose-header cell" >PREV CLOSE</th>
+                <th className="delete-header cell" ></th>
               </tr>
             </thead>
             <tbody>
