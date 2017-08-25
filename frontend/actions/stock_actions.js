@@ -79,8 +79,6 @@ export const receiveQuote = (stock) => {
   const ticker = stock.query.results.quote.Symbol;
   const name = stock.query.results.quote.Name;
   const price = stock.query.results.quote.LastTradePriceOnly;
-  let change = stock.query.results.quote.Change;
-  let changeInPercent = stock.query.results.quote.PercentChange;
   const high = stock.query.results.quote.DaysHigh;
   const prevClose = stock.query.results.quote.PreviousClose;
   const low = stock.query.results.quote.DaysLow;
@@ -88,11 +86,8 @@ export const receiveQuote = (stock) => {
   const mktCap = stock.query.results.quote.MarketCapitalization;
   const pe = stock.query.results.quote.PERatio;
   const volume = stock.query.results.quote.Volume;
-
-  if (change[0] === '+') {
-    change = change.slice(1);
-    changeInPercent = changeInPercent.slice(1);
-  }
+  const change = (price - open);
+  const changeInPercent = (change / price) * 100;
 
   return {
     type: RECEIVE_QUOTE,
@@ -101,8 +96,8 @@ export const receiveQuote = (stock) => {
         name,
         ticker,
         price,
-        change,
-        changeInPercent,
+        change: change.toFixed(3),
+        changeInPercent: changeInPercent.toFixed(3) + '%',
         high,
         prevClose,
         low,
