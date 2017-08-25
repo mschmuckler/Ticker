@@ -1,5 +1,4 @@
 import React from 'react';
-import { CSSTransitionGroup } from 'react-transition-group';
 import { Link } from 'react-router-dom';
 
 class PortfolioItem extends React.Component {
@@ -22,7 +21,7 @@ class PortfolioItem extends React.Component {
     return (
         <tr>
           <td className="symbol-cell cell" >
-            <Link to={ `/stock/${this.props.stock.ticker}` } >    
+            <Link to={ `/stock/${this.props.stock.ticker}` } >
               { this.props.stock.ticker }
             </Link>
           </td>
