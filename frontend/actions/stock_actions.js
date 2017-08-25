@@ -116,13 +116,13 @@ export const receiveQuote = (stock) => {
 };
 
 export const receiveFakeQuote = (symbol) => {
-  const price = (Math.random() * 1000);
+  const price = (Math.random() * 500);
   const high = (price + (Math.random() * 10));
   const prevClose = (price + (Math.random() * 10));
   const low = (price - (Math.random() * 10));
-  const open = (price + (Math.round(Math.random()) * 2 - 1) * (Math.random() * 10));
-  const change = (open - price);
-  const changeInPercent = (change / open);
+  const open = (price + ((Math.round(Math.random()) * 2 - 1) * (Math.random() * 5)));
+  const change = (price - open);
+  const changeInPercent = (change / price) * 100;
   const mktCap = (Math.random() * 1000000);
   const pe = (Math.random() * 10);
   const volume = (Math.random() * 100000);
