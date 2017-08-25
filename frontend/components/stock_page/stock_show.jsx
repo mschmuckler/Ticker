@@ -8,13 +8,17 @@ class StockShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchCompany(this.props.match.params.ticker);
+    this.props.fetchCompany(this.props.match.params.ticker).then(() => {
+      this.renderChart();
+    });
     this.props.fetchQuote(this.props.match.params.ticker);
   }
 
   componentWillReceiveProps(newProps) {
     if (newProps.match.params.ticker !== this.props.match.params.ticker) {
-      newProps.fetchCompany(newProps.match.params.ticker);
+      newProps.fetchCompany(newProps.match.params.ticker).then(() => {
+        this.renderChart();
+      });
       newProps.fetchQuote(newProps.match.params.ticker);
     }
   }
@@ -34,6 +38,28 @@ class StockShow extends React.Component {
     }
 
     holdingFxn(holdingData);
+  }
+
+  renderChart() {
+    let fakeChartData = [];
+    let startPoint = 100;
+    for (var i = 0; i < 1500; i++) {
+      fakeChartData.push(startPoint);
+      startPoint += (Math.round(Math.random()) * 2 - 1);
+    }
+
+    $(`#stock-chart`).sparkline(fakeChartData, {
+      width: 553,
+      height: 200,
+      spotColor: '',
+      minSpotColor: false,
+      maxSpotColor: false,
+      lineColor: `#FF7200`,
+      fillColor: `#FEB880`,
+      highlightLineColor: `#FF7200`,
+      highlightSpotColor: `black`,
+      tooltipChartTitle: 'NDAQ',
+    });
   }
 
   render() {
@@ -109,7 +135,7 @@ class StockShow extends React.Component {
             </button>
           </div>
           <div id="chart-and-details" >
-            <div id="stock-chart" ></div>
+            <span id="stock-chart" ></span>
             <div id="stock-details" >
               <div>
                 <p>Market Cap:</p><p>{ mktCap }</p>

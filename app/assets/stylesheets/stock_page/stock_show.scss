@@ -78,7 +78,27 @@
 
 #stock-chart {
   width: 70%;
-  background-color: $light-orange;
+  border: 1px solid $light-gray;
+  padding: 0 -5px 0 -5px;
+  background:
+      linear-gradient(-90deg, rgba(0,0,0,.05) 1px, transparent 1px),
+      linear-gradient(rgba(0,0,0,.05) 1px, transparent 1px),
+      linear-gradient(-90deg, rgba(0, 0, 0, .04) 1px, transparent 1px),
+      linear-gradient(rgba(0,0,0,.04) 1px, transparent 1px),
+      linear-gradient(transparent 3px, white 3px, white 78px, transparent 78px),
+      linear-gradient(-90deg, #aaa 1px, transparent 1px),
+      linear-gradient(-90deg, transparent 3px, white 3px, white 78px, transparent 78px),
+      linear-gradient(#aaa 1px, transparent 1px),
+      white;
+  background-size:
+      40px 40px,
+      40px 40px,
+      80px 80px,
+      80px 80px,
+      80px 80px,
+      80px 80px,
+      80px 80px,
+      80px 80px;
 }
 
 #stock-details {
