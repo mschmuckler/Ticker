@@ -41,6 +41,13 @@ class Portfolio extends React.Component {
 
   render() {
     const portfolioStocks = this.createPortfolioRows();
+    let firstTimeMessage = <div></div>;
+    if (portfolioStocks[0] === undefined) {
+      firstTimeMessage = <div>
+        <p>Add something to your portfolio to get started</p>
+      </div>
+    }
+
     return (
       <main id="portfolio" >
         <table id="portfolio-table" >
@@ -60,6 +67,8 @@ class Portfolio extends React.Component {
             { portfolioStocks }
           </tbody>
         </table>
+
+        { firstTimeMessage }
 
         <PortfolioForm
           companies={ this.props.companies }

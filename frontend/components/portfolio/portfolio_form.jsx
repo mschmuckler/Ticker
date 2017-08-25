@@ -39,6 +39,10 @@ class PortfolioForm extends React.Component {
         <div className="auto-list-name" >{ company.name }</div>
       </li>
     });
+    let dropdownVisibility = "revealed";
+    if (allCompanies[0] === undefined) {
+      dropdownVisibility = "hidden";
+    }
 
     return (
       <div id="portfolio-form" >
@@ -50,7 +54,7 @@ class PortfolioForm extends React.Component {
               placeholder="example: AAPL, JNJ"
               value={ this.state.searchInput }
             />
-            <ul id="autocomplete-list" >{ allCompanies }</ul>
+          <ul id="autocomplete-list" className={ dropdownVisibility } >{ allCompanies }</ul>
           </div>
 
           <button onClick={ this.handleSubmit } type="submit" >

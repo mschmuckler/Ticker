@@ -37,6 +37,8 @@
   width: 250px;
   background-color: $light-gray;
   font-size: 13px;
+  height: 250px;
+  overflow: scroll;
   box-sizing: border-box;
   position: relative;
 
@@ -61,4 +63,8 @@
   align-items: center;
   margin-left: 10px;
   color: $red-error;
+}
+
+.hidden {
+  visibility: hidden;
 }
