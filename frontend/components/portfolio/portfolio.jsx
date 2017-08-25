@@ -43,7 +43,7 @@ class Portfolio extends React.Component {
     const portfolioStocks = this.createPortfolioRows();
     let firstTimeMessage = <div></div>;
     if (portfolioStocks[0] === undefined) {
-      firstTimeMessage = <div>
+      firstTimeMessage = <div className="first-time-message" >
         <p>Add something to your portfolio to get started</p>
       </div>
     }
