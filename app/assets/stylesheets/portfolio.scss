@@ -44,6 +44,14 @@
   }
 }
 
+.symbol-cell {
+  color: $blue-link;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .delete-icon {
   width: 10px;
   height: 10px;
