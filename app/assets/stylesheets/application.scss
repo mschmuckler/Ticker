@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+
+@import "base/colors.scss";
+
+ .green {
+   background: -webkit-linear-gradient(#eee, $green-change, $green-change);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+ }
+
+ .red {
+   background: -webkit-linear-gradient(#eee, $red-change, $red-change);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+ }
+
+ .green-change {
+   color: $green-change;
+ }
+
+ .red-change {
+   color: $red-change;
+ }
+
+ .orange {
+   background: -webkit-linear-gradient(#eee, $orange, $orange);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+ }
+
+ .pointer {
+   font-size: 10px;
+ }

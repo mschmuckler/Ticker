@@ -27,25 +27,3 @@
   display: flex;
   align-items: center;
 }
-
-.green {
-  background: -webkit-linear-gradient(#eee, #01CA1B, #01CA1B);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.red {
-  background: -webkit-linear-gradient(#eee, red, red);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.orange {
-  background: -webkit-linear-gradient(#eee, #E38417, #E38417);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.pointer {
-  font-size: 10px;
-}

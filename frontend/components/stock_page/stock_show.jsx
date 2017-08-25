@@ -57,16 +57,24 @@ class StockShow extends React.Component {
         changeInPercent: self.props.stocks[self.props.match.params.ticker].changeInPercent,
       }
 
+      let changeColor = 'green-change';
+
+      if (change < 0) {
+        changeColor = 'red-change';
+      }
+
       return (
         <section id="stock-show-section" >
           <div id="stock-header" >
             <div id="stock-header-info" >
-              <div>                
+              <div>
                 <h1>{ ticker }</h1>
                 <h1>{ `$${price}` }</h1>
-                <h1>{ `${change} (${changeInPercent})` }</h1>
+                <h1 className={ changeColor } >
+                  { `${change} (${changeInPercent})` }
+                </h1>
               </div>
-              <div>                
+              <div>
                 <h2>{ name.toUpperCase() }</h2>
                 <h2>{ exchange }</h2>
               </div>
