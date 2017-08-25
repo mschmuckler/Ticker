@@ -2,7 +2,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {
   fetchQuote,
+  fetchCompany,
   addHolding,
+  deleteHolding,
 } from '../../actions/stock_actions';
 import StockShow from './stock_show';
 
@@ -15,8 +17,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchQuote: (symbol) => dispatch(fetchQuote(symbol)),
-    deleteHolding: (holdingId) => dispatch(deleteHolding(holdingId)),
+    fetchCompany: (symbol) => dispatch(fetchCompany(symbol)),
     addHolding: (holding) => dispatch(addHolding(holding)),
+    deleteHolding: (holdingId) => dispatch(deleteHolding(holdingId)),
   };
 };
 

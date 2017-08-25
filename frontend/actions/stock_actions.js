@@ -42,7 +42,7 @@ export const fetchCompanies = (searchInput) => dispatch => {
   );
 };
 
-export const fetchCompany = (symbol) => {
+export const fetchCompany = (symbol) => dispatch => {
   return APIUtil.requestCompany(symbol).then(
     (company) => dispatch(receiveCompany(company))
   );
@@ -155,19 +155,19 @@ export const receiveCompanies = (companies) => {
   return {
     type: RECEIVE_COMPANIES,
     companies,
-  }
+  };
 }
 
 export const receiveCompany = (company) => {
   return {
     type: RECEIVE_COMPANY,
     company,
-  }
+  };
 }
 
 export const clearCompanies = () => {
   return {
     type: RECEIVE_COMPANIES,
     companies: [],
-  }
+  };
 }
