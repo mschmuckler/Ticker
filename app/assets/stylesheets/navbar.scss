@@ -75,6 +75,10 @@
   color: $dark-gray;
 }
 
+#navbar-auth-btns {
+  align-self: flex-end;
+}
+
 #navbar-indices {
   display: flex;
   justify-content: space-between;
@@ -126,7 +130,10 @@
 .navbar-tab {
   margin-left: 40px;
   margin-right: 20px;
+  padding: 0 5px 0 5px;
   font-size: 20px;
+  text-shadow: 0 1px 1px rgba(white, 1);
+  background: linear-gradient(to top, $orange, $light-gray, $light-gray);
 }
 
 .navbar-tab:hover {

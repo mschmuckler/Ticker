@@ -17,7 +17,7 @@ class NavbarIndices extends React.Component {
   }
 
   renderSparklines() {
-    $(`#sparkline-amzn`).sparkline(this.props.stocks["NDAQ"].intraday, {
+    $(`#sparkline-NDAQ`).sparkline(this.props.stocks["NDAQ"].intraday, {
       width: 130,
       height: 25,
       spotColor: '',
@@ -28,7 +28,7 @@ class NavbarIndices extends React.Component {
       tooltipChartTitle: 'NDAQ',
     });
 
-    $(`#sparkline-msft`).sparkline(this.props.stocks["DOW"].intraday, {
+    $(`#sparkline-DOW`).sparkline(this.props.stocks["DOW"].intraday, {
       width: 130,
       height: 25,
       spotColor: '',
@@ -39,7 +39,7 @@ class NavbarIndices extends React.Component {
       tooltipChartTitle: 'DOW',
     });
 
-    $(`#sparkline-aapl`).sparkline(this.props.stocks["SPY"].intraday, {
+    $(`#sparkline-SPY`).sparkline(this.props.stocks["SPY"].intraday, {
       width: 130,
       height: 25,
       spotColor: '',
@@ -57,15 +57,15 @@ class NavbarIndices extends React.Component {
       <div id="navbar-indices" >
         <div className="navbar-spark" >
           <p>NDAQ</p>
-          <span id="sparkline-amzn" ></span>
+          <span id="sparkline-NDAQ" ></span>
         </div>
         <div className="navbar-spark" >
           <p>DOW</p>
-          <span id="sparkline-msft" ></span>
+          <span id="sparkline-DOW" ></span>
         </div>
         <div className="navbar-spark" >
           <p>SPY</p>
-          <span id="sparkline-aapl" ></span>
+          <span id="sparkline-SPY" ></span>
         </div>
       </div>
     );
