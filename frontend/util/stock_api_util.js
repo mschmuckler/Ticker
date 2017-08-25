@@ -5,6 +5,7 @@ export const requestQuote = (symbol) => {
   });
 };
 
+
 export const requestIntraday = (symbol) => {
   return $.ajax({
     method: "GET",
@@ -32,5 +33,12 @@ export const requestCompanies = (searchInput) => {
     method: "GET",
     url: `/api/companies`,
     data: { searchInput },
+  });
+};
+
+export const requestCompany = (symbol) => {
+  return $.ajax({
+    method: "GET",
+    url: `/api/companies/${symbol}`
   });
 };

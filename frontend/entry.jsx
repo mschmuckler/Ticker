@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store';
 import Root from './components/root';
 
-import { fetchCompanies } from './actions/stock_actions';
+import { fetchCompany } from './actions/stock_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore(preloadedState);
   }
 
-  window.fetchCompanies = fetchCompanies;
+  window.fetchCompany = fetchCompany;
   window.dispatch = store.dispatch
 
   const root = document.getElementById("root");
