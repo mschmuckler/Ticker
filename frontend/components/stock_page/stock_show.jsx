@@ -77,8 +77,6 @@ class StockShow extends React.Component {
               <div>
                 <h2>{ name.toUpperCase() }</h2>
                 <h2>{ exchange }</h2>
-                <h2>{ sector }</h2>
-                <h2>{ industry }</h2>
               </div>
             </div>
             <button>Add to Portfolio</button>
