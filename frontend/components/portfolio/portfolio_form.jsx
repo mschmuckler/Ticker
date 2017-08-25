@@ -11,8 +11,9 @@ class PortfolioForm extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({ searchInput: e.target.value.toUpperCase() });
-    this.props.fetchCompanies(this.state.searchInput);
+    const searchInput = e.target.value.toUpperCase();
+    this.setState({ searchInput });
+    this.props.fetchCompanies(searchInput);
   }
 
   handleSubmit(e) {
