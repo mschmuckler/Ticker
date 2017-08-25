@@ -24,22 +24,6 @@
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-
-  button {
-    width: 170px;
-    height: 40px;
-    border-radius: 5px;
-    background-color: $orange;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
-    align-self: center;
-
-    &:hover {
-      background-color: $mid-orange;
-    }
-  }
 }
 
 #stock-header-info {
@@ -76,6 +60,21 @@
   justify-content: space-between;
 }
 
+#stock-details {
+  width: 30%;
+  padding-left: 10px;
+  color: $dark-gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
 #stock-chart {
   width: 70%;
   border: 1px solid $light-gray;
@@ -101,17 +100,31 @@
       80px 80px;
 }
 
-#stock-details {
-  width: 30%;
-  padding-left: 10px;
-  color: $dark-gray;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.stock-add-btn {
+  width: 170px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: $orange;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  align-self: center;
 
-  div {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+  &:hover {
+    background-color: $mid-orange;
   }
+}
+
+.stock-remove-btn {
+  width: 170px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: $lightest-gray;
+  border: 1px solid $gray;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: $gray;
+  align-self: center;
 }

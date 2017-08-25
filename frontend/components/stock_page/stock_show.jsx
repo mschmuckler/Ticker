@@ -37,6 +37,7 @@ class StockShow extends React.Component {
       });
     }
 
+
     holdingFxn(holdingData);
   }
 
@@ -108,9 +109,11 @@ class StockShow extends React.Component {
       }
 
       let formButtonText = "Add to Portfolio";
+      let formButtonStyle = "stock-add-btn";
       Object.values(this.props.holdings).forEach(holding => {
         if (this.props.match.params.ticker === holding.ticker) {
-          formButtonText = "Remove from Portfolio"
+          formButtonText = "Remove from Portfolio";
+          formButtonStyle = "stock-remove-btn";
         }
       });
 
@@ -130,8 +133,10 @@ class StockShow extends React.Component {
                 <h2>{ exchange }</h2>
               </div>
             </div>
-            <button onClick={ this.handleMoveHolding } >
-              { formButtonText }
+            <button
+              onClick={ this.handleMoveHolding }
+              className={ formButtonStyle } >
+                { formButtonText }
             </button>
           </div>
           <div id="chart-and-details" >

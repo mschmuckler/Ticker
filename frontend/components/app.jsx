@@ -10,6 +10,7 @@ const App = (props) => {
   return (
     <div id="app" >
       <NavbarContainer />
+      <div id="navbar-filler" ></div>
 
       <ProtectedRoute exact path="/portfolio" component={ PortfolioContainer } />
       <ProtectedRoute exact path="/stock/:ticker" component={ StockPage } />

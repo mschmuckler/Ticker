@@ -1,6 +1,11 @@
 @import "base/colors.scss";
 
+#navbar-filler {
+  height: 118px;
+}
+
 #nav-and-tape {
+  position: fixed;
   display: flex;
   flex-direction: column;
 }

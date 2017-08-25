@@ -26,7 +26,9 @@ class Navbar extends React.Component {
         <div id="nav-and-tape" >
           <nav id="navbar" >
             <section id="logo-and-indices">
-              <h1>ticker▲</h1>
+              <Link to="/portfolio" >    
+                <h1>ticker▲</h1>
+              </Link>
 
               <NavbarIndices
                 fetchIntraday={ this.props.fetchIntraday }
