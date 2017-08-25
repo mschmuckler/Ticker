@@ -19,34 +19,40 @@ class NavbarIndices extends React.Component {
   renderSparklines() {
     $(`#sparkline-NDAQ`).sparkline(this.props.stocks["NDAQ"].intraday, {
       width: 130,
-      height: 25,
+      height: 35,
       spotColor: '',
-      minSpotColor: '',
-      maxSpotColor: '',
-      lineColor: `green`,
-      fillColor: `lightgreen`,
+      minSpotColor: `#FF7200`,
+      maxSpotColor: `#FF7200`,
+      lineColor: `#404040`,
+      fillColor: false,
+      highlightLineColor: `#FF7200`,
+      highlightSpotColor: `black`,
       tooltipChartTitle: 'NDAQ',
     });
 
     $(`#sparkline-DOW`).sparkline(this.props.stocks["DOW"].intraday, {
       width: 130,
-      height: 25,
+      height: 35,
       spotColor: '',
-      minSpotColor: '',
-      maxSpotColor: '',
-      lineColor: `green`,
-      fillColor: `lightgreen`,
+      minSpotColor: `#FF7200`,
+      maxSpotColor: `#FF7200`,
+      lineColor: `#404040`,
+      fillColor: false,
+      highlightLineColor: `#FF7200`,
+      highlightSpotColor: `black`,
       tooltipChartTitle: 'DOW',
     });
 
     $(`#sparkline-SPY`).sparkline(this.props.stocks["SPY"].intraday, {
       width: 130,
-      height: 25,
+      height: 35,
       spotColor: '',
-      minSpotColor: '',
-      maxSpotColor: '',
-      lineColor: `green`,
-      fillColor: `lightgreen`,
+      minSpotColor: `#FF7200`,
+      maxSpotColor: `#FF7200`,
+      lineColor: `#404040`,
+      fillColor: false,
+      highlightLineColor: `#FF7200`,
+      highlightSpotColor: `black`,
       tooltipChartTitle: 'SPY',
     });
   }

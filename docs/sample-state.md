@@ -50,6 +50,21 @@
         daily_intervals: [73.44, 73.45, 73.44, 73.44...]
       }
     }
+
+    companies: [
+      0: {
+        ticker: "XOM",
+        name: "Exxon Mobile"
+      },
+      1: {
+        ticker: "EDIT",
+        name: "Editas"
+      },
+      2: {
+        ticker: "NTLA",
+        name: "Intellia Therapeutics"
+      }
+    ]
   }
 
   ui: {

@@ -85,6 +85,7 @@
 
   div {
     height: 60px;
+    padding-bottom: 3px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -132,7 +133,7 @@
   margin-right: 20px;
   padding: 0 5px 0 5px;
   font-size: 20px;
-  text-shadow: 0 1px 1px rgba(white, 1);
+  // text-shadow: 0 1px 1px rgba(white, 1);
   background: linear-gradient(to top, $orange, $light-gray, $light-gray);
 }
 

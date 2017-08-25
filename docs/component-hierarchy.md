@@ -7,6 +7,7 @@
   * Navbar
     - NavbarSearch
     - NavbarIndices
+    - NavbarTickerTape
 
 **PortfolioAsideContainer**
   * PortfolioAside
