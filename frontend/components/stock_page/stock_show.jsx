@@ -77,6 +77,8 @@ class StockShow extends React.Component {
               <div>
                 <h2>{ name.toUpperCase() }</h2>
                 <h2>{ exchange }</h2>
+                <h2>{ sector }</h2>
+                <h2>{ industry }</h2>
               </div>
             </div>
             <button>Add to Portfolio</button>
@@ -84,12 +86,27 @@ class StockShow extends React.Component {
           <div id="chart-and-details" >
             <div id="stock-chart" ></div>
             <div id="stock-details" >
-              <p>Sector: { sector }</p>
-              <p>Industry: { industry }</p>
-              <p>Market Cap: { mktCap }</p>
-              <p>Prev Close: { prevClose }</p>
-              <p>PE (ttm): { pe }</p>
-              <p>Volume: { volume }</p>
+              <div>
+                <p>Market Cap:</p><p>{ mktCap }</p>
+              </div>
+              <div>
+                <p>Prev Close:</p><p>{ prevClose }</p>
+              </div>
+              <div>
+                <p>PE (ttm):</p><p>{ pe }</p>
+              </div>
+              <div>
+                <p>Open:</p><p>{ open }</p>
+              </div>
+              <div>
+                <p>High:</p><p>{ high }</p>
+              </div>
+              <div>
+                <p>Low:</p><p>{ low }</p>
+              </div>
+              <div>
+                <p>Volume:</p><p>{ volume }</p>
+              </div>
             </div>
           </div>
         </section>
