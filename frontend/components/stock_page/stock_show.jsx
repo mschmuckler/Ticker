@@ -3,6 +3,8 @@ import React from 'react'
 class StockShow extends React.Component {
   constructor(props) {
     super(props);
+
+    this.handleMoveHolding = this.handleMoveHolding.bind(this);
   }
 
   componentDidMount() {
@@ -15,6 +17,23 @@ class StockShow extends React.Component {
       newProps.fetchCompany(newProps.match.params.ticker);
       newProps.fetchQuote(newProps.match.params.ticker);
     }
+  }
+
+  handleMoveHolding(e) {
+    e.preventDefault();
+
+    let holdingFxn = this.props.addHolding
+    let holdingData = { holding: { ticker: this.props.match.params.ticker } };
+    if (e.target.innerText === "Remove from Portfolio") {
+      holdingFxn = this.props.deleteHolding;
+      Object.values(this.props.holdings).forEach(holding => {
+        if (this.props.match.params.ticker === holding.ticker) {
+          holdingData = holding.id
+        }
+      });
+    }
+
+    holdingFxn(holdingData);
   }
 
   render() {
@@ -57,11 +76,17 @@ class StockShow extends React.Component {
         changeInPercent: self.props.stocks[self.props.match.params.ticker].changeInPercent,
       }
 
-      let changeColor = 'green-change';
-
+      let changeColor = "green-change";
       if (change < 0) {
-        changeColor = 'red-change';
+        changeColor = "red-change";
       }
+
+      let formButtonText = "Add to Portfolio";
+      Object.values(this.props.holdings).forEach(holding => {
+        if (this.props.match.params.ticker === holding.ticker) {
+          formButtonText = "Remove from Portfolio"
+        }
+      });
 
       return (
         <section id="stock-show-section" >
@@ -79,7 +104,9 @@ class StockShow extends React.Component {
                 <h2>{ exchange }</h2>
               </div>
             </div>
-            <button>Add to Portfolio</button>
+            <button onClick={ this.handleMoveHolding } >
+              { formButtonText }
+            </button>
           </div>
           <div id="chart-and-details" >
             <div id="stock-chart" ></div>
@@ -114,21 +141,3 @@ class StockShow extends React.Component {
 }
 
 export default StockShow
-
-// {
-//   new TradingView.widget({
-//     "width": 980,
-//     "height": 610,
-//     "symbol": `AAPL`,
-//     "interval": "D",
-//     "timezone": "Etc/UTC",
-//     "theme": "Light",
-//     "style": "1",
-//     "locale": "en",
-//     "toolbar_bg": "#f1f3f6",
-//     "enable_publishing": false,
-//     "hide_top_toolbar": true,
-//     "save_image": false,
-//     "hideideas": true
-//   })
-// }

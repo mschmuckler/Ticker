@@ -11,6 +11,7 @@ import StockShow from './stock_show';
 const mapStateToProps = (state) => {
   return {
     stocks: state.entities.stocks,
+    holdings: state.session.holdings,
   };
 };
 
