@@ -59,14 +59,30 @@ class StockShow extends React.Component {
 
       return (
         <section id="stock-show-section" >
-          <div id="stock-header-info" >
-            <h1>{ ticker }</h1>
-            <h1>{ `$${price}` }</h1>
-            <h1>{ `${change} (${changeInPercent})` }</h1>
-            <h2>{ name.toUpperCase() }</h2>
-            <h2>{ exchange }</h2>
-            <h2>{ sector }</h2>
-            <h2>{ industry }</h2>
+          <div id="stock-header" >
+            <div id="stock-header-info" >
+              <div>                
+                <h1>{ ticker }</h1>
+                <h1>{ `$${price}` }</h1>
+                <h1>{ `${change} (${changeInPercent})` }</h1>
+              </div>
+              <div>                
+                <h2>{ name.toUpperCase() }</h2>
+                <h2>{ exchange }</h2>
+              </div>
+            </div>
+            <button>Add to Portfolio</button>
+          </div>
+          <div id="chart-and-details" >
+            <div id="stock-chart" ></div>
+            <div id="stock-details" >
+              <p>Sector: { sector }</p>
+              <p>Industry: { industry }</p>
+              <p>Market Cap: { mktCap }</p>
+              <p>Prev Close: { prevClose }</p>
+              <p>PE (ttm): { pe }</p>
+              <p>Volume: { volume }</p>
+            </div>
           </div>
         </section>
       );
@@ -75,3 +91,21 @@ class StockShow extends React.Component {
 }
 
 export default StockShow
+
+// {
+//   new TradingView.widget({
+//     "width": 980,
+//     "height": 610,
+//     "symbol": `AAPL`,
+//     "interval": "D",
+//     "timezone": "Etc/UTC",
+//     "theme": "Light",
+//     "style": "1",
+//     "locale": "en",
+//     "toolbar_bg": "#f1f3f6",
+//     "enable_publishing": false,
+//     "hide_top_toolbar": true,
+//     "save_image": false,
+//     "hideideas": true
+//   })
+// }

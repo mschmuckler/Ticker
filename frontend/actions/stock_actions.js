@@ -126,7 +126,7 @@ export const receiveFakeQuote = (symbol) => {
   const open = (price + ((Math.round(Math.random()) * 2 - 1) * (Math.random() * 5)));
   const change = (price - open);
   const changeInPercent = (change / price) * 100;
-  const mktCap = (Math.random() * 1000000);
+  const mktCap = (Math.random() * 100000000);
   const pe = (Math.random() * 10);
   const volume = (Math.random() * 100000);
 
@@ -142,7 +142,7 @@ export const receiveFakeQuote = (symbol) => {
       open: open.toFixed(2),
       mktCap: mktCap.toFixed(2),
       pe: pe.toFixed(2),
-      volume: volume.toFixed(2),
+      volume: volume.toFixed(1),
     }
   }
   return {
