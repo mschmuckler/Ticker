@@ -1,6 +1,7 @@
 import React from 'react';
 import PortfolioAsideItem from './portfolio_aside_item';
 import AsideForm from './aside_form';
+import { orderBy } from 'lodash';
 
 class PortfolioAside extends React.Component {
   constructor(props) {
@@ -19,7 +20,8 @@ class PortfolioAside extends React.Component {
     if (this.props.holdings === undefined) {
       return;
     } else {
-      return Object.values(this.props.holdings).map(holding => {
+      const sortedHoldings = orderBy(Object.values(this.props.holdings), ['ticker'], ['asc']);
+      return sortedHoldings.map(holding => {
         if (this.props.stocks[holding.ticker] === undefined) {
           return;
         } else {
