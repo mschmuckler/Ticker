@@ -18,11 +18,13 @@ class PortfolioForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const searchInput = this.state.searchInput;
     this.props.addHolding({
       holding: {
-        ticker: this.state.searchInput ,
+        ticker: searchInput ,
       },
-    }).then(() => this.props.fetchQuote(this.state.searchInput));
+    }).then(() => this.props.fetchQuote(searchInput));
+    this.setState({ searchInput: "" });
   }
 
   handleAutoComplete(e) {

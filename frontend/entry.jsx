@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import configureStore from './store';
 import Root from './components/root';
 
-import { fetchCompany } from './actions/stock_actions';
-
 document.addEventListener("DOMContentLoaded", () => {
   let store;
   if (window.currentUser) {
@@ -18,9 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const preloadedState = { session: { holdings: {} } };
     store = configureStore(preloadedState);
   }
-
-  window.fetchCompany = fetchCompany;
-  window.dispatch = store.dispatch
 
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={ store } />, root);

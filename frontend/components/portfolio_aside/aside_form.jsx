@@ -24,6 +24,7 @@ class PortfolioForm extends React.Component {
       },
     }).then(() => this.props.fetchQuote(ticker));
     this.props.clearCompanies();
+    this.setState({ searchInput: "" })
   }
 
   render() {
