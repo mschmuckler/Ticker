@@ -12,12 +12,8 @@
   width: 100%;
   border-spacing: 0;
 
-  tr {
-    border-bottom: 1px solid $gray;
-
-    &:hover {
-      background-color: $lightest-gray;
-    }
+  tr:hover {
+    background-color: $lightest-gray;
   }
 
   td, th {

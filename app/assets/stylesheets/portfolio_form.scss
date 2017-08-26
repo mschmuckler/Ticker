@@ -38,9 +38,10 @@
   background-color: $light-gray;
   font-size: 13px;
   max-height: 250px;
+  z-index: 999;
   overflow: auto;
   box-sizing: border-box;
-  position: relative;
+  position: fixed;
 
   li {
     padding: 10px;

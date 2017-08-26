@@ -1,5 +1,6 @@
 import React from 'react';
 import PortfolioAsideItem from './portfolio_aside_item';
+import AsideForm from './aside_form';
 
 class PortfolioAside extends React.Component {
   constructor(props) {
@@ -40,8 +41,17 @@ class PortfolioAside extends React.Component {
 
     return (
       <aside id="portfolio-aside" >
-        <table>
-          { portfolioStocks }
+        <AsideForm
+          companies={ this.props.companies }
+          addHolding={ this.props.addHolding }
+          fetchQuote={ this.props.fetchQuote }
+          fetchCompanies={ this.props.fetchCompanies }
+          clearCompanies={ this.props.clearCompanies }
+        />
+        <table id="aside-table" >
+          <tbody>
+            { portfolioStocks }
+          </tbody>
         </table>
       </aside>
     );

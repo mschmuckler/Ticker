@@ -13,14 +13,13 @@ const App = (props) => {
       <NavbarContainer />
       <div id="navbar-filler" ></div>
 
-      <main>      
-        <PortfolioAsideContainer />
-        <div id="aside-filler" ></div>
+      <main>
 
         <ProtectedRoute exact path="/portfolio" component={ PortfolioContainer } />
-        <ProtectedRoute exact path="/stock/:ticker" component={ StockPage } />
         <AuthRoute exact path="/signup" component={ AuthFormContainer } />
         <AuthRoute exact path="/login" component={ AuthFormContainer } />
+        <ProtectedRoute exact path="/stock/:ticker" component={ PortfolioAsideContainer } />
+        <ProtectedRoute exact path="/stock/:ticker" component={ StockPage } />
       </main>
     </div>
   );

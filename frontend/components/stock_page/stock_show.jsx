@@ -50,7 +50,7 @@ class StockShow extends React.Component {
     }
 
     $(`#stock-chart`).sparkline(fakeChartData, {
-      width: 553,
+      width: 484,
       height: 200,
       spotColor: '',
       minSpotColor: false,

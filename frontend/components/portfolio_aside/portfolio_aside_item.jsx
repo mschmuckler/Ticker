@@ -8,7 +8,7 @@ const PortfolioAsideItem = (props) => {
   }
 
   return (
-    <tr>
+    <tr className="aside-row" >
       <td>
         <Link to={ `/stock/${props.stock.ticker}` } >
           { props.stock.ticker }
