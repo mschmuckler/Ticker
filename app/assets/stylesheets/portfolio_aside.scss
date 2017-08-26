@@ -5,19 +5,91 @@
 }
 
 #portfolio-aside {
-  border: 1px solid black;
   width: 230px;
-  padding: 30px;
+  padding: 10px 0 0 20px;
+  border-spacing: 0;
   position: fixed;
 
   table {
+    color: $darkest-gray;
     width: 100%;
     font-size: 13px;
-    border-spacing: 15px;
 
+    tr {
+      padding: 5px 0 5px 0;
+      border-bottom: 1px solid $light-gray;
+      display: flex;
+      justify-content: space-between;
+
+      td {
+        width: 45px;
+      }
+
+      &:first-child {
+        padding-top: 10px;
+      }
+    }
   }
 }
 
-.aside-row {
-  border-bottom: 1px solid black;
+.aside-change {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.aside-ticker:hover {
+  text-decoration: underline;
+}
+
+#aside-input {
+  width: 150px;
+  height: 25px;
+  border: 1px solid $light-gray;
+  border-radius: 5px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+
+  input {
+    width: 120px;
+    padding-left: 5px;
+  }
+}
+
+#aside-plus-box {
+  width: 25px;
+  height: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 60%;
+    height: 60%;
+  }
+}
+
+#aside-autocomplete-list {
+  width: 250px;
+  background-color: $light-gray;
+  font-size: 13px;
+  max-height: 250px;
+  z-index: 999;
+  overflow: auto;
+  box-sizing: border-box;
+  position: absolute;
+
+  li {
+    padding: 10px;
+    border: 1px solid $gray;
+
+    .auto-list-ticker {
+      font-weight: bolder;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: #BBFEC2;
+    }
+  }
 }

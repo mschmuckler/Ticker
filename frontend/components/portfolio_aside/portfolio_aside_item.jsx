@@ -9,14 +9,14 @@ const PortfolioAsideItem = (props) => {
 
   return (
     <tr className="aside-row" >
-      <td>
+      <td className="aside-ticker" >
         <Link to={ `/stock/${props.stock.ticker}` } >
           { props.stock.ticker }
         </Link>
       </td>
-      <td>{ props.stock.price }</td>
-      <td className={ changeColor } >{ parseFloat(props.stock.change).toFixed(2) }</td>
-      <td className={ changeColor } >{ parseFloat(props.stock.changeInPercent).toFixed(2) + '%' }</td>
+      <td>{ '$' + props.stock.price }</td>
+      <td className={ changeColor + " aside-change" } >{ parseFloat(props.stock.change).toFixed(2) }</td>
+      <td className={ changeColor + " aside-change" } >{ parseFloat(props.stock.changeInPercent).toFixed(2) + '%' }</td>
     </tr>
   );
 };

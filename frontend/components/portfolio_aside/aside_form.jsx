@@ -48,11 +48,12 @@ class PortfolioForm extends React.Component {
             <input
               onChange={ this.handleChange }
               type="text"
-              placeholder="example: AAPL, JNJ"
+              placeholder="Add symbol..."
               value={ this.state.searchInput }
             />
-          <ul id="autocomplete-list" className={ dropdownVisibility } >{ allCompanies }</ul>
+            <div id="aside-plus-box" ><img src={ window.staticImages.plusIcon } /></div>
           </div>
+          <ul id="aside-autocomplete-list" className={ dropdownVisibility } >{ allCompanies }</ul>
         </form>
       </div>
     );
