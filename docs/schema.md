@@ -13,6 +13,7 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 title       | string    | not null
+summary     | text      | array, default: []
 body        | text      | not null
 user_id   | integer   | not null, foreign key (references users), indexed
 ticker_tag | string   | not null

@@ -24,6 +24,7 @@
       7: {
         id: 7,
         title: "Greed is Good",
+        summary: ["Jeff is forward looking", "Amazon is expanding at a record rate"],
         body: "Buy lorem, sell ipsum.",
         ticker_tag: "AMZN",
         user_id: 1,
@@ -31,6 +32,7 @@
       8: {
         id: 8,
         title: "Ripe for a Short Squeeze",
+        summary: ["The data king is faltering", "Anti-SEO techniques are poking serious holes"],
         body: "Even the deepest pockets have holes.",
         ticker_tag: "GOOGL",
         user_id: 4,

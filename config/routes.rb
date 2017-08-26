@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resources :holdings, only: [:create, :destroy]
     resources :companies, only: [:index, :show]
+    resources :articles, only: [:index, :show, :create]
   end
 end
