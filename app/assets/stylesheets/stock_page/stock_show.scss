@@ -9,7 +9,7 @@
 
 #stock-show-section {
   width: 700px;
-  height: 400px;
+  height: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,6 +38,7 @@
 
   h1 {
     padding-right: 30px;
+
   }
 
   h2 {
@@ -63,7 +64,7 @@
 #stock-details {
   width: 30%;
   padding-left: 10px;
-  color: $dark-gray;
+  color: $darkest-gray;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

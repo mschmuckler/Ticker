@@ -117,6 +117,9 @@ class StockShow extends React.Component {
         }
       });
 
+      let roundedChange = parseFloat(change).toFixed(2);
+      let roundedChangeInPercent = parseFloat(changeInPercent).toFixed(2) + '%';
+
       return (
         <section id="stock-show-section" >
           <div id="stock-header" >
@@ -125,7 +128,7 @@ class StockShow extends React.Component {
                 <h1>{ ticker }</h1>
                 <h1>{ `$${price}` }</h1>
                 <h1 className={ changeColor } >
-                  { `${change} (${changeInPercent})` }
+                  { `${roundedChange} (${roundedChangeInPercent})` }
                 </h1>
               </div>
               <div>

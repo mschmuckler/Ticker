@@ -1,6 +1,6 @@
 class Api::ArticlesController < ApplicationController
   def index
-    @articles = Article.where('ticker_tag = ?', params[:ticker])
+    @articles = Article.includes(:user).where('ticker_tag = ?', params[:ticker])
     render :index
   end
 

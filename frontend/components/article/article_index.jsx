@@ -1,4 +1,5 @@
 import React from 'react';
+import ArticleIndexItem from './article_index_item';
 
 class ArticleIndex extends React.Component {
   constructor(props) {
@@ -17,11 +18,7 @@ class ArticleIndex extends React.Component {
 
   render() {
     const allArticles = Object.values(this.props.articles).map((article, idx) => {
-      return <li key={ idx } >
-        <p>{article.title}</p>
-        <p>{article.summary}</p>
-        <p>{article.body}</p>
-      </li>
+      return <ArticleIndexItem key={ idx } article={ article } />;
     });
 
     return (

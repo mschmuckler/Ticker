@@ -5,6 +5,7 @@
     json.summary article.summary
     json.body article.body
     json.ticker_tag article.ticker_tag
-    json.user_id article.user_id
+    json.author article.user.username
+    json.time_ago time_ago_in_words(article.created_at)
   end
 end
