@@ -5,3 +5,10 @@ export const requestArticles = (ticker) => {
     data: { ticker },
   });
 };
+
+export const requestArticle = (articleId) => {
+  return $.ajax({
+    method: "GET",
+    url: `/api/articles/${articleId}`,
+  });
+};

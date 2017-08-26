@@ -8,7 +8,6 @@
 
 .article-index-item {
   height: 50px;
-  border: 1px solid black;
   margin-bottom: 15px;
   display: flex;
 }
@@ -36,17 +35,22 @@
   width: 4px;
   height: 4px;
   background-color: $gray;
-  border-radius: 30px;
+  border-radius: 100%;
   margin-right: 5px;
 }
 
 .article-item-img {
-  height: 100%;
-  width: 50px;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
   background-color: $gray;
 }
 
 .article-item-title {
   color: $dark-gray;
   font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

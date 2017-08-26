@@ -1,5 +1,5 @@
 import { merge } from 'lodash';
-import { RECEIVE_ARTICLES } from '../actions/article_actions';
+import { RECEIVE_ARTICLES, RECEIVE_ARTICLE } from '../actions/article_actions';
 
 export default (state = {}, action) => {
   Object.freeze(state);
@@ -7,6 +7,8 @@ export default (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_ARTICLES:
       return action.articles;
+    case RECEIVE_ARTICLE:
+      return merge({}, state, action.article);
     default:
       return state;
   }
