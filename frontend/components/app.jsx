@@ -5,6 +5,7 @@ import AuthFormContainer from './auth/auth_form_container';
 import NavbarContainer from './navbar/navbar_container';
 import PortfolioContainer from './portfolio/portfolio_container';
 import StockPage from './stock_page/stock_page';
+import PortfolioAsideContainer from './portfolio_aside/portfolio_aside_container';
 
 const App = (props) => {
   return (
@@ -12,10 +13,15 @@ const App = (props) => {
       <NavbarContainer />
       <div id="navbar-filler" ></div>
 
-      <ProtectedRoute exact path="/portfolio" component={ PortfolioContainer } />
-      <ProtectedRoute exact path="/stock/:ticker" component={ StockPage } />
-      <AuthRoute exact path="/signup" component={ AuthFormContainer } />
-      <AuthRoute exact path="/login" component={ AuthFormContainer } />
+      <main>      
+        <PortfolioAsideContainer />
+        <div id="aside-filler" ></div>
+
+        <ProtectedRoute exact path="/portfolio" component={ PortfolioContainer } />
+        <ProtectedRoute exact path="/stock/:ticker" component={ StockPage } />
+        <AuthRoute exact path="/signup" component={ AuthFormContainer } />
+        <AuthRoute exact path="/login" component={ AuthFormContainer } />
+      </main>
     </div>
   );
 };

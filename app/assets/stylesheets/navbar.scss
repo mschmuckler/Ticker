@@ -2,12 +2,14 @@
 
 #navbar-filler {
   height: 118px;
+  width: 100%;
 }
 
 #nav-and-tape {
   position: fixed;
   display: flex;
   flex-direction: column;
+  min-width: 1125px;
 }
 
 #navbar {
