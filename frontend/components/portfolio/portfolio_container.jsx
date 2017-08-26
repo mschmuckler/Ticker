@@ -6,6 +6,7 @@ import {
   fetchCompanies,
   clearCompanies,
 } from '../../actions/stock_actions';
+import { clearError } from '../../actions/error_actions';
 import Portfolio from './portfolio';
 
 const mapStateToProps = (state) => {
@@ -24,6 +25,7 @@ const mapDispatchToProps = (dispatch) => {
     addHolding: (holding) => dispatch(addHolding(holding)),
     fetchCompanies: (searchInput) => dispatch(fetchCompanies(searchInput)),
     clearCompanies: () => dispatch(clearCompanies()),
+    clearError: (errorType) => dispatch(clearError(errorType)),
   };
 };
 

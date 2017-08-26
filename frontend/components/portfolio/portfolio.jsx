@@ -38,6 +38,7 @@ class Portfolio extends React.Component {
 
   componentDidMount() {
     this.fetchPortfolioQuotes();
+    this.props.clearError("addStock");
   }
 
   render() {
