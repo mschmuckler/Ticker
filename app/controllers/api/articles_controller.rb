@@ -18,7 +18,7 @@ class Api::ArticlesController < ApplicationController
       if @article.save
         render :show
       else
-        @errors = @holding.errors.full_messages
+        @errors = @article.errors.full_messages
         render json: @errors, status: 400
       end
     else

@@ -28,7 +28,7 @@ class ArticleIndex extends React.Component {
           <p>
             It looks like there are no articles for this stock. Have some thoughts to share?
           </p>
-          <Link to="/article/new" >
+          <Link to={ `/article/new/${this.props.ticker}` } >
             <span>Write about { this.props.ticker }</span>
           </Link>
         </div>

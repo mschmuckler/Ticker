@@ -5,7 +5,7 @@ class ArticleForm extends React.Component {
     super(props);
     this.state = {
       title: "",
-      tickerTag: "",
+      tickerTag: this.props.match.params.ticker,
       body: "",
       summary1: "",
       summary2: "",
@@ -38,14 +38,45 @@ class ArticleForm extends React.Component {
     return (
       <div id="article-form" >
         <form>
-          <input onChange={ this.handleChange("title") } type="text" placeholder="Add Title" />
-          <input onChange={ this.handleChange("tickerTag") } type="text" placeholder="Enter ticker here" />
+          <input
+            onChange={ this.handleChange("title") }
+            className="article-form-title-input"
+            type="text"
+            placeholder="Add Title"
+          />
+          <input
+            onChange={ this.handleChange("tickerTag") }
+            className="article-form-ticker-input"
+            type="text"
+            value={ this.state.tickerTag }
+            placeholder="Enter ticker here"
+          />
+
           <p>Summary</p>
-          <input onChange={ this.handleChange("summary1") } type="text" placeholder="Enter summary here" />
-          <input onChange={ this.handleChange("summary2") } type="text" />
-          <input onChange={ this.handleChange("summary3") } type="text" />
-          <textarea onChange={ this.handleChange("body") } placeholder="Article text goes here..."></textarea>
-          <button onClick={ this.handleSubmit } >Submit Article</button>
+          <div>
+            <span className="summary-bullet" />
+            <input
+              onChange={ this.handleChange("summary1") }
+              className="article-form-summary-input"
+              type="text"
+              placeholder="Enter summary here"
+            />
+          </div>
+          <div>
+            <span className="summary-bullet" />
+            <input onChange={ this.handleChange("summary2") } type="text" className="article-form-summary-input" />
+          </div>
+          <div>
+            <span className="summary-bullet" />
+            <input onChange={ this.handleChange("summary3") } type="text" className="article-form-summary-input" />
+          </div>
+
+          <textarea
+            onChange={ this.handleChange("body") }
+            className="article-form-body-input"
+            placeholder="Article text goes here"
+          ></textarea>
+        <button onClick={ this.handleSubmit } id="article-form-submit" >Submit Article</button>
         </form>
       </div>
     );

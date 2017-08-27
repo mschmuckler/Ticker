@@ -24,8 +24,8 @@ const App = (props) => {
         <ProtectedRoute exact path="/stock/:ticker" component={ StockPage } />
         <ProtectedRoute exact path="/articles/:articleId" component={ PortfolioAsideContainer } />
         <ProtectedRoute exact path="/articles/:articleId" component={ ArticleShowContainer } />
-        <ProtectedRoute exact path="/article/new" component={ PortfolioAsideContainer } />
-        <ProtectedRoute exact path="/article/new" component={ ArticleFormContainer } />
+        <ProtectedRoute exact path="/article/new/:ticker" component={ PortfolioAsideContainer } />
+        <ProtectedRoute exact path="/article/new/:ticker" component={ ArticleFormContainer } />
       </main>
     </div>
   );

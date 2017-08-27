@@ -7,5 +7,85 @@
   form {
     display: flex;
     flex-direction: column;
+
+    p {
+      padding: 20px 0 23px 0;
+      border-top: 1px solid $light-gray;
+      color: $dark-gray;
+      font-weight: bold;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+  }
+}
+
+#article-form-submit {
+  width: 150px;
+  height: 40px;
+  margin-top: 15px;
+  border-radius: 5px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: $orange;
+  text-align: center;
+  align-self: center;
+
+  &:hover {
+    background-color: $mid-orange;
+  }
+}
+
+.article-form-title-input {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 25px;
+
+  &::placeholder {
+    color: $lighter-gray;
+  }
+}
+
+.article-form-ticker-input {
+  width: 120px;
+  height: 30px;
+  padding-left: 10px;
+  border: 1px solid $lighter-gray;
+  border-radius: 5px;
+  margin-bottom: 25px;
+
+  &::placeholder {
+    color: $lighter-gray;
+  }
+}
+
+.article-form-summary-input {
+  font-size: 16px;
+
+  &::placeholder {
+    color: $lighter-gray;
+  }
+}
+
+.summary-bullet {
+  width: 5px;
+  height: 5px;
+  background-color: $dark-gray;
+  border-radius: 100%;
+  margin: 0 10px 0 25px;
+  display: flex;
+  align-items: center;
+}
+
+.article-form-body-input {
+  font-size: 16px;
+  height: 300px;
+
+  &::placeholder {
+    color: $lighter-gray;
   }
 }

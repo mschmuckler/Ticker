@@ -31,6 +31,10 @@
   font-size: 15px;
   color: white;
   text-align: center;
+
+  &:hover {
+    background-color: $mid-orange;
+  }
 }
 
 #autocomplete-list {
