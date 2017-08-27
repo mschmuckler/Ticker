@@ -24,17 +24,31 @@ class ArticleForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+
+    const summaryArray = [];
+    if (this.state.summary1 !== "") {
+      summaryArray.push(this.state.summary1);
+    }
+    if (this.state.summary2 !== "") {
+      summaryArray.push(this.state.summary2);
+    }
+    if (this.state.summary3 !== "") {
+      summaryArray.push(this.state.summary3);
+    }
+
     this.props.createArticle(
       {
         title: this.state.title,
         ticker_tag: this.state.tickerTag,
         body: this.state.body,
-        summary: [this.state.summary1, this.state.summary2, this.state.summary3],
+        summary: summaryArray,
       }
     );
   }
 
   render() {
+
+
     return (
       <div id="article-form" >
         <form>
