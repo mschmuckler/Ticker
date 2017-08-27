@@ -1,5 +1,5 @@
 import React from 'react';
-import { isEmpty, orderBy } from 'lodash';
+import { orderBy } from 'lodash';
 import PortfolioItem from './portfolio_item';
 import PortfolioForm from './portfolio_form';
 
