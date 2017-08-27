@@ -10,5 +10,25 @@ class Api::ArticlesController < ApplicationController
   end
 
   def create
+    @article = Article.new(article_params)
+    @article.user_id = current_user.id
+    @ticker_exists = Company.find_by(ticker: @article.ticker_tag)
+
+    if @ticker_exists
+      if @article.save
+        render :show
+      else
+        @errors = @holding.errors.full_messages
+        render json: @errors, status: 400
+      end
+    else
+      render json: ["No such company exists"], status: 404
+    end
+  end
+
+  private
+
+  def article_params
+    params.require(:article).permit(:title, :body, :ticker_tag, summary: [])
   end
 end

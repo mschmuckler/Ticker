@@ -1,0 +1,11 @@
+@import "base/colors.scss";
+
+#article-form {
+  width: 700px;
+  margin: 30px auto 0 auto;
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}

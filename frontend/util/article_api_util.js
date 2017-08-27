@@ -12,3 +12,11 @@ export const requestArticle = (articleId) => {
     url: `/api/articles/${articleId}`,
   });
 };
+
+export const requestCreateArticle = (article) => {
+  return $.ajax({
+    method: "POST",
+    url: `/api/articles`,
+    data: { article },
+  });
+};
