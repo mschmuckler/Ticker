@@ -44,14 +44,15 @@ class ArticleShow extends React.Component {
               <h1>{ title }</h1>
               <div>
                 <p>{ timeAgo + ' ago' }</p>
-                <p>About:
+                <p>{ 'About: ' }
                   <Link to={ `/stock/${tickerTag}` } >
-                    <span id="about-ticker-link" >{ ` ${tickerTag}` }</span>
+                    <span id="about-ticker-link" >{ tickerTag }</span>
                   </Link>
                 </p>
               </div>
             </div>
             <div id="article-show-author-box" >
+              <div id="article-show-author-img" ></div>
               <p>{ author }</p>
             </div>
           </header>

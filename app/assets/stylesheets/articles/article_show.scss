@@ -1,18 +1,59 @@
+@import "base/colors.scss";
+
 #article-show {
   width: 700px;
-  margin: 0 auto 0 auto;
+  margin: 30px auto 0 auto;
 }
 
 #article-show-header {
-  border: 1px solid black;
   width: 100%;
-  height: 240px;
+
+  h1 {
+    font-size: 35px;
+  }
 }
 
 #article-show-title-box {
+  padding-bottom: 20px;
+  border-bottom: 1px solid $light-gray;
+
   div {
+    color: $gray;
+    padding-top: 15px;
     display: flex;
+
+    p {
+      font-size: 13px;
+    }
+
+    p:first-child {
+      padding-right: 10px;
+      border-right: 1px solid $gray;
+    }
+
+    p:last-child {
+      padding-left: 10px;
+    }
   }
+}
+
+#article-show-author-box {
+  padding: 15px 0 15px 0;
+  border-bottom: 1px solid $light-gray;
+  display: flex;
+  align-items: center;
+
+  p {
+    font-weight: bold;
+  }
+}
+
+#article-show-author-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  margin-right: 10px;
+  background-color: $light-orange;
 }
 
 #about-ticker-link:hover {
@@ -20,6 +61,19 @@
 }
 
 #article-show-body {
-  border: 1px solid black;
   width: 100%;
+  margin-top: 15px;
+
+  h2 {
+    font-size: 18px;
+  }
+
+  ul {
+    padding: 15px 0 25px 50px;
+    list-style: disc;
+
+    li {
+      padding: 10px;
+    }
+  }
 }
