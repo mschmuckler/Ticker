@@ -64,7 +64,7 @@ class ArticleForm extends React.Component {
     let tickerTagError = "";
     let titleErrorStyle = "none";
     let summaryErrorStyle = "none";
-    let bodyErrorStyle = "none";
+    let bodyError = "";
     if (this.props.errors) {
       this.props.errors.forEach(error => {
         if (error === "Title can't be blank") {
@@ -74,7 +74,7 @@ class ArticleForm extends React.Component {
           summaryErrorStyle = "input-error";
         }
         if (error === "Body can't be blank") {
-          bodyErrorStyle = "input-error";
+          bodyError = "Did you forget to write something?";
         }
         if (error === "No such company exists") {
           tickerTagError = "No such company exists";
@@ -122,11 +122,13 @@ class ArticleForm extends React.Component {
           </div>
           <ReactQuill
             onChange={ this.handleQuill }
-            value={ this.state.body }
             theme="snow"
+            value={ this.state.body }
+            placeholder="Article text goes here"
           />
 
-        <button onClick={ this.handleSubmit } id="article-form-submit" >Submit Article</button>
+          <button onClick={ this.handleSubmit } id="article-form-submit" >Submit Article</button>
+          <span className="red-error article-form-error" >{ bodyError }</span>
         </form>
       </div>
     );

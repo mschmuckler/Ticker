@@ -59,7 +59,7 @@ class ArticleShow extends React.Component {
           </header>
           <section id="article-show-body" >
             <h2>Summary</h2>
-            <ul>{ summaries }</ul>
+            <ul id="article-show-summary" >{ summaries }</ul>
             <p>
               { renderHTML(body) }
             </p>

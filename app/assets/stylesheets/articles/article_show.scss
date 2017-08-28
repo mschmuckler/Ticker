@@ -64,16 +64,41 @@
   width: 100%;
   margin-top: 15px;
 
-  h2 {
-    font-size: 18px;
-  }
-
-  ul {
-    padding: 15px 0 25px 50px;
+  #article-show-summary {
+    padding: 15px 0 15px 30px;
     list-style: disc;
 
     li {
       padding: 10px;
+    }
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  ul {
+    list-style: circle;
+    margin: 0 0 20px 25px;
+  }
+
+  a {
+    color: blue;
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
