@@ -89,3 +89,10 @@
     color: $lighter-gray;
   }
 }
+
+.input-error {
+  &::placeholder {
+    transition: color 1s;
+    color: $red-error;
+  }
+}

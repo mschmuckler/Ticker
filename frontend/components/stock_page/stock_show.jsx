@@ -59,7 +59,7 @@ class StockShow extends React.Component {
       fillColor: `#FEB880`,
       highlightLineColor: `#FF7200`,
       highlightSpotColor: `black`,
-      tooltipChartTitle: 'NDAQ',
+      tooltipChartTitle: this.props.match.params.ticker,
     });
   }
 

@@ -16,6 +16,10 @@ class ArticleForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearError("addArticle");
+  }
+
   handleChange(type) {
     return (e) => {
       this.setState({ [type]: e.target.value });
@@ -43,18 +47,37 @@ class ArticleForm extends React.Component {
         body: this.state.body,
         summary: summaryArray,
       }
+    ).then(
+      () => {
+        this.props.history.push(`/stocks/${this.state.tickerTag}`);
+      }
     );
   }
 
   render() {
-
+    let titleErrorStyle = "none";
+    let summaryErrorStyle = "none";
+    let bodyErrorStyle = "none";
+    if (this.props.errors) {
+      this.props.errors.forEach(error => {
+        if (error === "Title can't be blank") {
+          titleErrorStyle = "input-error";
+        }
+        if (error === "Summary can't be blank") {
+          summaryErrorStyle = "input-error";
+        }
+        if (error === "Body can't be blank") {
+          bodyErrorStyle = "input-error";
+        }
+      });
+    }
 
     return (
       <div id="article-form" >
         <form>
           <input
             onChange={ this.handleChange("title") }
-            className="article-form-title-input"
+            className={ titleErrorStyle + " article-form-title-input" }
             type="text"
             placeholder="Add Title"
           />
@@ -71,7 +94,7 @@ class ArticleForm extends React.Component {
             <span className="summary-bullet" />
             <input
               onChange={ this.handleChange("summary1") }
-              className="article-form-summary-input"
+              className={ summaryErrorStyle + " article-form-summary-input" }
               type="text"
               placeholder="Enter summary here"
             />
@@ -87,7 +110,7 @@ class ArticleForm extends React.Component {
 
           <textarea
             onChange={ this.handleChange("body") }
-            className="article-form-body-input"
+            className={ bodyErrorStyle + " article-form-body-input" }
             placeholder="Article text goes here"
           ></textarea>
         <button onClick={ this.handleSubmit } id="article-form-submit" >Submit Article</button>
