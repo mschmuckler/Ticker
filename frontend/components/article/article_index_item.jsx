@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 const ArticleIndexItem = (props) => {
   return (
     <li className="article-index-item" >
-      <div className="article-item-img" ></div>
+      <div className="article-item-img" >
+        <img src={ props.article.authorAvatar } />
+      </div>
       <div className="article-item-info" >
         <Link to={ `/articles/${props.article.id}` } >
           <p className="article-item-title" >{ props.article.title }</p>

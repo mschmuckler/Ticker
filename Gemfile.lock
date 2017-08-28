@@ -43,6 +43,9 @@ GEM
     bindex (0.5.0)
     builder (3.2.3)
     byebug (9.1.0)
+    climate_control (0.2.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -81,6 +84,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mimemagic (0.3.2)
     mini_portile2 (2.2.0)
     minitest (5.10.3)
     multi_json (1.12.1)
@@ -88,6 +92,12 @@ GEM
     nio4r (2.1.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
+    paperclip (5.0.0.beta1)
+      activemodel (>= 4.2.0)
+      activesupport (>= 4.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (~> 0.3.0)
     pg (0.21.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -184,6 +194,7 @@ DEPENDENCIES
   jquery-rails
   json
   listen (~> 3.0.5)
+  paperclip (= 5.0.0.beta1)
   pg (~> 0.18)
   pry-rails
   puma (~> 3.0)
