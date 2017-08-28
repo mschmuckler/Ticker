@@ -5,9 +5,6 @@
   margin: 30px auto 0 auto;
 
   form {
-    // display: flex;
-    // flex-direction: column;
-
     p {
       padding: 20px 0 23px 0;
       border-top: 1px solid $light-gray;
@@ -16,12 +13,6 @@
     }
 
   }
-}
-
-.summary-point {
-  display: flex;
-  align-items: center;
-  margin-bottom: 25px;
 }
 
 #article-form-submit {
@@ -73,15 +64,21 @@
   padding-left: 10px;
   border: 1px solid $lighter-gray;
   border-radius: 5px;
-  // margin-bottom: 25px;
 
   &::placeholder {
     color: $lighter-gray;
   }
 }
 
+.summary-point {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
 .article-form-summary-input {
   font-size: 16px;
+  width: 100%;
 
   &::placeholder {
     color: $lighter-gray;

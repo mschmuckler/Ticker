@@ -4,9 +4,15 @@ import ReactQuill from 'react-quill';
 class ArticleForm extends React.Component {
   constructor(props) {
     super(props);
+
+    let tickerTag = this.props.match.params.ticker;
+    if (this.props.match.params.ticker === "default") {
+      tickerTag = "";
+    }
+    
     this.state = {
       title: "",
-      tickerTag: this.props.match.params.ticker,
+      tickerTag,
       body: "",
       summary1: "",
       summary2: "",
@@ -55,7 +61,7 @@ class ArticleForm extends React.Component {
       }
     ).then(
       () => {
-        this.props.history.push(`/stocks/${this.state.tickerTag}`);
+        this.props.history.push(`/stock/${this.state.tickerTag}`);
       }
     );
   }

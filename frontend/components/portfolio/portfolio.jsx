@@ -1,5 +1,6 @@
 import React from 'react';
 import { orderBy } from 'lodash';
+import { Link } from 'react-router-dom';
 import PortfolioItem from './portfolio_item';
 import PortfolioForm from './portfolio_form';
 
@@ -72,14 +73,19 @@ class Portfolio extends React.Component {
 
         { firstTimeMessage }
 
-        <PortfolioForm
-          companies={ this.props.companies }
-          addHolding={ this.props.addHolding }
-          fetchQuote={ this.props.fetchQuote }
-          fetchCompanies={ this.props.fetchCompanies }
-          clearCompanies={ this.props.clearCompanies }
-          errors={ this.props.errors }
-        />
+        <div id="portfolio-form-and-link" >
+          <PortfolioForm
+            companies={ this.props.companies }
+            addHolding={ this.props.addHolding }
+            fetchQuote={ this.props.fetchQuote }
+            fetchCompanies={ this.props.fetchCompanies }
+            clearCompanies={ this.props.clearCompanies }
+            errors={ this.props.errors }
+          />
+        <Link to="/article/new/default" >
+          <button id="new-article-link" >Write an Article</button>
+        </Link>
+        </div>
       </main>
     );
   }
