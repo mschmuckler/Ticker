@@ -43,7 +43,7 @@ class AuthForm extends React.Component {
   }
 
   onDrop(acceptedFiles, rejectedFiles) {
-    const file = acceptedFiles.currentTarget.files[0];
+    const file = acceptedFiles[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
       this.setState({ imageFile: file, imageUrl: fileReader.result });
@@ -109,7 +109,11 @@ class AuthForm extends React.Component {
             </label>
 
             <label className={ imageUploadVisibility }>
+              <span className="auth-icon-box" >
+                <img src={ window.staticImages.authCameraIcon } className="auth-icon" />
+              </span>
               <Dropzone onDrop={ this.onDrop } className="image-drop" ></Dropzone>
+              <img className="image-preview" src={ this.state.imageUrl } />
             </label>
 
             <input onClick={ this.handleSubmit }

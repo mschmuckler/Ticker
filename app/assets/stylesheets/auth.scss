@@ -95,6 +95,16 @@
 
 .image-drop {
   background-color: white;
-  width: 365px;
+  width: 70px;
   height: 50px;
+  margin-bottom: 25px;
+}
+
+.image-preview {
+  width: 40px;
+  height: 40px;
+  margin-top: 5px;
+  border-radius: 100%;
+  position: relative;
+  right: 50px;
 }
