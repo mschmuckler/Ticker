@@ -16,7 +16,6 @@ const App = (props) => {
       <div id="navbar-filler" ></div>
 
       <main>
-
         <ProtectedRoute exact path="/portfolio" component={ PortfolioContainer } />
         <AuthRoute exact path="/signup" component={ AuthFormContainer } />
         <AuthRoute exact path="/login" component={ AuthFormContainer } />

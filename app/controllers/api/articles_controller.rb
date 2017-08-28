@@ -1,6 +1,9 @@
 class Api::ArticlesController < ApplicationController
   def index
-    @articles = Article.includes(:user).where('ticker_tag = ?', params[:ticker])
+    @articles = Article
+      .includes(:user)
+      .where('ticker_tag = ?', params[:ticker])
+      .order('created_at desc')
     render :index
   end
 
