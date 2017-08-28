@@ -37,7 +37,9 @@ class AuthForm extends React.Component {
       let formData = new FormData();
       formData.append("user[username]", this.state.username);
       formData.append("user[password]", this.state.password);
-      formData.append("user[avatar]", this.state.imageFile);
+      if (this.state.imageFile !== null) {        
+        formData.append("user[avatar]", this.state.imageFile);
+      }
       this.props.processForm(formData)
     }
   }
@@ -108,7 +110,7 @@ class AuthForm extends React.Component {
               />
             </label>
 
-            <label className={ imageUploadVisibility }>
+            <label className={ `image-upload-label ${imageUploadVisibility}` }>
               <span className="auth-icon-box" >
                 <img src={ window.staticImages.authCameraIcon } className="auth-icon" />
               </span>
