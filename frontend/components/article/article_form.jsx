@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactQuill from 'react-quill';
 
 class ArticleForm extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class ArticleForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleQuill = this.handleQuill.bind(this);
   }
 
   componentWillUnmount() {
@@ -24,6 +26,10 @@ class ArticleForm extends React.Component {
     return (e) => {
       this.setState({ [type]: e.target.value });
     };
+  }
+
+  handleQuill(value) {
+    this.setState({ body: value })
   }
 
   handleSubmit(e) {
@@ -85,7 +91,7 @@ class ArticleForm extends React.Component {
             type="text"
             placeholder="Add Title"
           />
-        <div id="ticker-input-and-error" >
+          <div id="ticker-input-and-error" >
             <input
               onChange={ this.handleChange("tickerTag") }
               className="article-form-ticker-input"
@@ -93,11 +99,11 @@ class ArticleForm extends React.Component {
               value={ this.state.tickerTag }
               placeholder="Enter ticker here"
             />
-          <span>{ tickerTagError }</span>
+            <span>{ tickerTagError }</span>
           </div>
 
           <p>Summary</p>
-          <div>
+          <div className="summary-point" >
             <span className="summary-bullet" />
             <input
               onChange={ this.handleChange("summary1") }
@@ -106,20 +112,20 @@ class ArticleForm extends React.Component {
               placeholder="Enter summary here"
             />
           </div>
-          <div>
+          <div className="summary-point" >
             <span className="summary-bullet" />
             <input onChange={ this.handleChange("summary2") } type="text" className="article-form-summary-input" />
           </div>
-          <div>
+          <div className="summary-point" >
             <span className="summary-bullet" />
             <input onChange={ this.handleChange("summary3") } type="text" className="article-form-summary-input" />
           </div>
+          <ReactQuill
+            onChange={ this.handleQuill }
+            value={ this.state.body }
+            theme="snow"
+          />
 
-          <textarea
-            onChange={ this.handleChange("body") }
-            className={ bodyErrorStyle + " article-form-body-input" }
-            placeholder="Article text goes here"
-          ></textarea>
         <button onClick={ this.handleSubmit } id="article-form-submit" >Submit Article</button>
         </form>
       </div>
@@ -128,3 +134,9 @@ class ArticleForm extends React.Component {
 }
 
 export default ArticleForm;
+
+// <textarea
+//   onChange={ this.handleChange("body") }
+//   className={ bodyErrorStyle + " article-form-body-input" }
+//   placeholder="Article text goes here"
+// ></textarea>

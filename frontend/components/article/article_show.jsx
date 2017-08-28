@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import renderHTML from 'react-render-html';
 
 class ArticleShow extends React.Component {
   constructor(props) {
@@ -59,7 +60,9 @@ class ArticleShow extends React.Component {
           <section id="article-show-body" >
             <h2>Summary</h2>
             <ul>{ summaries }</ul>
-            <p>{ body }</p>
+            <p>
+              { renderHTML(body) }
+            </p>
           </section>
         </article>
       );

@@ -5,8 +5,8 @@
   margin: 30px auto 0 auto;
 
   form {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
 
     p {
       padding: 20px 0 23px 0;
@@ -15,12 +15,13 @@
       font-weight: bold;
     }
 
-    div {
-      display: flex;
-      align-items: center;
-      margin-bottom: 25px;
-    }
   }
+}
+
+.summary-point {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
 }
 
 #article-form-submit {
@@ -43,7 +44,7 @@
 #ticker-input-and-error {
   display: flex;
   height: 30px;
-  margin-top: 10px;
+  margin: 10px 0 25px 0;
 
   span {
     height: 32px;
