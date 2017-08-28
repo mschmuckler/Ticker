@@ -40,6 +40,22 @@
   }
 }
 
+#ticker-input-and-error {
+  display: flex;
+  height: 30px;
+  margin-top: 10px;
+
+  span {
+    height: 32px;
+    padding-left: 5px;
+    font-size: 13px;
+    color: $red-error;
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+  }
+}
+
 .article-form-title-input {
   font-size: 35px;
   font-weight: bold;
@@ -56,7 +72,7 @@
   padding-left: 10px;
   border: 1px solid $lighter-gray;
   border-radius: 5px;
-  margin-bottom: 25px;
+  // margin-bottom: 25px;
 
   &::placeholder {
     color: $lighter-gray;

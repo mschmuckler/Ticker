@@ -55,6 +55,7 @@ class ArticleForm extends React.Component {
   }
 
   render() {
+    let tickerTagError = "";
     let titleErrorStyle = "none";
     let summaryErrorStyle = "none";
     let bodyErrorStyle = "none";
@@ -69,6 +70,9 @@ class ArticleForm extends React.Component {
         if (error === "Body can't be blank") {
           bodyErrorStyle = "input-error";
         }
+        if (error === "No such company exists") {
+          tickerTagError = "No such company exists";
+        }
       });
     }
 
@@ -81,13 +85,16 @@ class ArticleForm extends React.Component {
             type="text"
             placeholder="Add Title"
           />
-          <input
-            onChange={ this.handleChange("tickerTag") }
-            className="article-form-ticker-input"
-            type="text"
-            value={ this.state.tickerTag }
-            placeholder="Enter ticker here"
-          />
+        <div id="ticker-input-and-error" >
+            <input
+              onChange={ this.handleChange("tickerTag") }
+              className="article-form-ticker-input"
+              type="text"
+              value={ this.state.tickerTag }
+              placeholder="Enter ticker here"
+            />
+          <span>{ tickerTagError }</span>
+          </div>
 
           <p>Summary</p>
           <div>
