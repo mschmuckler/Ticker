@@ -1,5 +1,5 @@
 import React from 'react';
-import FontAwesome from 'react-fontawesome';
+import Dropzone from 'react-dropzone';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -7,11 +7,14 @@ class AuthForm extends React.Component {
     this.state = {
       username: "",
       password: "",
+      imageFile: null,
+      imageUrl: null
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.guestLogin = this.guestLogin.bind(this);
+    this.onDrop = this.onDrop.bind(this);
   }
 
   handleChange(type) {
@@ -22,13 +25,33 @@ class AuthForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user)
+    if (this.props.location.pathname === '/login') {
+      const user = Object.assign({}, this.state);
+      this.props.processForm(user)
       .then(
         () => {
           this.props.history.push('/portfolio');
         }
       );
+    } else {
+      let formData = new FormData();
+      formData.append("user[username]", this.state.username);
+      formData.append("user[password]", this.state.password);
+      formData.append("user[avatar]", this.state.imageFile);
+      this.props.processForm(formData)
+    }
+  }
+
+  onDrop(acceptedFiles, rejectedFiles) {
+    const file = acceptedFiles.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ imageFile: file, imageUrl: fileReader.result });
+    };
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
 
   guestLogin(e) {
@@ -51,6 +74,11 @@ class AuthForm extends React.Component {
       return <li key={ idx } >{ error }</li>
     });
 
+    let imageUploadVisibility = "hidden";
+    if (this.props.location.pathname === '/signup') {
+      imageUploadVisibility = "visible";
+    }
+
     return (
       <div id="auth-comp" >
 
@@ -67,7 +95,6 @@ class AuthForm extends React.Component {
                 type="text"
               />
             </label>
-            <br />
 
             <label>
               <span className="auth-icon-box" >
@@ -80,7 +107,10 @@ class AuthForm extends React.Component {
                 type="password"
               />
             </label>
-            <br />
+
+            <label className={ imageUploadVisibility }>
+              <Dropzone onDrop={ this.onDrop } className="image-drop" ></Dropzone>
+            </label>
 
             <input onClick={ this.handleSubmit }
               type="submit"

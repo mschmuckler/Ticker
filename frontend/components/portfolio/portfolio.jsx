@@ -82,9 +82,9 @@ class Portfolio extends React.Component {
             clearCompanies={ this.props.clearCompanies }
             errors={ this.props.errors }
           />
-        <Link to="/article/new/default" >
-          <button id="new-article-link" >Write an Article</button>
-        </Link>
+          <Link to="/article/new/default" >
+            <button id="new-article-link" >Write an Article</button>
+          </Link>
         </div>
       </main>
     );

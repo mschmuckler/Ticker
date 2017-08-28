@@ -11,7 +11,7 @@
 }
 
 #auth-form {
-  height: 300px;
+  height: 350px;
   width: 450px;
   margin-top: 150px;
   display: flex;
@@ -79,7 +79,6 @@
   }
 }
 
-
 .auth-icon-box {
   width: 50px;
   height: 50px;
@@ -92,4 +91,10 @@
 .auth-icon {
   width: 50%;
   height: 50%;
+}
+
+.image-drop {
+  background-color: white;
+  width: 365px;
+  height: 50px;
 }

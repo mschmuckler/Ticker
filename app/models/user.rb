@@ -1,12 +1,10 @@
 class User < ApplicationRecord
-  include Paperclip::Glue
-
   validates :username, :password_digest, :session_token, presence: true
   validates :username, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
   after_initialize :ensure_session_token
 
-  has_attached_file :avatar, default_url: "default-avatar.jpg"
+  has_attached_file :avatar, default_url: "default-avatar2.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   attr_reader :password
