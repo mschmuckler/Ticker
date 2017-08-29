@@ -3,22 +3,6 @@
 ```js
 {
   entities: {
-    users: {
-      1: {
-        id: 1,
-        username: "gordonGekko",
-        tickers: ["TSLA", "EDIT", "JNJ"],
-        avatar_url: "amazon.api/f8ds9few3"
-        article_ids: [4, 7, 19, 20]
-      }
-      4: {
-        id: 4,
-        username: "axelrod",
-        tickers: ["AAPL", "NTLA", "GILD"],
-        avatar_url: "amazon.api/gf83j00gr"
-        article_ids: [2, 3, 8]
-      }
-    }
 
     articles: {
       7: {
@@ -53,6 +37,10 @@
       }
     }
 
+  }
+
+  search: {
+    
     companies: [
       0: {
         ticker: "XOM",
@@ -67,6 +55,15 @@
         name: "Intellia Therapeutics"
       }
     ]
+
+    articleIds: [
+      23,
+      98,
+      124,
+      156
+    ]
+
+    searchType: "nav"
   }
 
   errors: {

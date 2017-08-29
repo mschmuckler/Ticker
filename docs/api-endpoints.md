@@ -23,12 +23,15 @@
 
 - `GET /api/articles`
   - Accepts `ticker_tag` query param
+- `GET /api/nav/articlesearch`
+  - Accepts `searchInput` query param
 - `GET /api/articles/:id`
 - `POST /api/articles`
 
 ### Companies
 
 - `GET /api/companies`
+  - Accepts `searchInput` query param
 - `GET /api/companies/:ticker`
 
 ### Holdings
