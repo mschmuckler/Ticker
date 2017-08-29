@@ -15,9 +15,13 @@ class NavbarSearch extends React.Component {
 
   handleSearch(e) {
     e.preventDefault();
-    this.props.fetchCompanies(this.state.searchInput, "nav");
-    this.props.searchArticles(this.state.searchInput);
-    this.props.history.push(`/search`);
+    if (this.state.searchInput === "") {
+      return;
+    } else {      
+      this.props.fetchCompanies(this.state.searchInput, "nav");
+      this.props.searchArticles(this.state.searchInput);
+      this.props.history.push(`/search`);
+    }
   }
 
   render() {

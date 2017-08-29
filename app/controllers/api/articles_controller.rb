@@ -13,10 +13,12 @@ class Api::ArticlesController < ApplicationController
     @articles = Article
       .includes(:user)
       .joins("INNER JOIN companies ON companies.ticker = articles.ticker_tag")
+      .joins("INNER JOIN users ON users.id = articles.user_id")
       .where("title ILIKE :searchInput
               OR ticker_tag ILIKE :searchInput
-              OR name ILIKE :searchInput",
-        {searchInput: search_param})
+              OR name ILIKE :suffixSearch
+              OR username ILIKE :searchInput",
+        {searchInput: search_param, suffixSearch: '%' + search_param})
 
     render :index
   end

@@ -1,20 +1,25 @@
 @import "base/colors.scss";
 
 #search-landing {
-  width: 55%;
+  width: 50%;
   margin: 30px auto 0 auto;
   display: flex;
+
+  h2 {
+    margin-bottom: 25px;
+  }
 }
 
 #search-article-section {
-  padding-right: 30px;
+  width: 50%;
+  padding-left: 35px;
   display: table;
   clear: both;
 }
 
 #search-company-section {
-  padding-left: 35px;
-  border-left: 1px solid $light-gray;
+  width: 50%;
+  padding-right: 30px;
   display: table;
   clear: both;
 }
@@ -26,10 +31,18 @@
   .search-company-item-ticker {
     color: $dark-gray;
     font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .search-company-item-name {
     color: $gray;
     font-size: 12px;
   }
+}
+
+.search-no-match {
+  color: $dark-orange;
 }
