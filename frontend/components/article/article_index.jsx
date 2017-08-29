@@ -19,8 +19,14 @@ class ArticleIndex extends React.Component {
   }
 
   render() {
-    const allArticles = Object.values(this.props.articles).map((article, idx) => {
-      return <ArticleIndexItem key={ idx } article={ article } />;
+    let allArticles = Object.values(this.props.articles).map((article, idx) => {
+      if (article.tickerTag === this.props.ticker) {
+        return <ArticleIndexItem key={ idx } article={ article } />;
+      }
+    });
+
+    allArticles = allArticles.filter(article => {
+      return article !== undefined;
     });
 
     if (isEmpty(allArticles)) {

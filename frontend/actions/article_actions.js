@@ -27,6 +27,7 @@ export const receiveArticles = (articles) => {
   return {
     type: RECEIVE_ARTICLES,
     articles,
+    articleIds: articles.articleIds,
   };
 };
 

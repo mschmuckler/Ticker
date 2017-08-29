@@ -8,6 +8,7 @@ import PortfolioContainer from './portfolio/portfolio_container';
 import StockPage from './stock_page/stock_page';
 import ArticleShowContainer from './article/article_show_container';
 import ArticleFormContainer from './article/article_form_container';
+import SearchLandingContainer from './search_landing/search_landing_container';
 
 const App = (props) => {
   return (
@@ -25,6 +26,8 @@ const App = (props) => {
         <ProtectedRoute exact path="/articles/:articleId" component={ ArticleShowContainer } />
         <ProtectedRoute exact path="/article/new/:ticker" component={ PortfolioAsideContainer } />
         <ProtectedRoute exact path="/article/new/:ticker" component={ ArticleFormContainer } />
+        <ProtectedRoute exact path="/search" component={ PortfolioAsideContainer } />
+        <ProtectedRoute exact path="/search" component={ SearchLandingContainer } />
       </main>
     </div>
   );

@@ -37,7 +37,11 @@ class Navbar extends React.Component {
             </section>
 
             <section id="search-and-btns" >
-              <NavbarSearch />
+              <NavbarSearch
+                history={ this.props.history }
+                fetchCompanies={ this.props.fetchCompanies }
+                searchArticles={ this.props.searchArticles }
+              />
 
               <div id="navbar-auth-btns" >
                 <button onClick={ this.handleLogout } className="navbar-tab" >Logout</button>
@@ -62,7 +66,11 @@ class Navbar extends React.Component {
           </section>
 
             <section id="search-and-btns" >
-              <NavbarSearch />
+              <NavbarSearch
+                history={ this.props.history }
+                fetchCompanies={ this.props.fetchCompanies }
+                searchArticles={ this.props.searchArticles }
+              />
 
               <div id="navbar-auth-btns" >
                 <Link to="/login" ><button className="navbar-tab" >Login</button></Link>

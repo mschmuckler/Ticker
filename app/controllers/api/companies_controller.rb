@@ -1,6 +1,6 @@
 class Api::CompaniesController < ApplicationController
   def index
-    search_param = params[:searchInput] == '' ? '' : "#{params[:searchInput]}%"
+    search_param = params[:searchInput] == '' ? '' : "#{params[:searchInput].upcase}%"
 
     @companies = Company
       .where("ticker LIKE :searchInput OR name LIKE :searchInput",
