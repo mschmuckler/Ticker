@@ -13,7 +13,7 @@ class PortfolioForm extends React.Component {
   handleChange(e) {
     const searchInput = e.target.value.toUpperCase();
     this.setState({ searchInput });
-    this.props.fetchCompanies(searchInput);
+    this.props.fetchCompanies(searchInput, "portfolio");
   }
 
   handleSubmit(e) {
@@ -43,7 +43,7 @@ class PortfolioForm extends React.Component {
       </li>
     });
     let dropdownVisibility = "revealed";
-    if (allCompanies[0] === undefined) {
+    if (allCompanies[0] === undefined || this.props.searchType !== "portfolio") {
       dropdownVisibility = "hidden";
     }
 

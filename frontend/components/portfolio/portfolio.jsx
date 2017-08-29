@@ -80,6 +80,7 @@ class Portfolio extends React.Component {
         <div id="portfolio-form-and-link" >
           <PortfolioForm
             companies={ this.props.companies }
+            searchType={ this.props.searchType }
             addHolding={ this.props.addHolding }
             fetchQuote={ this.props.fetchQuote }
             fetchCompanies={ this.props.fetchCompanies }

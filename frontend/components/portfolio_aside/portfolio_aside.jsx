@@ -48,6 +48,7 @@ class PortfolioAside extends React.Component {
       <aside id="portfolio-aside" >
         <AsideForm
           companies={ this.props.companies }
+          searchType={ this.props.searchType }
           addHolding={ this.props.addHolding }
           fetchQuote={ this.props.fetchQuote }
           fetchCompanies={ this.props.fetchCompanies }

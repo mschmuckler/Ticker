@@ -1,9 +1,10 @@
 import * as APIUtil from '../util/stock_api_util';
 
 export const RECEIVE_COMPANIES = 'RECEIVE_COMPANIES';
+export const SWITCH_SEARCH = 'SWITCH_SEARCH';
 
 export const fetchCompanies = (searchInput, searchType) => dispatch => {
-  // sync action changing search bar in search slice
+  dispatch(switchSearch(searchType));
   return APIUtil.requestCompanies(searchInput).then(
     (companies) => dispatch(receiveCompanies(companies))
   );
@@ -23,8 +24,9 @@ export const clearCompanies = () => {
   };
 }
 
-export const switchSearch = () => {
+export const switchSearch = (searchType) => {
   return {
-
-  }
-}
+    type: SWITCH_SEARCH,
+    searchType,
+  };
+};

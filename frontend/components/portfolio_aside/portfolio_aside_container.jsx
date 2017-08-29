@@ -15,6 +15,7 @@ const mapStateToProps = (state) => {
     holdings: state.session.holdings,
     stocks: state.entities.stocks,
     companies: state.search.companies,
+    searchType: state.search.searchType,
   };
 };
 
@@ -22,7 +23,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchQuote: (symbol) => dispatch(fetchQuote(symbol)),
     addHolding: (holding) => dispatch(addHolding(holding)),
-    fetchCompanies: (searchInput) => dispatch(fetchCompanies(searchInput)),
+    fetchCompanies: (searchInput, searchType) => dispatch(fetchCompanies(searchInput, searchType)),
     clearCompanies: () => dispatch(clearCompanies()),
   };
 };
