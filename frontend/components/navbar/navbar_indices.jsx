@@ -4,19 +4,21 @@ class NavbarIndices extends React.Component {
   constructor(props) {
     super(props);
 
-    this.renderSparklines = this.renderSparklines.bind(this);
+    this.renderNdaqSparkline = this.renderNdaqSparkline.bind(this);
+    this.renderDowSparkline = this.renderDowSparkline.bind(this);
+    this.renderSpySparkline = this.renderSpySparkline.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchIntraday('NDAQ')
-      .then(() => this.renderSparklines())
+      .then(() => this.renderNdaqSparkline())
     this.props.fetchIntraday('DOW')
-      .then(() => this.renderSparklines())
+      .then(() => this.renderDowSparkline())
     this.props.fetchIntraday('SPY')
-      .then(() => this.renderSparklines())
+      .then(() => this.renderSpySparkline())
   }
 
-  renderSparklines() {
+  renderNdaqSparkline() {
     $(`#sparkline-NDAQ`).sparkline(this.props.stocks["NDAQ"].intraday, {
       width: 130,
       height: 35,
@@ -29,7 +31,9 @@ class NavbarIndices extends React.Component {
       highlightSpotColor: `black`,
       tooltipChartTitle: 'NDAQ',
     });
+  }
 
+  renderDowSparkline() {
     $(`#sparkline-DOW`).sparkline(this.props.stocks["DOW"].intraday, {
       width: 130,
       height: 35,
@@ -42,7 +46,9 @@ class NavbarIndices extends React.Component {
       highlightSpotColor: `black`,
       tooltipChartTitle: 'DOW',
     });
+  }
 
+  renderSpySparkline() {
     $(`#sparkline-SPY`).sparkline(this.props.stocks["SPY"].intraday, {
       width: 130,
       height: 35,
@@ -57,8 +63,8 @@ class NavbarIndices extends React.Component {
     });
   }
 
-  render() {
 
+  render() {
     return (
       <div id="navbar-indices" >
         <div className="navbar-spark" >

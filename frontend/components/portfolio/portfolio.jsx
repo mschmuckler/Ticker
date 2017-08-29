@@ -42,6 +42,10 @@ class Portfolio extends React.Component {
     this.props.clearError("addStock");
   }
 
+  componentWillUnmount() {
+    this.props.clearCompanies();
+  }
+
   render() {
     const portfolioStocks = this.createPortfolioRows();
     let firstTimeMessage = <div></div>;

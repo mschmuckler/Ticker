@@ -38,6 +38,10 @@ class PortfolioAside extends React.Component {
     this.fetchPortfolioQuotes();
   }
 
+  componentWillUnmount() {
+    this.props.clearCompanies();
+  }
+
   render() {
     const portfolioStocks = this.createPortfolioItems();
 

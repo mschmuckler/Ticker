@@ -8,7 +8,7 @@ class AuthForm extends React.Component {
       username: "",
       password: "",
       imageFile: null,
-      imageUrl: null
+      imageUrl: window.staticImages.blankWhite,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -37,7 +37,7 @@ class AuthForm extends React.Component {
       let formData = new FormData();
       formData.append("user[username]", this.state.username);
       formData.append("user[password]", this.state.password);
-      if (this.state.imageFile !== null) {        
+      if (this.state.imageFile !== null) {
         formData.append("user[avatar]", this.state.imageFile);
       }
       this.props.processForm(formData)

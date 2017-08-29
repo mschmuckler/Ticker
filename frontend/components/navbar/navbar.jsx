@@ -26,7 +26,7 @@ class Navbar extends React.Component {
         <div id="nav-and-tape" >
           <nav id="navbar" >
             <section id="logo-and-indices">
-              <Link to="/portfolio" >    
+              <Link to="/portfolio" >
                 <h1>ticker▲</h1>
               </Link>
 
@@ -40,9 +40,9 @@ class Navbar extends React.Component {
               <NavbarSearch />
 
               <div id="navbar-auth-btns" >
-                <p id="navbar-user-avatar" >{ `Hello, ${ this.props.currentUser.username }` }</p>
                 <button onClick={ this.handleLogout } className="navbar-tab" >Logout</button>
               </div>
+              <img id="navbar-user-avatar" src={ this.props.currentUser.avatar } />
             </section>
           </nav>
           <NavbarTickerTape />

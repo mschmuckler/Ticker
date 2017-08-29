@@ -11,7 +11,8 @@ export const RECEIVE_COMPANY = 'RECEIVE_COMPANY';
 
 export const fetchIntraday = (symbol) => dispatch => {
   return APIUtil.requestIntraday(symbol).then(
-    (stockData) => dispatch(receiveIntraday(stockData))
+    (stockData) => dispatch(receiveIntraday(stockData)),
+    () => dispatch(fetchIntraday(symbol)),
   );
 };
 
@@ -142,7 +143,7 @@ export const receiveFakeQuote = (symbol) => {
       open: open.toFixed(2),
       mktCap: mktCap + 'B',
       pe: pe.toFixed(2),
-      volume: volume.toFixed(1),
+      volume: volume.toFixed(0),
     }
   }
   return {

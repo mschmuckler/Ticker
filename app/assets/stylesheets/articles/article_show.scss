@@ -51,9 +51,11 @@
 #article-show-author-img {
   width: 70px;
   height: 70px;
-  border-radius: 100%;
   margin-right: 10px;
-  background-color: $light-orange;
+
+  img {
+    border-radius: 100%;
+  }
 }
 
 #about-ticker-link:hover {

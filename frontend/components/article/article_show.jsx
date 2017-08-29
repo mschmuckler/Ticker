@@ -23,6 +23,7 @@ class ArticleShow extends React.Component {
         summary,
         body,
         author,
+        authorAvatar,
         tickerTag,
         timeAgo,
       } = {
@@ -30,6 +31,7 @@ class ArticleShow extends React.Component {
         summary: this.props.articles[this.props.match.params.articleId].summary,
         body: this.props.articles[this.props.match.params.articleId].body,
         author: this.props.articles[this.props.match.params.articleId].author,
+        authorAvatar: this.props.articles[this.props.match.params.articleId].authorAvatar,
         tickerTag: this.props.articles[this.props.match.params.articleId].tickerTag,
         timeAgo: this.props.articles[this.props.match.params.articleId].timeAgo,
       };
@@ -53,7 +55,9 @@ class ArticleShow extends React.Component {
               </div>
             </div>
             <div id="article-show-author-box" >
-              <div id="article-show-author-img" ></div>
+              <div id="article-show-author-img" >
+                <img src={ authorAvatar } />
+              </div>
               <p>{ author }</p>
             </div>
           </header>

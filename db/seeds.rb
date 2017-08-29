@@ -96,7 +96,7 @@ bodies = [
 ]
 
 tickers.each do |ticker1|
-  3.times do
+  5.times do
     Article.create!(title: titles.sample, summary: summaries.sample, body: bodies.sample, ticker_tag: ticker1, user_id: all_users.sample.id)
   end
 end
