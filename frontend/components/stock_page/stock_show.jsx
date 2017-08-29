@@ -8,18 +8,20 @@ class StockShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchCompany(this.props.match.params.ticker).then(() => {
-      this.renderChart();
-    });
     this.props.fetchQuote(this.props.match.params.ticker);
+    this.props.fetchCompany(this.props.match.params.ticker).then(
+      () => this.renderChart(),
+      () => this.renderChart(),
+    );
   }
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.match.params.ticker !== this.props.match.params.ticker) {
-      newProps.fetchCompany(newProps.match.params.ticker).then(() => {
-        this.renderChart();
-      });
-      newProps.fetchQuote(newProps.match.params.ticker);
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.match.params.ticker !== this.props.match.params.ticker) {
+      nextProps.fetchCompany(nextProps.match.params.ticker).then(
+        () => this.renderChart(),
+        () => this.renderChart(),
+      );
+      nextProps.fetchQuote(nextProps.match.params.ticker);
     }
   }
 
@@ -49,7 +51,7 @@ class StockShow extends React.Component {
       startPoint += (Math.round(Math.random()) * 2 - 1);
     }
 
-    $(`#stock-chart`).sparkline(fakeChartData, {
+    $('#stock-chart').sparkline(fakeChartData, {
       width: 484,
       height: 200,
       spotColor: '',
@@ -69,8 +71,9 @@ class StockShow extends React.Component {
       return <div>Loading...</div>
     } else {
       const self = this;
+      const { ticker } = self.props.match.params;
+      const stock = self.props.stocks[ticker];
       const {
-        ticker,
         name,
         exchange,
         sector,
@@ -85,23 +88,7 @@ class StockShow extends React.Component {
         volume,
         change,
         changeInPercent,
-      } = {
-        ticker: self.props.match.params.ticker,
-        name: self.props.stocks[self.props.match.params.ticker].name,
-        exchange: self.props.stocks[self.props.match.params.ticker].exchange,
-        sector: self.props.stocks[self.props.match.params.ticker].sector,
-        industry: self.props.stocks[self.props.match.params.ticker].industry,
-        price: self.props.stocks[self.props.match.params.ticker].price,
-        high: self.props.stocks[self.props.match.params.ticker].high,
-        prevClose: self.props.stocks[self.props.match.params.ticker].prevClose,
-        low: self.props.stocks[self.props.match.params.ticker].low,
-        open: self.props.stocks[self.props.match.params.ticker].open,
-        mktCap: self.props.stocks[self.props.match.params.ticker].mktCap,
-        pe: self.props.stocks[self.props.match.params.ticker].pe,
-        volume: self.props.stocks[self.props.match.params.ticker].volume,
-        change: self.props.stocks[self.props.match.params.ticker].change,
-        changeInPercent: self.props.stocks[self.props.match.params.ticker].changeInPercent,
-      }
+      } = stock;
 
       let changeColor = "green-change";
       if (change < 0) {

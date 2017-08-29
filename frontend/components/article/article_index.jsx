@@ -12,11 +12,12 @@ class ArticleIndex extends React.Component {
     this.props.fetchArticles(this.props.ticker);
   }
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.ticker !== this.props.ticker) {
-      this.props.fetchArticles(newProps.ticker);
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.ticker !== this.props.ticker) {
+      this.props.fetchArticles(nextProps.ticker);
     }
   }
+
   render() {
     const allArticles = Object.values(this.props.articles).map((article, idx) => {
       return <ArticleIndexItem key={ idx } article={ article } />;

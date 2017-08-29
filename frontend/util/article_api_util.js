@@ -20,3 +20,11 @@ export const requestCreateArticle = (article) => {
     data: { article },
   });
 };
+
+export const searchArticles = (searchInput) => {
+  return $.ajax({
+    method: "GET",
+    url: `/api/nav/articlesearch`,
+    data: { searchInput },
+  });
+};

@@ -7,6 +7,17 @@ class Api::ArticlesController < ApplicationController
     render :index
   end
 
+  def search
+    search_param = params[:searchInput] == '' ? '' : "#{params[:searchInput]}%"
+
+    @articles = Article
+      .includes(:user)
+      .where("title LIKE :searchInput OR ticker_tag LIKE :searchInput",
+        {searchInput: search_param})
+
+    render :index
+  end
+
   def show
     @article = Article.find(params[:id])
     render :show

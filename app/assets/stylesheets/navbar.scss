@@ -10,7 +10,7 @@
   position: fixed;
   display: flex;
   flex-direction: column;
-  min-width: 1125px;
+  min-width: 1165px;
 }
 
 #navbar {
@@ -33,6 +33,7 @@
 #logo-and-indices {
   height: 100%;
   width: 50%;
+  min-width: 666px;
   padding-left: 10px;
   display: flex;
   justify-content: flex-start;
@@ -42,6 +43,7 @@
 #search-and-btns {
   height: 100%;
   width: 50%;
+  min-width: 596px;
   padding-right: 10px;
   display: flex;
   justify-content: flex-end;
@@ -138,10 +140,10 @@
   color: white;
   margin-left: 30px;
   margin-right: 30px;
-  padding: 5px;
+  padding: 12px 15px 12px 15px;
   font-size: 16px;
   font-weight: bold;
-  background-color: $mid-orange;
+  background: linear-gradient(to bottom, $light-gray, $orange, $light-gray);
   border-radius: 5px;
   box-sizing: border-box;
 }

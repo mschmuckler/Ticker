@@ -1,11 +1,12 @@
 class Api::CompaniesController < ApplicationController
   def index
     search_param = params[:searchInput] == '' ? '' : "#{params[:searchInput]}%"
-    
+
     @companies = Company
       .where("ticker LIKE :searchInput OR name LIKE :searchInput",
-        {searchInput: search_param})
-      .limit(10)
+        { searchInput: search_param })
+      .limit(15)
+
     render :index
   end
 

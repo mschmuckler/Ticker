@@ -120,7 +120,7 @@ export const receiveQuote = (stock) => {
 };
 
 export const receiveFakeQuote = (symbol) => {
-  const price = (Math.random() * 500);
+  const price = (Math.random() * 500) + 10;
   const high = (price + (Math.random() * 10));
   const prevClose = (price + (Math.random() * 10));
   const low = (price - (Math.random() * 10));
