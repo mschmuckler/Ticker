@@ -1,6 +1,35 @@
 @import "base/colors.scss";
 
 #search-landing {
-  width: 60%;
-  margin: auto;
+  width: 55%;
+  margin: 30px auto 0 auto;
+  display: flex;
+}
+
+#search-article-section {
+  padding-right: 30px;
+  display: table;
+  clear: both;
+}
+
+#search-company-section {
+  padding-left: 35px;
+  border-left: 1px solid $light-gray;
+  display: table;
+  clear: both;
+}
+
+.search-company-item {
+  height: 50px;
+  padding-bottom: 17px;
+
+  .search-company-item-ticker {
+    color: $dark-gray;
+    font-weight: bold;
+  }
+
+  .search-company-item-name {
+    color: $gray;
+    font-size: 12px;
+  }
 }

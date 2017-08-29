@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ArticleIndexItem from '../article/article_index_item';
 
 class SearchLanding extends React.Component {
@@ -23,13 +24,24 @@ class SearchLanding extends React.Component {
     });
 
     const companies = Object.values(this.props.companies).map((company, idx) => {
-      return <li key={ idx } >{ company.name }</li>
+      return <li key={ idx } className="search-company-item" >
+        <Link to={ `/stock/${company.ticker}` } >
+          <p className="search-company-item-ticker" >{ company.ticker }</p>
+        </Link>
+        <p className="search-company-item-name" >{ company.name }</p>
+      </li>;
     });
 
     return (
       <div id="search-landing" >
-        <ul>{ articles }</ul>
-        <ul>{ companies }</ul>
+        <section id="search-article-section" >
+          <h2>Articles</h2>
+          <ul>{ articles }</ul>
+        </section>
+        <section id="search-company-section" >
+          <h2>Companies</h2>
+          <ul>{ companies }</ul>
+        </section>
       </div>
     );
   }
