@@ -44,7 +44,6 @@ class PortfolioAside extends React.Component {
 
   render() {
     const portfolioStocks = this.createPortfolioItems();
-
     return (
       <aside id="portfolio-aside" >
         <AsideForm

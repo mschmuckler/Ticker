@@ -18,6 +18,7 @@ class ArticleShow extends React.Component {
         <p id="article-show" >Loading...</p>
       );
     } else {
+      const article = this.props.articles[this.props.match.params.articleId];
       const {
         title,
         summary,
@@ -26,15 +27,7 @@ class ArticleShow extends React.Component {
         authorAvatar,
         tickerTag,
         timeAgo,
-      } = {
-        title: this.props.articles[this.props.match.params.articleId].title,
-        summary: this.props.articles[this.props.match.params.articleId].summary,
-        body: this.props.articles[this.props.match.params.articleId].body,
-        author: this.props.articles[this.props.match.params.articleId].author,
-        authorAvatar: this.props.articles[this.props.match.params.articleId].authorAvatar,
-        tickerTag: this.props.articles[this.props.match.params.articleId].tickerTag,
-        timeAgo: this.props.articles[this.props.match.params.articleId].timeAgo,
-      };
+      } = article;
 
       const summaries = summary.map((summaryPoint, idx) => {
         return <li key={ idx } >{ summaryPoint }</li>;

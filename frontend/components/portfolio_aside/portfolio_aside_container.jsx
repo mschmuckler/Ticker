@@ -3,16 +3,18 @@ import {
   fetchQuote,
   deleteHolding,
   addHolding,
+} from '../../actions/stock_actions';
+import {
   fetchCompanies,
   clearCompanies,
-} from '../../actions/stock_actions';
+} from '../../actions/search_actions';
 import PortfolioAside from './portfolio_aside';
 
 const mapStateToProps = (state) => {
   return {
     holdings: state.session.holdings,
     stocks: state.entities.stocks,
-    companies: state.entities.companies,
+    companies: state.search.companies,
   };
 };
 

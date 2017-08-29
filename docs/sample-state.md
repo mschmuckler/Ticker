@@ -69,24 +69,17 @@
     ]
   }
 
-  ui: {
-    loading: false
-  }
-
   errors: {
-    signup: ["That username is already taken"],
-    login: ["Invalid credentials"],
-    stock_form: ["That ticker doesn't exist"],
-    article_form: ["Title can't be blank"],
-    comment_form: ["Body can't be blank"]
+    auth: ["That username is already taken"],
+    addStock: ["No such company exists"],
+    addArticle: ["Title can't be blank"]
   }
 
   session: {
     id: 1,
     username: "gordonGekko",
-    tickers: ["TSLA", "EDIT", "JNJ"],
-    avatar_url: "amazon.api/f8ds9few3"
-    article_ids: [4, 7, 19, 20]
+    holdings: ["TSLA", "EDIT", "JNJ"],
+    avatar: "amazon.api/f8ds9few3"
   }
 }
 ```

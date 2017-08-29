@@ -9,18 +9,12 @@ class StockShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchQuote(this.props.match.params.ticker);
-    this.props.fetchCompany(this.props.match.params.ticker).then(
-      () => this.renderChart(),
-      () => this.renderChart(),
-    );
+    this.props.fetchCompany(this.props.match.params.ticker);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.match.params.ticker !== this.props.match.params.ticker) {
-      nextProps.fetchCompany(nextProps.match.params.ticker).then(
-        () => this.renderChart(),
-        () => this.renderChart(),
-      );
+      nextProps.fetchCompany(nextProps.match.params.ticker);
       nextProps.fetchQuote(nextProps.match.params.ticker);
     }
   }
@@ -44,14 +38,7 @@ class StockShow extends React.Component {
   }
 
   renderChart() {
-    let fakeChartData = [];
-    let startPoint = 100;
-    for (var i = 0; i < 1500; i++) {
-      fakeChartData.push(startPoint);
-      startPoint += (Math.round(Math.random()) * 2 - 1);
-    }
-
-    $('#stock-chart').sparkline(fakeChartData, {
+    $('#stock-chart').sparkline(this.props.stocks[this.props.match.params.ticker].intraday, {
       width: 484,
       height: 200,
       spotColor: '',
@@ -131,6 +118,7 @@ class StockShow extends React.Component {
           </div>
           <div id="chart-and-details" >
             <span id="stock-chart" ></span>
+            { this.renderChart() }
             <div id="stock-details" >
               <div>
                 <p>Market Cap:</p><p>{ mktCap }</p>

@@ -6,8 +6,17 @@ export const RECEIVE_QUOTE = 'RECEIVE_QUOTE';
 export const RECEIVE_FAKE_QUOTE = 'RECEIVE_FAKE_QUOTE';
 export const DELETE_HOLDING = 'DELETE_HOLDING';
 export const ADD_HOLDING = 'ADD_HOLDING';
-export const RECEIVE_COMPANIES = 'RECEIVE_COMPANIES';
 export const RECEIVE_COMPANY = 'RECEIVE_COMPANY';
+
+const fakeIntraday = () => {
+  let fakeChartData = [];
+  let startPoint = 100;
+  for (let i = 0; i < 1500; i++) {
+    fakeChartData.push(startPoint);
+    startPoint += (Math.round(Math.random()) * 2 - 1);
+  }
+  return fakeChartData;
+}
 
 export const fetchIntraday = (symbol) => dispatch => {
   return APIUtil.requestIntraday(symbol).then(
@@ -37,11 +46,7 @@ export const deleteHolding = (holdingId) => dispatch => {
   );
 };
 
-export const fetchCompanies = (searchInput) => dispatch => {
-  return APIUtil.requestCompanies(searchInput).then(
-    (companies) => dispatch(receiveCompanies(companies))
-  );
-};
+
 
 export const fetchCompany = (symbol) => dispatch => {
   return APIUtil.requestCompany(symbol).then(
@@ -97,6 +102,7 @@ export const receiveQuote = (stock) => {
   const volume = stock.query.results.quote.Volume;
   const change = (price - open);
   const changeInPercent = (change / price) * 100;
+  const intraday = fakeIntraday();
 
   return {
     type: RECEIVE_QUOTE,
@@ -114,6 +120,7 @@ export const receiveQuote = (stock) => {
         mktCap,
         pe,
         volume,
+        intraday,
       },
     },
   };
@@ -130,6 +137,7 @@ export const receiveFakeQuote = (symbol) => {
   const mktCap = Math.floor((Math.random() * 150));
   const pe = (Math.random() * 15);
   const volume = (Math.random() * 100000);
+  const intraday = fakeIntraday();
 
   const fakeData = {
     [symbol]: {
@@ -144,6 +152,7 @@ export const receiveFakeQuote = (symbol) => {
       mktCap: mktCap + 'B',
       pe: pe.toFixed(2),
       volume: volume.toFixed(0),
+      intraday,
     }
   }
   return {
@@ -152,23 +161,9 @@ export const receiveFakeQuote = (symbol) => {
   };
 }
 
-export const receiveCompanies = (companies) => {
-  return {
-    type: RECEIVE_COMPANIES,
-    companies,
-  };
-}
-
 export const receiveCompany = (company) => {
   return {
     type: RECEIVE_COMPANY,
     company,
-  };
-}
-
-export const clearCompanies = () => {
-  return {
-    type: RECEIVE_COMPANIES,
-    companies: [],
   };
 }
