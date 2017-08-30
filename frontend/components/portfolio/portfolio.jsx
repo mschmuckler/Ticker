@@ -1,5 +1,5 @@
 import React from 'react';
-import { orderBy } from 'lodash';
+import { orderBy, isEmpty } from 'lodash';
 import { Link } from 'react-router-dom';
 import PortfolioItem from './portfolio_item';
 import PortfolioForm from './portfolio_form';
@@ -19,10 +19,10 @@ class Portfolio extends React.Component {
 
   createPortfolioRows() {
     if (this.props.holdings === undefined) {
-      return;
+      return [];
     } else {
-      const sortedHoldings = orderBy(Object.values(this.props.holdings), ['ticker'], ['asc']);
-      return sortedHoldings.map(holding => {
+      let sortedHoldings = orderBy(Object.values(this.props.holdings), ['ticker'], ['asc']);
+      sortedHoldings = sortedHoldings.map(holding => {
         if (this.props.stocks[holding.ticker] === undefined) {
           return;
         } else {
@@ -33,6 +33,9 @@ class Portfolio extends React.Component {
             stock={ this.props.stocks[holding.ticker] }
           />
         }
+      });
+      return sortedHoldings.filter(row => {
+        return row !== undefined;
       });
     }
   }
@@ -49,7 +52,7 @@ class Portfolio extends React.Component {
   render() {
     const portfolioStocks = this.createPortfolioRows();
     let firstTimeMessage = <div></div>;
-    if (portfolioStocks[0] === undefined) {
+    if (isEmpty(portfolioStocks)) {
       firstTimeMessage = <div className="first-time-message" >
         <p>Add something to your portfolio to get started</p>
       </div>
