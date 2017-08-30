@@ -43,7 +43,7 @@ class NavbarTickerTape extends React.Component {
 
   render() {
     if (this.props.stocks[this.state.tickers[0]] === undefined) {
-      return <div>Loading...</div>
+      return <div id="ticker-tape" ></div>
     } else {
       const randomTickers = this.state.tickers.map((ticker, idx) => {
         const stock = this.props.stocks[ticker];

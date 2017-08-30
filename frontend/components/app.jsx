@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import AuthFormContainer from './auth/auth_form_container';
 import NavbarContainer from './navbar/navbar_container';
@@ -28,6 +28,7 @@ const App = (props) => {
         <ProtectedRoute exact path="/article/new/:ticker" component={ ArticleFormContainer } />
         <ProtectedRoute exact path="/search" component={ PortfolioAsideContainer } />
         <ProtectedRoute exact path="/search" component={ SearchLandingContainer } />
+        <Route exact path="/" render={ () => <Redirect to="/portfolio" /> } />
       </main>
     </div>
   );
