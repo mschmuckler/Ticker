@@ -10,6 +10,17 @@ class Api::CompaniesController < ApplicationController
     render :index
   end
 
+  def random
+    @randomStocks = []
+
+    10.times do
+      randomOffset = rand(Company.count)
+      @randomStocks.push(Company.offset(randomOffset).first.ticker)
+    end
+
+    render json: @randomStocks
+  end
+
   def show
     @company = Company.find_by(ticker: params[:id])
     render :show

@@ -46,8 +46,6 @@ export const deleteHolding = (holdingId) => dispatch => {
   );
 };
 
-
-
 export const fetchCompany = (symbol) => dispatch => {
   return APIUtil.requestCompany(symbol).then(
     (company) => dispatch(receiveCompany(company))

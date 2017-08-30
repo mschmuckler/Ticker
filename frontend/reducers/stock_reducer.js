@@ -4,6 +4,7 @@ import {
   RECEIVE_QUOTE,
   RECEIVE_FAKE_QUOTE,
   RECEIVE_COMPANY,
+  RECEIVE_RANDOM_STOCKS
 } from '../actions/stock_actions';
 
 export default (state = {}, action) => {

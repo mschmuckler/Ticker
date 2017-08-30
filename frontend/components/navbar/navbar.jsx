@@ -92,6 +92,3 @@ class Navbar extends React.Component {
 }
 
 export default Navbar;
-
-
-// <img id="navbar-logo" src="http://logok.org/wp-content/uploads/2014/04/Orange-logo.png"/>
