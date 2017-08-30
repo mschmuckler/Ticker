@@ -121,7 +121,7 @@ class StockShow extends React.Component {
             { this.renderChart() }
             <div id="stock-details" >
               <div>
-                <p>Market Cap:</p><p>{ mktCap }</p>
+                <p>Market Cap:</p><p>{ mktCap }B</p>
               </div>
               <div>
                 <p>Prev Close:</p><p>{ prevClose }</p>

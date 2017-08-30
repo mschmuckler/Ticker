@@ -1,7 +1,8 @@
 export const requestQuote = (symbol) => {
   return $.ajax({
     method: "GET",
-    url: `api/quotes/${symbol}`,
+    url: `http://finance.google.com/finance/info?client=ig&q=${symbol}`,
+    dataType: 'jsonp',
   });
 };
 
