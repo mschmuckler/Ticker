@@ -110,8 +110,8 @@ export const receiveQuote = (stock) => {
       {
         ticker,
         price,
-        change: parseFloat(change).toFixed(3),
-        changeInPercent: parseFloat(changeInPercent).toFixed(3) + '%',
+        change: parseFloat(change).toFixed(2),
+        changeInPercent: parseFloat(changeInPercent).toFixed(2) + '%',
         high,
         prevClose,
         low,
@@ -142,8 +142,8 @@ export const receiveFakeQuote = (symbol) => {
     [symbol]: {
       ticker: symbol,
       price: price.toFixed(2),
-      change: change.toFixed(3),
-      changeInPercent: changeInPercent.toFixed(3) + '%',
+      change: change.toFixed(2),
+      changeInPercent: changeInPercent.toFixed(2) + '%',
       high: high.toFixed(2),
       prevClose: prevClose.toFixed(2),
       low: low.toFixed(2),

@@ -49,7 +49,10 @@ class Navbar extends React.Component {
               <img id="navbar-user-avatar" src={ this.props.currentUser.avatar } />
             </section>
           </nav>
-          <NavbarTickerTape />
+          <NavbarTickerTape
+            fetchQuote={ this.props.fetchQuote }
+            stocks={ this.props.stocks }
+          />
         </div>
       );
     } else {
@@ -78,7 +81,10 @@ class Navbar extends React.Component {
               </div>
             </section>
           </nav>
-          <NavbarTickerTape />
+          <NavbarTickerTape
+            fetchQuote={ this.props.fetchQuote }
+            stocks={ this.props.stocks }
+          />
         </div>
       );
     }
