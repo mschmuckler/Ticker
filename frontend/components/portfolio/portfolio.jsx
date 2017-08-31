@@ -13,7 +13,9 @@ class Portfolio extends React.Component {
 
   fetchPortfolioQuotes() {
     Object.values(this.props.holdings).forEach(holding => {
-      this.props.fetchQuote(holding.ticker);
+      if (this.props.stocks[holding.ticker] === undefined) {      
+        this.props.fetchQuote(holding.ticker);
+      }
     });
   }
 

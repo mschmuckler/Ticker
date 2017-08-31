@@ -44,7 +44,7 @@ class ArticleIndex extends React.Component {
       return (
         <section id="article-index-section" >
           <ul>{ allArticles }</ul>
-          <div className="article-footer" >          
+          <div className="article-footer" >
             <Link to={ `/article/new/${this.props.ticker}` } >
               <span className="article-write-btn" >Write about { this.props.ticker }</span>
             </Link>

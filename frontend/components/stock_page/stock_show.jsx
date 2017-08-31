@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 class StockShow extends React.Component {
   constructor(props) {
@@ -8,14 +8,36 @@ class StockShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchQuote(this.props.match.params.ticker);
-    this.props.fetchCompany(this.props.match.params.ticker);
+    const ticker = this.props.match.params.ticker;
+    const stocks = this.props.stocks;
+
+    this.props.fetchCompany(ticker).then(() => {
+      if (stocks[ticker] === undefined) {
+        this.props.fetchQuote(ticker);
+      }
+    });
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.match.params.ticker !== this.props.match.params.ticker) {
-      nextProps.fetchCompany(nextProps.match.params.ticker);
-      nextProps.fetchQuote(nextProps.match.params.ticker);
+    const oldTicker = this.props.match.params.ticker
+    const newStocks = nextProps.stocks;
+    const newTicker = nextProps.match.params.ticker;
+
+    if (newTicker !== oldTicker) {
+      nextProps.fetchCompany(newTicker).then(() => {
+        if (newStocks[newTicker] === undefined) {
+          nextProps.fetchQuote(newTicker);
+        }
+      });
+    }
+  }
+
+  componentDidUpdate() {
+    const ticker = this.props.match.params.ticker;
+    const stocks = this.props.stocks;
+
+    if (stocks[ticker] && stocks[ticker].intraday) {
+      this.renderChart();
     }
   }
 
@@ -53,7 +75,8 @@ class StockShow extends React.Component {
 
   render() {
     if (this.props.stocks[this.props.match.params.ticker] === undefined ||
-        this.props.stocks[this.props.match.params.ticker].name === undefined) {
+        this.props.stocks[this.props.match.params.ticker].name === undefined ||
+        this.props.stocks[this.props.match.params.ticker].change === undefined) {
       return <div>Loading...</div>
     } else {
       const self = this;
@@ -117,6 +140,7 @@ class StockShow extends React.Component {
           </div>
           <div id="chart-and-details" >
             <span id="stock-chart" ></span>
+
             <div id="stock-details" >
               <div>
                 <p>Market Cap:</p><p>{ mktCap }B</p>
@@ -141,7 +165,6 @@ class StockShow extends React.Component {
               </div>
             </div>
           </div>
-          { this.renderChart() }
         </section>
       );
     }
