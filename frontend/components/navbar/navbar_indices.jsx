@@ -9,26 +9,30 @@ class NavbarIndices extends React.Component {
 
   componentDidMount() {
     this.props.fetchIntraday('NDAQ').then(
-      () => this.renderSparkline('NDAQ'),
-      () => this.renderSparkline('NDAQ'),
+      () => {
+        this.renderSparkline('NDAQ')
+      },
+      () => {
+        this.renderSparkline('NDAQ')
+      },
     );
-    this.props.fetchIntraday('DOW').then(
-      () => this.renderSparkline('DOW'),
-      () => this.renderSparkline('DOW'),
+    this.props.fetchIntraday('DIA').then(
+      () => {
+        this.renderSparkline('DIA')
+      },
+      () => {
+        this.renderSparkline('DIA')
+      },
     );
     this.props.fetchIntraday('SPY').then(
-      () => this.renderSparkline('SPY'),
-      () => this.renderSparkline('SPY'),
+      () => {
+        this.renderSparkline('SPY')
+      },
+      () => {
+        this.renderSparkline('SPY')
+      },
     );
   }
-
-  // componetWillReceiveProps(nextProps) {
-  //   ['NDAQ', 'DOW', 'SPY'].forEach(symbol => {
-  //     if (nextProps.stocks[symbol].intraday !== this.props.stocks[symbol].intraday) {
-  //       this.renderSparkline(symbol);
-  //     }
-  //   });
-  // }
 
   renderSparkline(symbol) {
     $(`#sparkline-${symbol}`).sparkline(this.props.stocks[symbol].intraday, {
@@ -53,8 +57,8 @@ class NavbarIndices extends React.Component {
           <span id="sparkline-NDAQ" ></span>
         </div>
         <div className="navbar-spark" >
-          <p>DOW</p>
-          <span id="sparkline-DOW" ></span>
+          <p>DIA</p>
+          <span id="sparkline-DIA" ></span>
         </div>
         <div className="navbar-spark" >
           <p>SPY</p>

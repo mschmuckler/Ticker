@@ -8,10 +8,10 @@ export const DELETE_HOLDING = 'DELETE_HOLDING';
 export const ADD_HOLDING = 'ADD_HOLDING';
 export const RECEIVE_COMPANY = 'RECEIVE_COMPANY';
 
-const fakeIntraday = () => {
+const fakeIntraday = (numPoints = 1500) => {
   let fakeChartData = [];
   let startPoint = 100;
-  for (let i = 0; i < 1500; i++) {
+  for (let i = 0; i < numPoints; i++) {
     fakeChartData.push(startPoint);
     startPoint += (Math.round(Math.random()) * 2 - 1) * Math.random();
   }
@@ -20,9 +20,14 @@ const fakeIntraday = () => {
 
 export const fetchIntraday = (symbol) => dispatch => {
   return APIUtil.requestIntraday(symbol).then(
-    (stockData) => dispatch(receiveIntraday(stockData)),
+    (stockData) => {
+      Object.keys(stockData).length === 0 ?
+        dispatch(fetchIntraday(symbol)) :
+        dispatch(receiveIntraday(stockData))
+    },
     () => dispatch(receiveFakeIntraday(symbol)),
   );
+
 };
 
 export const fetchQuote = (symbol) => dispatch => {
@@ -89,7 +94,7 @@ export const receiveIntraday = (stock) => {
 
 export const receiveFakeIntraday = (symbol) => {
   const ticker = symbol;
-  const intraday = fakeIntraday();
+  const intraday = fakeIntraday(100);
   const open = 100;
 
   return {

@@ -22,13 +22,13 @@ class PortfolioAside extends React.Component {
     } else {
       const sortedHoldings = orderBy(Object.values(this.props.holdings), ['ticker'], ['asc']);
       return sortedHoldings.map(holding => {
-        if (this.props.stocks[holding.ticker] === undefined) {
-          return;
-        } else {
+        if (this.props.stocks[holding.ticker] && this.props.stocks[holding.ticker].change) {
           return <PortfolioAsideItem
             key={ holding.id }
             stock={ this.props.stocks[holding.ticker] }
-          />
+            />
+        } else {
+          return;
         }
       });
     }

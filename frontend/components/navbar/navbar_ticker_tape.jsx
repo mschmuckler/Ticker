@@ -47,7 +47,7 @@ class NavbarTickerTape extends React.Component {
       return <div id="ticker-tape" ></div>
     } else {
       const randomTickers = this.state.tickers.map((ticker, idx) => {
-        const stock = this.props.stocks[ticker];
+        const stock = this.props.stocks[ticker] || {};
         let changeColor = "green";
         let changeArrow = "▲";
         if (stock.change < 0) {
