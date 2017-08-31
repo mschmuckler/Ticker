@@ -33,7 +33,6 @@ class StockShow extends React.Component {
       });
     }
 
-
     holdingFxn(holdingData);
   }
 
@@ -118,7 +117,6 @@ class StockShow extends React.Component {
           </div>
           <div id="chart-and-details" >
             <span id="stock-chart" ></span>
-            { this.renderChart() }
             <div id="stock-details" >
               <div>
                 <p>Market Cap:</p><p>{ mktCap }B</p>
@@ -143,6 +141,7 @@ class StockShow extends React.Component {
               </div>
             </div>
           </div>
+          { this.renderChart() }
         </section>
       );
     }

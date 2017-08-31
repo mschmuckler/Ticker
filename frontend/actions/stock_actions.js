@@ -13,7 +13,7 @@ const fakeIntraday = () => {
   let startPoint = 100;
   for (let i = 0; i < 1500; i++) {
     fakeChartData.push(startPoint);
-    startPoint += (Math.round(Math.random()) * 2 - 1);
+    startPoint += (Math.round(Math.random()) * 2 - 1) * Math.random();
   }
   return fakeChartData;
 }
@@ -21,7 +21,7 @@ const fakeIntraday = () => {
 export const fetchIntraday = (symbol) => dispatch => {
   return APIUtil.requestIntraday(symbol).then(
     (stockData) => dispatch(receiveIntraday(stockData)),
-    () => dispatch(fetchIntraday(symbol)),
+    () => dispatch(receiveFakeIntraday(symbol)),
   );
 };
 
@@ -87,6 +87,23 @@ export const receiveIntraday = (stock) => {
   };
 };
 
+export const receiveFakeIntraday = (symbol) => {
+  const ticker = symbol;
+  const intraday = fakeIntraday();
+  const open = 100;
+
+  return {
+    type: RECEIVE_INTRADAY,
+    stock: { [ticker]:
+      {
+        ticker,
+        intraday,
+        open,
+      },
+    },
+  };
+};
+
 export const receiveQuote = (stock) => {
   const ticker = stock[0].t;
   const price = stock[0].l;
@@ -94,7 +111,7 @@ export const receiveQuote = (stock) => {
   const changeInPercent = stock[0].cp;
   const mktCap = Math.floor((Math.random() * 150));
   const pe = parseFloat(Math.random() * 17).toFixed(2);
-  const volume = Math.floor(Math.random() * 100000);
+  const volume = Math.floor(Math.random() * 1000000);
   const intraday = fakeIntraday();
   let change = stock[0].c;
   change = (change[0] === '+') ? change.slice(1) : change;
@@ -133,7 +150,7 @@ export const receiveFakeQuote = (symbol) => {
   const changeInPercent = (change / price) * 100;
   const mktCap = Math.floor((Math.random() * 150));
   const pe = (Math.random() * 17);
-  const volume = (Math.random() * 100000);
+  const volume = (Math.random() * 1000000);
   const intraday = fakeIntraday();
 
   const fakeData = {

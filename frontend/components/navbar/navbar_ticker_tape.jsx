@@ -24,6 +24,7 @@ class NavbarTickerTape extends React.Component {
         'GOOGL',
         'NTLA',
         'APRN',
+        'FB',
         'REIT',
       ]
     }

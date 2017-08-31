@@ -4,22 +4,34 @@ class NavbarIndices extends React.Component {
   constructor(props) {
     super(props);
 
-    this.renderNdaqSparkline = this.renderNdaqSparkline.bind(this);
-    this.renderDowSparkline = this.renderDowSparkline.bind(this);
-    this.renderSpySparkline = this.renderSpySparkline.bind(this);
+    this.renderSparkline = this.renderSparkline.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchIntraday('NDAQ')
-      .then(() => this.renderNdaqSparkline())
-    this.props.fetchIntraday('DOW')
-      .then(() => this.renderDowSparkline())
-    this.props.fetchIntraday('SPY')
-      .then(() => this.renderSpySparkline())
+    this.props.fetchIntraday('NDAQ').then(
+      () => this.renderSparkline('NDAQ'),
+      () => this.renderSparkline('NDAQ'),
+    );
+    this.props.fetchIntraday('DOW').then(
+      () => this.renderSparkline('DOW'),
+      () => this.renderSparkline('DOW'),
+    );
+    this.props.fetchIntraday('SPY').then(
+      () => this.renderSparkline('SPY'),
+      () => this.renderSparkline('SPY'),
+    );
   }
 
-  renderNdaqSparkline() {
-    $(`#sparkline-NDAQ`).sparkline(this.props.stocks["NDAQ"].intraday, {
+  // componetWillReceiveProps(nextProps) {
+  //   ['NDAQ', 'DOW', 'SPY'].forEach(symbol => {
+  //     if (nextProps.stocks[symbol].intraday !== this.props.stocks[symbol].intraday) {
+  //       this.renderSparkline(symbol);
+  //     }
+  //   });
+  // }
+
+  renderSparkline(symbol) {
+    $(`#sparkline-${symbol}`).sparkline(this.props.stocks[symbol].intraday, {
       width: 130,
       height: 35,
       spotColor: '',
@@ -29,40 +41,9 @@ class NavbarIndices extends React.Component {
       fillColor: false,
       highlightLineColor: `#FF7200`,
       highlightSpotColor: `black`,
-      tooltipChartTitle: 'NDAQ',
+      tooltipChartTitle: symbol,
     });
   }
-
-  renderDowSparkline() {
-    $(`#sparkline-DOW`).sparkline(this.props.stocks["DOW"].intraday, {
-      width: 130,
-      height: 35,
-      spotColor: '',
-      minSpotColor: `#FF7200`,
-      maxSpotColor: `#FF7200`,
-      lineColor: `#6f6f6f`,
-      fillColor: false,
-      highlightLineColor: `#FF7200`,
-      highlightSpotColor: `black`,
-      tooltipChartTitle: 'DOW',
-    });
-  }
-
-  renderSpySparkline() {
-    $(`#sparkline-SPY`).sparkline(this.props.stocks["SPY"].intraday, {
-      width: 130,
-      height: 35,
-      spotColor: '',
-      minSpotColor: `#FF7200`,
-      maxSpotColor: `#FF7200`,
-      lineColor: `#6f6f6f`,
-      fillColor: false,
-      highlightLineColor: `#FF7200`,
-      highlightSpotColor: `black`,
-      tooltipChartTitle: 'SPY',
-    });
-  }
-
 
   render() {
     return (

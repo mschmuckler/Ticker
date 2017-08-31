@@ -9,7 +9,7 @@ class ArticleForm extends React.Component {
     if (this.props.match.params.ticker === "default") {
       tickerTag = "";
     }
-    
+
     this.state = {
       title: "",
       tickerTag,
@@ -30,7 +30,11 @@ class ArticleForm extends React.Component {
 
   handleChange(type) {
     return (e) => {
-      this.setState({ [type]: e.target.value });
+      if (type === "tickerTag") {
+        this.setState({ [type]: e.target.value.toUpperCase() });
+      } else {
+        this.setState({ [type]: e.target.value });
+      }
     };
   }
 
@@ -142,9 +146,3 @@ class ArticleForm extends React.Component {
 }
 
 export default ArticleForm;
-
-// <textarea
-//   onChange={ this.handleChange("body") }
-//   className={ bodyErrorStyle + " article-form-body-input" }
-//   placeholder="Article text goes here"
-// ></textarea>

@@ -17,10 +17,11 @@ class NavbarSearch extends React.Component {
     e.preventDefault();
     if (this.state.searchInput === "") {
       return;
-    } else {      
+    } else {
       this.props.fetchCompanies(this.state.searchInput, "nav");
       this.props.searchArticles(this.state.searchInput);
       this.props.history.push(`/search`);
+      this.setState({ searchInput: "" });
     }
   }
 
@@ -29,6 +30,7 @@ class NavbarSearch extends React.Component {
       <div id="navbar-search" >
         <input
           type="text"
+          value={ this.state.searchInput }
           placeholder="Search..."
           onChange={ this.handleChange }
         />
