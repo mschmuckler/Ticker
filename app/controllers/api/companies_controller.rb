@@ -13,11 +13,16 @@ class Api::CompaniesController < ApplicationController
   def random
     @randomStocks = []
 
-    10.times do
-      randomOffset = rand(Company.count)
-      @randomStocks.push(Company.offset(randomOffset).first.ticker)
+    until @randomStocks.length > 0 && @randomStocks.all? { |stock| stock.exchange != 'DELISTED' }
+      @randomStocks = []
+
+      params[:numTimes].to_i.times do
+        randomOffset = rand(Company.count)
+        @randomStocks.push(Company.offset(randomOffset).first)
+      end
     end
 
+    @randomStocks.map! { |stock| stock.ticker }
     render json: @randomStocks
   end
 

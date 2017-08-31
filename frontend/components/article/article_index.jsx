@@ -36,7 +36,7 @@ class ArticleIndex extends React.Component {
             It looks like there are no articles for this stock. Have some thoughts to share?
           </p>
           <Link to={ `/article/new/${this.props.ticker}` } >
-            <span>Write about { this.props.ticker }</span>
+            <span className="article-write-btn" >Write about { this.props.ticker }</span>
           </Link>
         </div>
       );
@@ -44,6 +44,11 @@ class ArticleIndex extends React.Component {
       return (
         <section id="article-index-section" >
           <ul>{ allArticles }</ul>
+          <div className="article-footer" >          
+            <Link to={ `/article/new/${this.props.ticker}` } >
+              <span className="article-write-btn" >Write about { this.props.ticker }</span>
+            </Link>
+          </div>
         </section>
       );
     }

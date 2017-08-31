@@ -21,8 +21,8 @@ const fakeIntraday = (numPoints = 1500) => {
 export const fetchIntraday = (symbol) => dispatch => {
   return APIUtil.requestIntraday(symbol).then(
     (stockData) => {
-      Object.keys(stockData).length === 0 ?
-        dispatch(fetchIntraday(symbol)) :
+      (Object.keys(stockData).length === 0 || Object.keys(stockData)[0] === "Error Message") ?
+        dispatch(receiveFakeIntraday(symbol)) :
         dispatch(receiveIntraday(stockData))
     },
     () => dispatch(receiveFakeIntraday(symbol)),

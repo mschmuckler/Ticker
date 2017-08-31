@@ -37,16 +37,17 @@ export const requestCompanies = (searchInput) => {
   });
 };
 
-export const requestRandomStocks = () => {
-  return $.ajax({
-    method: "GET",
-    url: `/api/nav/randomstocks`,
-  });
-};
-
 export const requestCompany = (symbol) => {
   return $.ajax({
     method: "GET",
     url: `/api/companies/${symbol}`
+  });
+};
+
+export const requestRandomStocks = (numTimes) => {
+  return $.ajax({
+    method: "GET",
+    url: `/api/nav/randomstocks`,
+    data: { numTimes },
   });
 };

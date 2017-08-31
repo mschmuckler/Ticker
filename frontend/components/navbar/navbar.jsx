@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { requestRandomStocks } from '../../util/stock_api_util';
 import NavbarIndices from './navbar_indices';
 import NavbarSearch from './navbar_search';
 import NavbarTickerTape from './navbar_ticker_tape';
@@ -9,15 +10,26 @@ class Navbar extends React.Component {
     super(props);
 
     this.handleLogout = this.handleLogout.bind(this);
+    this.handleExplore = this.handleExplore.bind(this);
   }
 
-  handleLogout() {
+  handleLogout(e) {
+    e.preventDefault();
     this.props.logout()
       .then(
         () => {
-          this.props.history.push('/login');
+          this.props.history.push(`/login`);
         }
       );
+  }
+
+  handleExplore(e) {
+    e.preventDefault();
+    requestRandomStocks(1).then(
+      (randomStock) => {
+        this.props.history.push(`/stock/${randomStock[0]}`);
+      }
+    );
   }
 
   render() {
@@ -44,6 +56,7 @@ class Navbar extends React.Component {
               />
 
               <div id="navbar-auth-btns" >
+                <button onClick={ this.handleExplore } className="navbar-tab" >Discover</button>
                 <button onClick={ this.handleLogout } className="navbar-tab" >Logout</button>
               </div>
               <img id="navbar-user-avatar" src={ this.props.currentUser.avatar } />
