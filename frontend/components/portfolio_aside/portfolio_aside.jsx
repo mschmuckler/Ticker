@@ -1,7 +1,7 @@
 import React from 'react';
 import PortfolioAsideItem from './portfolio_aside_item';
 import AsideForm from './aside_form';
-import { orderBy } from 'lodash';
+import { orderBy, isEmpty } from 'lodash';
 
 class PortfolioAside extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class PortfolioAside extends React.Component {
 
   fetchPortfolioQuotes() {
     Object.values(this.props.holdings).forEach(holding => {
-      if (this.props.stocks[holding.ticker] === undefined) {        
+      if (this.props.stocks[holding.ticker] === undefined) {
         this.props.fetchQuote(holding.ticker);
       }
     });
@@ -46,6 +46,13 @@ class PortfolioAside extends React.Component {
 
   render() {
     const portfolioStocks = this.createPortfolioItems();
+    let firstTimeMessage = <div></div>;
+    if (isEmpty(portfolioStocks)) {
+      firstTimeMessage = <div className="aside-first-time-message" >
+        <p>Portfolio is empty</p>
+      </div>
+    }
+
     return (
       <aside id="portfolio-aside" >
         <AsideForm
@@ -61,6 +68,7 @@ class PortfolioAside extends React.Component {
             { portfolioStocks }
           </tbody>
         </table>
+        { firstTimeMessage }
       </aside>
     );
   }

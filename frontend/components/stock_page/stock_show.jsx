@@ -77,7 +77,7 @@ class StockShow extends React.Component {
     if (this.props.stocks[this.props.match.params.ticker] === undefined ||
         this.props.stocks[this.props.match.params.ticker].name === undefined ||
         this.props.stocks[this.props.match.params.ticker].change === undefined) {
-      return <div>Loading...</div>
+      return <div id="stock-show-loading" >Loading...</div>
     } else {
       const self = this;
       const { ticker } = self.props.match.params;

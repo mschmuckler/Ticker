@@ -54,15 +54,15 @@ class NavbarIndices extends React.Component {
       <div id="navbar-indices" >
         <div className="navbar-spark" >
           <p>NDAQ</p>
-          <span id="sparkline-NDAQ" ></span>
+          <span id="sparkline-NDAQ" >Loading...</span>
         </div>
         <div className="navbar-spark" >
           <p>DIA</p>
-          <span id="sparkline-DIA" ></span>
+          <span id="sparkline-DIA" >Loading...</span>
         </div>
         <div className="navbar-spark" >
           <p>SPY</p>
-          <span id="sparkline-SPY" ></span>
+          <span id="sparkline-SPY" >Loading...</span>
         </div>
       </div>
     );

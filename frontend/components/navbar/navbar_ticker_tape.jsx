@@ -47,7 +47,7 @@ class NavbarTickerTape extends React.Component {
           changeColor = "red";
           changeArrow = "▼";
         }
-
+        
         return (
           <p key={ idx } className={ `tape-element ${changeColor}` } >
             { `${ticker} ${stock.price} ${changeArrow}` }

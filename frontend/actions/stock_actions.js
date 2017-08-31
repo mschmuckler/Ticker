@@ -27,13 +27,14 @@ export const fetchIntraday = (symbol) => dispatch => {
     },
     () => dispatch(receiveFakeIntraday(symbol)),
   );
-
 };
 
 export const fetchQuote = (symbol) => dispatch => {
   return APIUtil.requestQuote(symbol).then(
     (stockData) => dispatch(receiveQuote(stockData)),
-    (error) => dispatch(receiveFakeQuote(symbol)),
+    (error) => {
+      dispatch(receiveFakeQuote(symbol))
+    },
   );
 };
 
