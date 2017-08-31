@@ -3,7 +3,7 @@ class Api::ArticlesController < ApplicationController
     @articles = Article
       .includes(:user)
       .where('ticker_tag = ?', params[:ticker])
-      .order('created_at desc')
+      .order('created_at asc')
     render :index
   end
 
