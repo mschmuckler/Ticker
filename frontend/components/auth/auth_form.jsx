@@ -83,7 +83,9 @@ class AuthForm extends React.Component {
 
     return (
       <div id="auth-comp" >
-
+        <div id="auth-header" >          
+          <h1>Invest</h1><h1>wisely.</h1>
+        </div>
         <div id="auth-form" >
           <form>
             <label>
@@ -130,7 +132,6 @@ class AuthForm extends React.Component {
             />
           </form>
         </div>
-
         <ul id="auth-errors" >{ allErrors }</ul>
       </div>
     );

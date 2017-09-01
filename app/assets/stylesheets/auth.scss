@@ -7,14 +7,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  // justify-content: center;
+
+}
+
+#auth-header {
+  margin-top: 50px;
+  display: flex;
+
+  h1:first-child {
+    background-image: -webkit-gradient( linear, left top, right top, color-stop(0, $red-change), color-stop(0.5, #1F7300), color-stop(1, #1F7300));
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  h1:last-child {
+    color: white;
+  }
 }
 
 #auth-form {
   min-height: 350px;
   height: 350px;
   width: 450px;
-  margin-top: 150px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
