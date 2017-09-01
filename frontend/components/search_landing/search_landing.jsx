@@ -8,7 +8,7 @@ class SearchLanding extends React.Component {
     super(props);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps) {
     if (nextProps.searchType === "nav") {
       return true;
     } else {
