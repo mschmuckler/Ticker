@@ -9,12 +9,15 @@ class AuthForm extends React.Component {
       password: "",
       imageFile: null,
       imageUrl: window.staticImages.blankWhite,
+      sparklineValues: [-2,-3,-2,-1,1,3,2,2,1],
+      sparklineInterval: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.guestLogin = this.guestLogin.bind(this);
     this.onDrop = this.onDrop.bind(this);
+    this.renderSparkline = this.renderSparkline.bind(this);
   }
 
   handleChange(type) {
@@ -66,6 +69,23 @@ class AuthForm extends React.Component {
       );
   }
 
+  renderSparkline() {
+    $(`#auth-sparkline`).sparkline(this.state.sparklineValues, {
+      width: 130,
+      height: 35,
+      type: 'bar',
+      barColor: 'green',
+      negBarColor: 'white',
+      barWidth: '7',
+      barSpacing: '2',
+      zeroAxis: true,
+    });
+  }
+
+  componentDidMount() {
+    this.renderSparkline();
+  }
+
   render() {
     let arrayErrors = [];
     if (this.props.errors.auth) {
@@ -83,8 +103,10 @@ class AuthForm extends React.Component {
 
     return (
       <div id="auth-comp" >
-        <div id="auth-header" >          
-          <h1>Invest</h1><h1>wisely.</h1>
+        <div id="auth-header" >
+          <h1 id="fade-red-to-green" >Invest</h1><h1>wisely</h1>
+          <span id="auth-sparkline" ></span>
+          { this.renderSparkline() }
         </div>
         <div id="auth-form" >
           <form>

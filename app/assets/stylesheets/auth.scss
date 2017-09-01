@@ -11,17 +11,19 @@
 }
 
 #auth-header {
+  min-height: 39px;
   margin-top: 50px;
   display: flex;
 
-  h1:first-child {
+  #fade-red-to-green {
+    margin-right: 2px;
     background-image: -webkit-gradient( linear, left top, right top, color-stop(0, $red-change), color-stop(0.5, #1F7300), color-stop(1, #1F7300));
     color:transparent;
     -webkit-background-clip: text;
     background-clip: text;
   }
 
-  h1:last-child {
+  h1 {
     color: white;
   }
 }
