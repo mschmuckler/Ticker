@@ -3,17 +3,30 @@ import React from 'react';
 class PortfolioForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { searchInput: "" };
+    this.state = {
+      searchInput: "",
+      autoCompleteTimeout: null,
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleAutoComplete = this.handleAutoComplete.bind(this);
+    this.handleAutoCompleteClick = this.handleAutoCompleteClick.bind(this);
   }
 
   handleChange(e) {
     const searchInput = e.target.value.toUpperCase();
-    this.setState({ searchInput });
-    this.props.fetchCompanies(searchInput, "portfolio");
+
+    clearTimeout(this.state.autoCompleteTimeout);
+    const autoCompleteTimeout = setTimeout(
+      () => {
+        this.props.fetchCompanies(searchInput, "portfolio");
+      }, 300
+    );
+
+    this.setState({
+      searchInput,
+      autoCompleteTimeout,
+    });
   }
 
   handleSubmit(e) {
@@ -27,7 +40,7 @@ class PortfolioForm extends React.Component {
     this.setState({ searchInput: "" });
   }
 
-  handleAutoComplete(e) {
+  handleAutoCompleteClick(e) {
     this.setState({ searchInput: e.currentTarget.title });
     this.props.clearCompanies();
   }
@@ -37,7 +50,7 @@ class PortfolioForm extends React.Component {
       return <li
         key={ idx }
         title={ company.ticker }
-        onClick={ this.handleAutoComplete } >
+        onClick={ this.handleAutoCompleteClick } >
         <div className="auto-list-ticker" >{ company.ticker }</div>
         <div className="auto-list-name" >{ company.name }</div>
       </li>

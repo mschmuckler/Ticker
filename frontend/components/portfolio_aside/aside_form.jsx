@@ -3,7 +3,10 @@ import React from 'react';
 class PortfolioForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { searchInput: "" };
+    this.state = {
+      searchInput: "" ,
+      autoCompleteTimeout: null,
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -11,8 +14,18 @@ class PortfolioForm extends React.Component {
 
   handleChange(e) {
     const searchInput = e.target.value.toUpperCase();
-    this.setState({ searchInput });
-    this.props.fetchCompanies(searchInput, "aside");
+
+    clearTimeout(this.state.autoCompleteTimeout);
+    const autoCompleteTimeout = setTimeout(
+      () => {
+        this.props.fetchCompanies(searchInput, "aside");
+      }, 300
+    );
+
+    this.setState({
+      searchInput,
+      autoCompleteTimeout,
+    });
   }
 
   handleSubmit(e) {
