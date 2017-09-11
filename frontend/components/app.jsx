@@ -26,8 +26,8 @@ const App = (props) => {
         <ProtectedRoute exact path="/articles/:articleId" component={ ArticleShowContainer } />
         <ProtectedRoute exact path="/article/new/:ticker" component={ PortfolioAsideContainer } />
         <ProtectedRoute exact path="/article/new/:ticker" component={ ArticleFormContainer } />
-        <ProtectedRoute exact path="/search" component={ PortfolioAsideContainer } />
-        <ProtectedRoute exact path="/search" component={ SearchLandingContainer } />
+        <ProtectedRoute exact path="/search/q=:searchInput" component={ PortfolioAsideContainer } />
+        <ProtectedRoute exact path="/search/q=:searchInput" component={ SearchLandingContainer } />
         <Route exact path="/" render={ () => <Redirect to="/portfolio" /> } />
       </main>
     </div>

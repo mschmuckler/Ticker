@@ -32,9 +32,7 @@ export const fetchIntraday = (symbol) => dispatch => {
 export const fetchQuote = (symbol) => dispatch => {
   return APIUtil.requestQuote(symbol).then(
     (stockData) => dispatch(receiveQuote(stockData)),
-    (error) => {
-      dispatch(receiveFakeQuote(symbol))
-    },
+    (error) => dispatch(receiveFakeQuote(symbol)),
   );
 };
 
@@ -111,19 +109,19 @@ export const receiveFakeIntraday = (symbol) => {
 };
 
 export const receiveQuote = (stock) => {
-  const ticker = stock[0].t;
-  const price = stock[0].l;
-  const prevClose = stock[0].pcls_fix;
-  const changeInPercent = stock[0].cp;
-  const mktCap = Math.floor((Math.random() * 150));
-  const pe = parseFloat(Math.random() * 17).toFixed(2);
-  const volume = Math.floor(Math.random() * 1000000);
+  const ticker = stock.query.results.quote.Symbol;
+  const name = stock.query.results.quote.Name;
+  const price = stock.query.results.quote.LastTradePriceOnly;
+  const high = stock.query.results.quote.DaysHigh;
+  const prevClose = stock.query.results.quote.PreviousClose;
+  const low = stock.query.results.quote.DaysLow;
+  const open = stock.query.results.quote.Open;
+  const mktCap = stock.query.results.quote.MarketCapitalization;
+  const pe = stock.query.results.quote.PERatio;
+  const volume = stock.query.results.quote.Volume;
+  const change = (price - open);
+  const changeInPercent = (change / price) * 100;
   const intraday = fakeIntraday();
-  let change = stock[0].c;
-  change = (change[0] === '+') ? change.slice(1) : change;
-  const open = (price - change).toFixed(2);
-  const high = parseFloat(price + (Math.random() * 5)).toFixed(2);
-  const low = parseFloat(open - (Math.random() * 5)).toFixed(2);
 
   return {
     type: RECEIVE_QUOTE,
