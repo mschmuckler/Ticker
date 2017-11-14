@@ -31,7 +31,11 @@ export const fetchIntraday = (symbol) => dispatch => {
 
 export const fetchQuote = (symbol) => dispatch => {
   return APIUtil.requestQuote(symbol).then(
-    (stockData) => dispatch(receiveQuote(stockData)),
+    (stockData) => {
+      (stockData.query.result) ?
+      dispatch(receiveQuote(stockData)) :
+      dispatch(receiveFakeQuote(symbol))
+    },
     (error) => dispatch(receiveFakeQuote(symbol)),
   );
 };
